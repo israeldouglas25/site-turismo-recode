@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -16,11 +21,11 @@
     <header>
         <!-- Incluindo o menu de navegação -->
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent fixed-top">
                 <div class="container-fluid">
                     <figure>
-                        <a class="navbar-brand" href="./index.html"><img src="./Imagens/logo1.png" alt="Logomarca paixão nordestina"
-                                width="60" height="60"></a>
+                        <a class="navbar-brand" href="./index.html"><img class="rounded-circle"
+                                src="./Imagens/Viagem1.png" alt="Logomarca paixão nordestina"></a>
                     </figure>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,23 +34,23 @@
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                                <a class="nav-link active fonte" aria-current="page" href="./index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Destinos</a>
+                                <a class="nav-link fonte" href="#">Destinos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./promocao.html">Promoções</a>
+                                <a class="nav-link fonte" href="./promocao.html">Promoções</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./contato.html">Contato</a>
+                                <a class="nav-link fonte" href="./contato.html">Contato</a>
                             </li>
                         </ul>
                     </div>
                     <div class="d-grid gap-2 d-md-block justify-content-end">
-                        <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        <button class="btn botao" type="button" data-bs-toggle="modal"
                             data-bs-target="#modal-cadastrar">Cadastrar</button>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        <button class="btn botao" type="button" data-bs-toggle="modal"
                             data-bs-target="#modal-entrar">Entrar</button>
                     </div>
                 </div>
@@ -54,6 +59,60 @@
     </header>
 
     <main>
+        <!-- Inicio do carrossel (banner) de imagem -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./Imagens/fernando-noronha.jpg" class="d-block w-100 imagem-carrossel"
+                        alt="Fernando de Noronha">
+                    <div class="carousel-caption d-none d-md-block h-50">
+                        <h1 class="fonte-especial display-4">Venha conhecer o nordeste do Brasil</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./Imagens/elevador-lacerda-bahia.jpg" class="d-block w-100 imagem-carrossel"
+                        alt="Elevador Lacerda Bahia">
+                    <div class="carousel-caption d-none d-md-block h-50">
+                        <h1 class="fonte-especial display-4">Praias paradisíacas</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./Imagens/conhecer-fortaleza.jpg" class="d-block w-100 imagem-carrossel"
+                        alt="Praias de Fortaleza">
+                    <div class="carousel-caption d-none d-md-block h-50">
+                        <h1 class="fonte-especial display-4">Conheça pontos históricos</h5>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./Imagens/Piscinas-Naturais-João-Pessoa.jpg" class="d-block w-100 imagem-carrossel"
+                        alt="Piscinas naturais de João Pessoa">
+                    <div class="carousel-caption d-none d-md-block h-50">
+                        <h1 class="fonte-especial display-4">Vem ser feliz aqui!</h5>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- Final do carrossel de imagem -->
 
     </main>
 
@@ -70,10 +129,56 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </header>
                 <main class="modal-body">
-
+                    <!-- form -->
+                    <form>
+                        <div class="container mt-3">
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="exampleInputText" class="form-label">Nome</label>
+                                        <input type="text" class="form-control" id="exampleInputText" placeholder="Nome"
+                                            aria-describedby="textHelp">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="exampleInputText" class="form-label">Sobrenome</label>
+                                        <input type="text" class="form-control" id="exampleInputText"
+                                            placeholder="Sobrenome" aria-describedby="textHelp">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Data de nascimento</label>
+                                        <input type="date" class="form-control" aria-describedby="date">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="" class="form-label">Sexo</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Sexo</option>
+                                        <option value="1">Feminino</option>
+                                        <option value="2">Masculino</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    placeholder="exemplo@mail.com" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Aceitar os termos e
+                                    condições</label>
+                            </div>
+                        </div>
+                    </form>
                 </main>
                 <footer class="modal-footer">
-                    <button type="button" class="btn botao-cor">Enviar</button>
+                    <button type="submit" class="btn botao">Cadastrar</button>
                 </footer>
             </div>
         </div>
@@ -89,7 +194,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </header>
                 <main class="modal-body">
-
+                    <div class="mb-3">
+                        <label for="emailLogin" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelpId"
+                            placeholder="exemplo@mail.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="senhaEntrar" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="senhaEntrar">
+                    </div>
                 </main>
                 <footer class="modal-footer">
                     <button type="button" class="btn botao-cor">Enviar</button>
