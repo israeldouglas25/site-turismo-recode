@@ -12,13 +12,14 @@
     color: #f5f5f5;
     font-size: xx-large;
 }
-.fonte-especial{
-    font-family: 'Pacifico', cursive;
-    color: #008584;
-}
 
 .fonte:hover{
     color: #006666;
+}
+
+.fonte-especial{
+    font-family: 'Pacifico', cursive;
+    color: #008584;
 }
 
 .botao {
@@ -29,6 +30,18 @@
 .botao:hover {
     background-color: #008584;
     color: #f5f5f5;
+}
+
+.icons {
+    width: 50px;
+}
+
+.icons:hover {
+    color: #006666;
+}
+
+.imagem-card {
+    width: 100%;
 }
 
  /* 
