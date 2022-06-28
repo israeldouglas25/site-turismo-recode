@@ -111,61 +111,106 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <!-- Final do carrossel de imagem -->
+
         <div class="container">
             <!-- form -->
-            <form>
-                <h2 class="fonte-especial mt-3">Contato</h2>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-12 ">
-                        <div class="mb-3">
-                            <label for="nomeContato" class="form-label fonte-especial">Nome</label>
-                            <input type="text" class="form-control" id="nomeContato" aria-describedby="helpIdNome"
-                                placeholder="Nome">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-12">
-                        <div class="mb-3">
-                            <label for="sobrenomeContato" class="form-label fonte-especial">Sobrenome</label>
-                            <input type="text" class="form-control" id="nomeContato" aria-describedby="helpIdSobrenome"
-                                placeholder="Sobrenome">
-                        </div>
+            <!-- Datas, número de viajantes e tipo de classe -->
+            <div class="row g-3 my-3">
+                <div class="col-md-2">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" name="Label" id="Label" placeholder="...">
+                        <label for="floatingLabel">Data de ida</label>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-12">
-                        <div class="mb-3">
-                            <label for="emailContato" class="form-label fonte-especial">Email</label>
-                            <input type="email" class="form-control" id="emailContato" aria-describedby="emailHelpId"
-                                placeholder="exemplo@mail.com">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-12">
-                        <div class="mb-3">
-                            <label for="telefoneContato" class="form-label fonte-especial">Telefone</label>
-                            <input type="text" class="form-control" id="telefoneContato" aria-describedby="helpId"
-                                placeholder="(xx) xxxxx-xxxx">
-                        </div>
+                <div class="col-md-2">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" name="Label" id="Label" placeholder="...">
+                        <label for="floatingLabel">Data de volta</label>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="areaTextoContato" class="form-label fonte-especial">Mensagem</label>
-                    <textarea class="form-control" id="areaTextoContato" rows="10"
-                        placeholder="Deixe aqui sua mensagem que entraremos em contato."></textarea>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option value="1">Todas as classes</option>
+                            <option value="2">Econômica</option>
+                            <option value="3">Executiva</option>
+                        </select>
+                        <label for="floatingSelect">Selecione a classe</label>
+                    </div>
                 </div>
+                <div class="col-md-2">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" name="Label" id="Label" placeholder="...">
+                        <label for="floatingLabel">Nº de viajantes</label>
+                    </div>
+                </div>
+                <div class="col-md-3 p-1">
+                    <button type="button" class="btn botao btn-lg">Buscar Pacotes</button>
+                </div>
+            </div>
 
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Aceitar os termos e condições</label>
+            <!-- Cadastro de dados dos passageiros -->
+            <h2 class="fonte-especial pt-5">Dados dos viajantes</h2>
+            <hr>
+            <form class="row g-3">
+                <div class="col-md-4">
+                    <label for="validationDefault01" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="validationDefault01" required>
                 </div>
-                <button type="submit" class="btn botao mb-3">Enviar</button>
+                <div class="col-md-4">
+                    <label for="validationDefault02" class="form-label">Sobrenome</label>
+                    <input type="text" class="form-control" id="validationDefault02" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationDefaultUsername" class="form-label">E-mail</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                        <input type="email" class="form-control" id="validationDefaultUsername"
+                            placeholder="exemplo@email.com" aria-describedby="inputGroupPrepend2" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationDefault03" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="validationDefault03" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationDefault04" class="form-label">Estado</label>
+                    <select class="form-select" id="validationDefault04" required>
+                        <option selected disabled value="">Selecione</option>
+                        <option>AL</option>
+                        <option>BA</option>
+                        <option>PB</option>
+                        <option>PE</option>
+                        <option>MA</option>
+                        <option>PI</option>
+                        <option>SE</option>
+                        <option>RN</option>
+                        <option>CE</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationDefault05" class="form-label">Celular</label>
+                    <input type="text" class="form-control" id="validationDefault05" placeholder="(xx) x xxxx-xxxx"
+                        required>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                        <label class="form-check-label" for="invalidCheck2">
+                            Concordar com os termos e condições
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </div>
             </form>
-            <!-- final form -->
+
         </div>
 
     </main>
 
-    <footer class="bg-footer">
+    <footer class="bg-footer pt-3">
         <div class="container-fluid">
             <section class="row">
                 <article class="col-lg-6 col-sm-12">
