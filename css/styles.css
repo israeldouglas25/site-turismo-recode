@@ -36,6 +36,12 @@
     color: #006666;
 }
 
+.fonte-paragrafo {
+    font-family: 'Pacifico', cursive;
+    color: #008584;
+    font-size: 1.3rem;
+}
+
 .fonte-especial {
     font-family: 'Pacifico', cursive;
     color: #008584;

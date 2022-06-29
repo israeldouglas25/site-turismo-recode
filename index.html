@@ -61,7 +61,6 @@
     <main class="bg-main">
         <!-- Inicio do carrossel (banner) de imagem -->
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -69,36 +68,27 @@
                     aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./Imagens/fernando-noronha.jpg" class="d-block w-100 imagem-carrossel"
+                    <img src="./Imagens/praia2-carrossel.jpg" class="d-block w-100 imagem-carrossel"
                         alt="Fernando de Noronha">
                     <div class="carousel-caption d-none d-md-block h-50">
                         <h1 class="fonte-especial display-4">Venha conhecer o nordeste do Brasil</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="./Imagens/elevador-lacerda-bahia.jpg" class="d-block w-100 imagem-carrossel"
+                    <img src="./Imagens/praia1-carrossel.jpg" class="d-block w-100 imagem-carrossel"
                         alt="Elevador Lacerda Bahia">
                     <div class="carousel-caption d-none d-md-block h-50">
                         <h1 class="fonte-especial display-4">Praias paradisíacas</h5>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="./Imagens/conhecer-fortaleza.jpg" class="d-block w-100 imagem-carrossel"
+                    <img src="./Imagens/historico-carrossel.jpg" class="d-block w-100 imagem-carrossel"
                         alt="Praias de Fortaleza">
                     <div class="carousel-caption d-none d-md-block h-50">
                         <h1 class="fonte-especial display-4">Conheça pontos históricos</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./Imagens/Piscinas-Naturais-João-Pessoa.jpg" class="d-block w-100 imagem-carrossel"
-                        alt="Piscinas naturais de João Pessoa">
-                    <div class="carousel-caption d-none d-md-block h-50">
-                        <h1 class="fonte-especial display-4">Vem ser feliz aqui!</h5>
                     </div>
                 </div>
             </div>
@@ -113,9 +103,59 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <!-- paragrafo -->
+
         <div class="container">
-            <h2 class="fonte-especial pt-5">Pacotes de viagens</h2>
+            <h2 class="fonte-especial pt-5">Vem conhecer o nordeste</h2>
+            <hr>
+            <!-- Sobre -->
+            <h3 class="fonte-especial pt-2">Sobre</h3>
+            <p class="fonte-paragrafo">Nosso site tem o proposito de mostrar as belezas naturais do nordeste brasileiro. Aqui você vai encontrar as melhores promoções para viajar pela região mais bela do Brasil, com o proposito de expor o quanto são ricas as praias, semiárido, sertão e muito mais que você só vai encontrar nos estados do nordeste. Cada estado tem infinitas diversidades culturais, vem saborear as comidas tipicas, se vestir a caráter e curtir as festas tipicas da região nordestina como o carnaval e os festejos juninos. Conheça também monumentos históricos que fazem parte da historia do Brasil. O nordeste brasileiro é a região que pode te proporcionar conhecimento cultural, lazer e muita diversão, te esperamos aqui...</p>
+
+            <!-- form Datas, número de viajantes -->
+            <h2 class="fonte-especial pt-2">Qual o seu destino</h2>
+            <hr>
+            <div class="row g-2 my-3">
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Label" id="Label" placeholder="...">
+                        <label for="floatingLabel">Origem</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Label" id="Label" placeholder="...">
+                        <label for="floatingLabel">Destino</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" name="Label" id="Label" placeholder="...">
+                        <label for="floatingLabel">Data de ida</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" name="Label" id="Label" placeholder="...">
+                        <label for="floatingLabel">Data de volta</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" name="Label" id="Label" value="2" placeholder="...">
+                        <label for="floatingLabel">Viajantes</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" name="Label" id="Label" value="1" placeholder="...">
+                        <label for="floatingLabel">Quartos</label>
+                    </div>
+                </div>
+                <div class="col-md p-1">
+                    <a href="./promocao.html" class="btn botao btn-lg">Buscar</a>
+                </div>
+            </div>
+            <h2 class="fonte-especial pt-2">Pacotes de viagens</h2>
             <hr>
             <!-- cards de apresentação -->
             <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -124,67 +164,36 @@
                         <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">A Praça Rio Branco, também conhecida como Marco Zero, é um espaço
+                                público localizado no bairro do Recife da cidade homônima, capital de Pernambuco.</p>
                             <a href="#" class="btn botao">Veja mais</a>
                         </div>
                     </article>
                 </section>
                 <section class="col">
                     <article class="card border-color">
-                        <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
+                        <img src="./Imagens/card-bahia.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">Pelourinho</h5>
+                            <p class="card-text">As ruas de paralelepípedo contam com bares de caipirinha ao ar livre,
+                                lojas de souvenirs afro-baianos e praças cheias de músicos no histórico Pelourinho.</p>
                             <a href="#" class="btn botao">Veja mais</a>
                         </div>
                     </article>
                 </section>
                 <section class="col">
                     <article class="card border-color">
-                        <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
+                        <img src="./Imagens/card-piscinas-naturais.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">João Pessoa</h5>
+                            <p class="card-text">As piscinas naturais em João Pessoa são, sem dúvida, algumas das
+                                melhores atrações turísticas do estado da Paraíba. São ótimas opções para a diversão de
+                                toda família. </p>
                             <a href="#" class="btn botao">Veja mais</a>
                         </div>
                     </article>
                 </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn botao">Veja mais</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn botao">Veja mais</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn botao">Veja mais</a>
-                        </div>
-                    </article>
-                </section>
+
             </div>
         </div>
     </main>
