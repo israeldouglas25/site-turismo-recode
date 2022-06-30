@@ -58,158 +58,354 @@
     </header>
 
     <main class="bg-main">
-        <!-- Inicio do carrossel (banner) de imagem -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                    aria-label="Slide 4"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./Imagens/fernando-noronha.jpg" class="d-block w-100 imagem-carrossel"
-                        alt="Fernando de Noronha">
-                    <div class="carousel-caption d-none d-md-block h-50">
-                        <h1 class="fonte-especial display-4">Venha conhecer o nordeste do Brasil</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./Imagens/elevador-lacerda-bahia.jpg" class="d-block w-100 imagem-carrossel"
-                        alt="Elevador Lacerda Bahia">
-                    <div class="carousel-caption d-none d-md-block h-50">
-                        <h1 class="fonte-especial display-4">Praias paradisíacas</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./Imagens/conhecer-fortaleza.jpg" class="d-block w-100 imagem-carrossel"
-                        alt="Praias de Fortaleza">
-                    <div class="carousel-caption d-none d-md-block h-50">
-                        <h1 class="fonte-especial display-4">Conheça pontos históricos</h5>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./Imagens/Piscinas-Naturais-João-Pessoa.jpg" class="d-block w-100 imagem-carrossel"
-                        alt="Piscinas naturais de João Pessoa">
-                    <div class="carousel-caption d-none d-md-block h-50">
-                        <h1 class="fonte-especial display-4">Vem ser feliz aqui!</h5>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <!-- paragrafo -->
         <div class="container">
+            <!-- paragrafo -->
             <h2 class="fonte-especial pt-5">Pacotes e promoções de viagens</h2>
             <hr>
             <!-- cards de apresentação -->
+            <h2 class="fonte-especial pt-2">Alagoas</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <section class="col">
+                    <article class="card border-color">
+                        <img src="./Imagens/card-ipioca.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay text-end fonte-card">
+                            <h5 class="card-title m-0 fonte-text-shadow">R$ 1.000,00</h5>
+                            <p class="card-text m-0 fonte-text-shadow">A partir de</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Praia de Ipioca</h5>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#ipioca" aria-expanded="true"
+                                            aria-controls="ipioca">
+                                            Vem conhecer...
+                                        </button>
+                                    </h2>
+                                    <div id="ipioca" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            Alagoas é um pequeno estado do nordeste brasileiro, a praia de Ipioca é
+                                            uma das praias mais lindas de Maceió. Cenário ideal para quem procura
+                                            tranquilidade,
+                                            lindas piscinas naturais, boas opções de hospedagem, rica gastronomia e uma
+                                            praia
+                                            paradisíaca.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a href="#" class="btn botao">Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section class="col">
+                    <article class="card border-color">
+                        <img src="./Imagens/card-maragogi.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay text-end fonte-card">
+                            <h5 class="card-title m-0 fonte-text-shadow">R$ 1.000,00</h5>
+                            <p class="card-text m-0 fonte-text-shadow">A partir de</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Praia de Antunes</h5>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#antunes" aria-expanded="true"
+                                            aria-controls="antunes">
+                                            Vem conhecer...
+                                        </button>
+                                    </h2>
+                                    <div id="antunes" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            Conhecida como caribe brasileiro, a Praia de Antunes é um verdadeiro deleite
+                                            para turistas que estão em busca de belas paisagens, sol, calor e momentos
+                                            de
+                                            pura diversão.
+                                            Localizada no litoral alagoano, a praia é rodeada por coqueiros, mar azul
+                                            turquesa, areia branquinha e águas cristalinas, um verdadeiro paraíso bem
+                                            pertinho de Maragogi.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a href="#" class="btn botao">Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section class="col">
+                    <article class="card border-color">
+                        <img src="./Imagens/card-pajucara.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay text-end fonte-card">
+                            <h5 class="card-title m-0 fonte-text-shadow">R$ 1.000,00</h5>
+                            <p class="card-text m-0 fonte-text-shadow">A partir de</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Praia de Pajuçara</h5>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#pajucara" aria-expanded="true"
+                                            aria-controls="pajucara">
+                                            Vem conhecer...
+                                        </button>
+                                    </h2>
+                                    <div id="pajucara" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            Pajuçara, com suas águas calmas, é uma das praias mais conhecidas de Maceió.
+                                            O lugar tem movimento nas areias durante o dia e no calçadão durante a
+                                            noite. Com muitos coqueiros e estrutura para quem deseja curtir o mar com
+                                            tranquilidade, essa praia é uma boa opção para quem está hospedado em Maceió
+                                            e não quer ir longe para mergulhar na praia.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a href="#" class="btn botao">Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+            <h2 class="fonte-especial pt-2">Bahia</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <section class="col">
+                    <article class="card border-color">
+                        <img src="./Imagens/card-ilheus.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay text-end fonte-card">
+                            <h5 class="card-title m-0 fonte-text-shadow">R$ 1.000,00</h5>
+                            <p class="card-text m-0 fonte-text-shadow">A partir de</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ilheus</h5>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#ilheus" aria-expanded="true"
+                                            aria-controls="ilheus">
+                                            Vem conhecer...
+                                        </button>
+                                    </h2>
+                                    <div id="ilheus" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            Ilhéus é uma cidade nas margens dos rios Cachoeira e Almada, no estado da
+                                            Bahia, no leste do Brasil. É conhecida pela sua arquitetura colonial e pelas
+                                            praias, incluindo a Praia dos Milionários, no sul, repleta de palmeiras e
+                                            bancas de comida. Uma estátua de Cristo vigia a Praia do Cristo, no centro.
+                                            A Praia da Avenida rodeia o centro e oferece vistas para os impressionantes
+                                            pináculos da Catedral de São Sebastião, do século XX.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a href="#" class="btn botao">Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section class="col">
+                    <article class="card border-color">
+                        <img src="./Imagens/card-pelourinho.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay text-end fonte-card">
+                            <h5 class="card-title m-0 fonte-text-shadow">R$ 1.000,00</h5>
+                            <p class="card-text m-0 fonte-text-shadow">A partir de</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Pelourinho</h5>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#pelourinho" aria-expanded="true"
+                                            aria-controls="pelourinho">
+                                            Vem conhecer...
+                                        </button>
+                                    </h2>
+                                    <div id="pelourinho" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            As ruas de paralelepípedo contam com bares de caipirinha ao ar livre, lojas
+                                            de souvenirs afro-baianos e praças cheias de músicos e dançarinos no
+                                            histórico Pelourinho. Os pontos turísticos coloniais incluem a Igreja e
+                                            Convento de São Francisco e a Catedral Basílica de Salvador, com azulejos
+                                            portugueses e esculturas intrincadas banhadas a ouro. A Casa do Carnaval
+                                            mostra exposições multimídia e fantasias da icônica festa de rua.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a href="#" class="btn botao">Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section class="col">
+                    <article class="card border-color">
+                        <img src="./Imagens/card-elevador-lacerda.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay text-end fonte-card">
+                            <h5 class="card-title m-0 fonte-text-shadow">R$ 1.000,00</h5>
+                            <p class="card-text m-0 fonte-text-shadow">A partir de</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Elevador Lacerda</h5>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#elevadorLacerda"
+                                            aria-expanded="true" aria-controls="elevadorLacerda">
+                                            Vem conhecer...
+                                        </button>
+                                    </h2>
+                                    <div id="elevadorLacerda" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            O Elevador Lacerda é um sistema de transporte público da cidade de Salvador,
+                                            capital do estado brasileiro da Bahia. Trata-se do primeiro elevador urbano
+                                            do mundo. Em 8 de dezembro de 1873, quando a primeira torre foi inaugurada,
+                                            era o elevador mais alto do mundo, com 63 metros.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a href="#" class="btn botao">Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+            <h2 class="fonte-especial pt-2">Pernambuco</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <section class="col">
                     <article class="card border-color">
                         <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
                         <div class="card-img-overlay text-end fonte-card">
-                            <h5 class="card-title m-0">R$ 1.000,00</h5>
-                            <p class="card-text m-0">A partir de</p>
+                            <h5 class="card-title m-0 fonte-text-shadow">R$ 1.000,00</h5>
+                            <p class="card-text m-0 fonte-text-shadow">A partir de</p>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn botao">Comprar</a>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#recife" aria-expanded="true"
+                                            aria-controls="recife">
+                                            Vem conhecer...
+                                        </button>
+                                    </h2>
+                                    <div id="recife" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            A Praça Rio Branco, também conhecida como Marco Zero, é um espaço público
+                                            localizado no bairro do Recife da cidade homônima, capital de Pernambuco. O
+                                            local fica próximo ao Porto do Recife e abriga o Marco Zero da cidade do
+                                            Recife. É deste marco que são feitas todas as medidas oficiais de distâncias
+                                            rodoviárias locais.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a href="#" class="btn botao">Comprar</a>
+                            </div>
                         </div>
                     </article>
                 </section>
                 <section class="col">
                     <article class="card border-color">
-                        <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
+                        <img src="./Imagens/card-olinda.jpg" class="card-img-top" alt="...">
                         <div class="card-img-overlay text-end fonte-card">
-                            <h5 class="card-title m-0">R$ 1.000,00</h5>
-                            <p class="card-text m-0">A partir de</p>
+                            <h5 class="card-title m-0 fonte-text-shadow">R$ 1.000,00</h5>
+                            <p class="card-text m-0 fonte-text-shadow">A partir de</p>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn botao">Comprar</a>
+                            <h5 class="card-title">Olinda</h5>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#olinda" aria-expanded="true"
+                                            aria-controls="olinda">
+                                            Vem conhecer...
+                                        </button>
+                                    </h2>
+                                    <div id="olinda" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            Olinda é uma cidade colonial na costa nordeste do Brasil, perto da cidade do
+                                            Recife. Fundada em 1535 pelos portugueses, foi construída em encostas
+                                            íngremes e distingue-se pela arquitetura do século XVIII, com igrejas
+                                            barrocas, conventos, mosteiros e casas de cores vivas. Originalmente um
+                                            centro da indústria da cana-de-açúcar, é agora conhecida como uma colónia de
+                                            artistas, com diversas galerias, oficinas e museus.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a href="#" class="btn botao">Comprar</a>
+                            </div>
                         </div>
                     </article>
                 </section>
                 <section class="col">
                     <article class="card border-color">
-                        <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
+                        <img src="./Imagens/card-noronha.jpg" class="card-img-top" alt="...">
                         <div class="card-img-overlay text-end fonte-card">
-                            <h5 class="card-title m-0">R$ 1.000,00</h5>
-                            <p class="card-text m-0">A partir de</p>
+                            <h5 class="card-title m-0 fonte-text-shadow">R$ 1.000,00</h5>
+                            <p class="card-text m-0 fonte-text-shadow">A partir de</p>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn botao">Comprar</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
-                        <div class="card-img-overlay text-end fonte-card">
-                            <h5 class="card-title m-0">R$ 1.000,00</h5>
-                            <p class="card-text m-0">A partir de</p>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn botao">Comprar</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
-                        <div class="card-img-overlay text-end fonte-card">
-                            <h5 class="card-title m-0">R$ 1.000,00</h5>
-                            <p class="card-text m-0">A partir de</p>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn botao">Comprar</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
-                        <div class="card-img-overlay text-end fonte-card">
-                            <h5 class="card-title m-0">R$ 1.000,00</h5>
-                            <p class="card-text m-0">A partir de</p>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Recife</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
-                            <a href="#" class="btn botao">Comprar</a>
+                            <h5 class="card-title">Fernando de Noronha</h5>
+                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#noronha" aria-expanded="true"
+                                            aria-controls="noronha">
+                                            Vem conhecer...
+                                        </button>
+                                    </h2>
+                                    <div id="noronha" class="accordion-collapse collapse"
+                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            Fernando de Noronha é um arquipélago vulcânico situado a cerca de 350
+                                            quilómetros ao largo da costa nordeste do Brasil. Tem o nome da sua maior
+                                            ilha, um parque marinho e santuário ecológico protegido com uma linha
+                                            costeira recortada e vários ecossistemas. É reconhecida pelas suas praias
+                                            pouco urbanizadas e por atividades como mergulho e snorkeling. As tartarugas
+                                            marinhas, as raias, os golfinhos e os tubarões dos recifes nadam nas águas
+                                            quentes e cristalinas.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-2">
+                                <a href="#" class="btn botao">Comprar</a>
+                            </div>
                         </div>
                     </article>
                 </section>
             </div>
-            
         </div>
     </main>
 
