@@ -21,7 +21,7 @@
     <!-- Inicio do bootstrap -->
     <header>
         <!-- Incluindo o menu de navegação -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-navbar">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
                 <figure>
                     <a class="navbar-brand" href="./index.html"><img class="rounded-circle" src="./Imagens/Viagem1.png"
@@ -31,7 +31,7 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link active fonte" aria-current="page" href="#">Home</a>
@@ -49,13 +49,6 @@
                 </div>
             </div>
         </nav>
-        <!-- botões de cadastrar e entrar -->
-        <div class="bg-main d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn botao" type="button" data-bs-toggle="modal"
-                data-bs-target="#modal-cadastrar">Cadastrar</button>
-            <button class="btn botao" type="button" data-bs-toggle="modal"
-                data-bs-target="#modal-entrar">Entrar</button>
-        </div>
     </header>
 
     <main class="bg-main">
@@ -109,7 +102,14 @@
             <hr>
             <!-- Sobre -->
             <h3 class="fonte-especial pt-2">Sobre</h3>
-            <p class="fonte-paragrafo">Nosso site tem o proposito de mostrar as belezas naturais do nordeste brasileiro. Aqui você vai encontrar as melhores promoções para viajar pela região mais bela do Brasil, com o proposito de expor o quanto são ricas as praias, semiárido, sertão e muito mais que você só vai encontrar nos estados do nordeste. Cada estado tem infinitas diversidades culturais, vem saborear as comidas tipicas, se vestir a caráter e curtir as festas tipicas da região nordestina como o carnaval e os festejos juninos. Conheça também monumentos históricos que fazem parte da historia do Brasil. O nordeste brasileiro é a região que pode te proporcionar conhecimento cultural, lazer e muita diversão, te esperamos aqui...</p>
+            <p class="fonte-paragrafo">Nosso site tem o proposito de mostrar as belezas naturais do nordeste brasileiro.
+                Aqui você vai encontrar as melhores promoções para viajar pela região mais bela do Brasil, com o
+                proposito de expor o quanto são ricas as praias, semiárido, sertão e muito mais que você só vai
+                encontrar nos estados do nordeste. Cada estado tem infinitas diversidades culturais, vem saborear as
+                comidas tipicas, se vestir a caráter e curtir as festas tipicas da região nordestina como o carnaval e
+                os festejos juninos. Conheça também monumentos históricos que fazem parte da historia do Brasil. O
+                nordeste brasileiro é a região que pode te proporcionar conhecimento cultural, lazer e muita diversão,
+                te esperamos aqui...</p>
 
             <!-- form Datas, número de viajantes -->
             <h2 class="fonte-especial pt-2">Qual o seu destino</h2>
@@ -165,7 +165,8 @@
                         <div class="card-body">
                             <h5 class="card-title fonte-paragrafo">Recife</h5>
                             <hr>
-                            <p class="card-text fonte-paragrafo">A Praça Rio Branco, também conhecida como Marco Zero, é um espaço
+                            <p class="card-text fonte-paragrafo">A Praça Rio Branco, também conhecida como Marco Zero, é
+                                um espaço
                                 público localizado no bairro do Recife da cidade homônima, capital de Pernambuco.</p>
                             <a href="./promocao.html" class="btn botao">Veja mais</a>
                         </div>
@@ -177,7 +178,8 @@
                         <div class="card-body">
                             <h5 class="card-title fonte-paragrafo">Pelourinho</h5>
                             <hr>
-                            <p class="card-text fonte-paragrafo">As ruas de paralelepípedo contam com bares de caipirinha ao ar livre,
+                            <p class="card-text fonte-paragrafo">As ruas de paralelepípedo contam com bares de
+                                caipirinha ao ar livre,
                                 lojas de souvenirs afro-baianos e praças cheias de músicos no histórico Pelourinho.</p>
                             <a href="./promocao.html" class="btn botao">Veja mais</a>
                         </div>
@@ -189,7 +191,8 @@
                         <div class="card-body">
                             <h5 class="card-title fonte-paragrafo">João Pessoa</h5>
                             <hr>
-                            <p class="card-text fonte-paragrafo">As piscinas naturais em João Pessoa são, sem dúvida, algumas das
+                            <p class="card-text fonte-paragrafo">As piscinas naturais em João Pessoa são, sem dúvida,
+                                algumas das
                                 melhores atrações turísticas do estado da Paraíba. São ótimas opções para a diversão de
                                 toda família. </p>
                             <a href="./promocao.html" class="btn botao">Veja mais</a>
@@ -222,164 +225,11 @@
         </div>
     </footer>
 
-    <!-- Modal cadastro -->
-    <div class="modal fade" id="modal-cadastrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <header class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Cadastrar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </header>
-                <main class="modal-body">
-                    <!-- form -->
-                    <form>
-                        <div class="container mt-3">
-                            <div class="row justify-content-center">
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="exampleInputText" class="form-label">Nome</label>
-                                        <input type="text" class="form-control" id="exampleInputText" placeholder="Nome"
-                                            aria-describedby="textHelp">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="exampleInputText" class="form-label">Sobrenome</label>
-                                        <input type="text" class="form-control" id="exampleInputText"
-                                            placeholder="Sobrenome" aria-describedby="textHelp">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Data de nascimento</label>
-                                        <input type="date" class="form-control" aria-describedby="date">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label for="" class="form-label">Sexo</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Sexo</option>
-                                        <option value="1">Feminino</option>
-                                        <option value="2">Masculino</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    placeholder="exemplo@mail.com" aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Aceitar os termos e
-                                    condições</label>
-                            </div>
-                        </div>
-                    </form>
-                </main>
-                <footer class="modal-footer">
-                    <button type="submit" class="btn botao">Cadastrar</button>
-                </footer>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal entrar -->
-    <div class="modal fade" id="modal-entrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <header class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </header>
-                <main class="modal-body">
-                    <div class="mb-3">
-                        <label for="emailLogin" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelpId"
-                            placeholder="exemplo@mail.com">
-                    </div>
-                    <div class="mb-3">
-                        <label for="senhaEntrar" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="senhaEntrar">
-                    </div>
-                </main>
-                <footer class="modal-footer">
-                    <button type="button" class="btn botao">Entrar</button>
-                </footer>
-            </div>
-        </div>
-    </div>
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
-
-<!-- <section class="row justify-content-center">
-                <article class="col-md-4 col-sm-12 card my-5 mx-3 pt-2 card-width border-color">
-                    <img src="./Imagens/card-alagoas1.jpg" class="card-img-top imagem-card" alt="...">
-                    <div class="card-body d-flex align-content-end flex-wrap">
-                        <h5 class="card-title">Alagoas</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn botao">Veja mais</a>
-                    </div>
-                </article>
-                <article class="col-md-4 col-sm-12 card my-5 mx-3 pt-2 card-width border-color">
-                    <img src="./Imagens/card-bahia1.jpg" class="card-img-top imagem-card" alt="...">
-                    <div class="card-body d-flex align-content-end flex-wrap">
-                        <h5 class="card-title">Bahia</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn botao">Veja mais</a>
-                    </div>
-                </article>
-                <article class="col-md-4 col-sm-12 card my-5 mx-3 pt-2 card-width border-color">
-                    <img src="./Imagens/card-ceara1.webp" class="card-img-top imagem-card" alt="...">
-                    <div class="card-body d-flex align-content-end flex-wrap">
-                        <h5 class="card-title">Ceará</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn botao">Veja mais</a>
-                    </div>
-                </article>
-                <article class="col-md-4 col-sm-12 card my-5 mx-3 pt-2 card-width border-color">
-                    <img src="./Imagens/card-maranhao1.jpg" class="card-img-top imagem-card" alt="...">
-                    <div class="card-body d-flex align-content-end flex-wrap">
-                        <h5 class="card-title">Maranhão</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn botao">Veja mais</a>
-                    </div>
-                </article>
-                <article class="col-md-4 col-sm-12 card my-5 mx-3 pt-2 card-width border-color">
-                    <img src="./Imagens/card-natal1.jpg" class="card-img-top imagem-card" alt="...">
-                    <div class="card-body d-flex align-content-end flex-wrap">
-                        <h5 class="card-title">Natal</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn botao">Veja mais</a>
-                    </div>
-                </article>
-                <article class="col-md-4 col-sm-12 card my-5 mx-3 pt-2 card-width border-color">
-                    <img src="./Imagens/card-paraiba1.jpg" class="card-img-top imagem-card" alt="...">
-                    <div class="card-body d-flex align-content-end flex-wrap">
-                        <h5 class="card-title">Paraíba</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn botao">Veja mais</a>
-                    </div>
-                </article>
-            </section> -->
