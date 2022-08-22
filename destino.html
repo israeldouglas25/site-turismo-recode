@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- <link rel="stylesheet" href="./css/bootstrap.css"> -->
     <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -20,7 +22,7 @@
 <body>
     <header>
         <!-- Incluindo o menu de navegação -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-navbar">
+        <nav class="navbar navbar-expand-lg fixed-top bg-nav">
             <div class="container-fluid">
                 <figure>
                     <a class="navbar-brand" href="./index.html"><img class="rounded-circle" src="./Imagens/Viagem1.png"
@@ -30,13 +32,13 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link fonte" aria-current="page" href="./index.html">Home</a>
+                            <a class="nav-link active fonte" aria-current="page" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active fonte" href="#">Destinos</a>
+                            <a class="nav-link fonte" href="./destino.html">Destinos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fonte" href="./promocao.html">Promoções</a>
@@ -44,23 +46,26 @@
                         <li class="nav-item">
                             <a class="nav-link fonte" href="./contato.html">Contato</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fonte" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Acesse aqui
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="./cadastrar.html">Cadastrar</a></li>
+                                <li><a class="dropdown-item" href="./login.html">Logar</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- botões de cadastrar e entrar -->
-        <div class="bg-main d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn botao" type="button" data-bs-toggle="modal"
-                data-bs-target="#modal-cadastrar">Cadastrar</button>
-            <button class="btn botao" type="button" data-bs-toggle="modal"
-                data-bs-target="#modal-entrar">Entrar</button>
-        </div>
     </header>
 
     <main class="bg-main">
         <div class="container">
             <!-- form Datas, número de viajantes -->
-            <h2 class="fonte-especial pt-2">Qual o seu destino</h2>
+            <h2 class="fonte-especial">Qual o seu destino</h2>
             <hr>
             <div class="row g-2 my-3">
                 <div class="col-md">
@@ -188,100 +193,11 @@
 
     </footer>
 
-    <!-- Modal cadastro -->
-    <div class="modal fade" id="modal-cadastrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <header class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Cadastrar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </header>
-                <main class="modal-body">
-                    <!-- form -->
-                    <form>
-                        <div class="container mt-3">
-                            <div class="row justify-content-center">
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="exampleInputText" class="form-label">Nome</label>
-                                        <input type="text" class="form-control" id="exampleInputText" placeholder="Nome"
-                                            aria-describedby="textHelp">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="exampleInputText" class="form-label">Sobrenome</label>
-                                        <input type="text" class="form-control" id="exampleInputText"
-                                            placeholder="Sobrenome" aria-describedby="textHelp">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Data de nascimento</label>
-                                        <input type="date" class="form-control" aria-describedby="date">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <label for="" class="form-label">Sexo</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Sexo</option>
-                                        <option value="1">Feminino</option>
-                                        <option value="2">Masculino</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    placeholder="exemplo@mail.com" aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Aceitar os termos e
-                                    condições</label>
-                            </div>
-                        </div>
-                    </form>
-                </main>
-                <footer class="modal-footer">
-                    <button type="submit" class="btn botao">Cadastrar</button>
-                </footer>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal entrar -->
-    <div class="modal fade" id="modal-entrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <header class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </header>
-                <main class="modal-body">
-                    <div class="mb-3">
-                        <label for="emailLogin" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelpId"
-                            placeholder="exemplo@mail.com">
-                    </div>
-                    <div class="mb-3">
-                        <label for="senhaEntrar" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="senhaEntrar">
-                    </div>
-                </main>
-                <footer class="modal-footer">
-                    <button type="button" class="btn botao">Entrar</button>
-                </footer>
-            </div>
-        </div>
-    </div>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
