@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- <link rel="stylesheet" href="./css/bootstrap.css"> -->
     <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -29,7 +31,7 @@
                 </figure>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon d-flex justify-content-center align-items-center"><i class="bi bi-list"></i></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
@@ -46,14 +48,15 @@
                             <a class="nav-link fonte" href="./contato.html">Contato</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle fonte" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Acesse aqui
+                            <a class="nav-link dropdown-toggle fonte" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Acesse aqui
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <li><a class="dropdown-item" href="./cadastrar.html">Cadastrar</a></li>
-                              <li><a class="dropdown-item" href="./login.html">Logar</a></li>
+                                <li><a class="dropdown-item" href="./cadastrar.html">Cadastrar</a></li>
+                                <li><a class="dropdown-item" href="./login.html">Logar</a></li>
                             </ul>
-                          </li>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -110,7 +113,6 @@
             <h2 class="fonte-especial pt-5">Vem conhecer o nordeste</h2>
             <hr>
             <!-- Sobre -->
-            <h3 class="fonte-especial pt-2">Sobre</h3>
             <p class="fonte-paragrafo">Nosso site tem o proposito de mostrar as belezas naturais do nordeste brasileiro.
                 Aqui você vai encontrar as melhores promoções para viajar pela região mais bela do Brasil, com o
                 proposito de expor o quanto são ricas as praias, semiárido, sertão e muito mais que você só vai
@@ -118,12 +120,12 @@
                 comidas tipicas, se vestir a caráter e curtir as festas tipicas da região nordestina como o carnaval e
                 os festejos juninos. Conheça também monumentos históricos que fazem parte da historia do Brasil. O
                 nordeste brasileiro é a região que pode te proporcionar conhecimento cultural, lazer e muita diversão,
-                te esperamos aqui...</p>
+                te esperamos aqui.</p>
 
             <!-- form Datas, número de viajantes -->
             <h2 class="fonte-especial pt-2">Qual o seu destino</h2>
             <hr>
-            <div class="row g-2 my-3">
+            <form class="row g-2 my-3">
                 <div class="col-md">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="Label" id="Label" placeholder="...">
@@ -163,16 +165,16 @@
                 <div class="col-md p-1">
                     <a href="./promocao.html" class="btn botao btn-lg">Buscar</a>
                 </div>
-            </div>
+            </form>
+            <!-- cards de apresentação -->
             <h2 class="fonte-especial pt-2">Pacotes de viagens</h2>
             <hr>
-            <!-- cards de apresentação -->
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
                 <section class="col">
                     <article class="card border-color">
                         <img src="./Imagens/card-prom-recife.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title fonte-paragrafo">Recife</h5>
+                            <h4 class="card-title">Recife</h4>
                             <hr>
                             <p class="card-text fonte-paragrafo">A Praça Rio Branco, também conhecida como Marco Zero, é
                                 um espaço
@@ -185,7 +187,7 @@
                     <article class="card border-color">
                         <img src="./Imagens/card-bahia.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title fonte-paragrafo">Pelourinho</h5>
+                            <h4 class="card-title">Pelourinho</h4>
                             <hr>
                             <p class="card-text fonte-paragrafo">As ruas de paralelepípedo contam com bares de
                                 caipirinha ao ar livre,
@@ -198,7 +200,7 @@
                     <article class="card border-color">
                         <img src="./Imagens/card-piscinas-naturais.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title fonte-paragrafo">João Pessoa</h5>
+                            <h4 class="card-title">João Pessoa</h4>
                             <hr>
                             <p class="card-text fonte-paragrafo">As piscinas naturais em João Pessoa são, sem dúvida,
                                 algumas das
@@ -208,7 +210,6 @@
                         </div>
                     </article>
                 </section>
-
             </div>
         </div>
     </main>
@@ -218,17 +219,17 @@
             <section class="row pt-3">
                 <article class="col-lg-6 col-sm-12">
                     <p class="fonte-especial display-6 text-center">Aceitamos todos os cartões</p>
-                    <figure>
+                    <figure class="d-flex justify-content-center">
                         <img id="img-cartao" src="./Imagens/aceitamos-cartoes.png" alt="">
                     </figure>
                 </article>
                 <article class="col-lg-6 col-sm-12">
                     <p class="fonte-especial display-6 text-center">Visite nossas redes sociais</p>
-                    <figure class="d-flex justify-content-evenly pt-5">
-                        <a href=""><img class="icons" src="./icones/facebook.svg" alt="Icone facebook"></a>
-                        <a href=""><img class="icons" src="./icones/instagram.svg" alt="Icone instagram"></a>
-                        <a href=""><img class="icons" src="./icones/twitter.svg" alt="Icone twiter"></a>
-                    </figure>
+                    <ul class="d-flex justify-content-evenly pt-5">
+                        <a href="#"><i class="bi bi-instagram" id="instagram"></i></a>
+                        <a href="#"><i class="bi bi-facebook" id="facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter" id="twitter"></i></a>
+                    </ul>
                 </article>
             </section>
         </div>
@@ -237,7 +238,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    
+
     <script src="./js/script.js"></script>
 </body>
 

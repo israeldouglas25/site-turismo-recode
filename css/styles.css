@@ -58,6 +58,7 @@ a {
 }
 
 .navbar-toggler-icon i {
+    
     font-size: 1.8em;
 }
 
@@ -160,7 +161,8 @@ a {
 }
 
 .border-color:hover {
-    border-color: #006666;
+    border: 2px solid #006666;
+    transition: 700ms all;
 }
 
 .card-width {
@@ -185,9 +187,7 @@ a {
 }
 
 .fonte-paragrafo {
-    font-family: 'Pacifico', cursive;
-    color: #008584;
-    font-size: 1.3rem;
+    font-size: 1.2em;
 }
 
 .fonte-especial {
@@ -215,13 +215,33 @@ a {
     transform: scale(1.2);
 }
 
+.bi {
+    font-size: 2.5em;
+    padding: 0px 5px;
+}
+
+#twitter:hover {
+    color: #00ACEE;
+    transition: 500ms all;
+}
+
+#facebook:hover {
+    color: #1059b9;
+    transition: 500ms all;
+}
+
+#instagram:hover {
+    color: #fb5709;
+    transition: 500ms all;
+}
+
 @media screen and (max-width: 992px) {
     #img-cartao {
         width: 100%;
     }
-
-    .bg-main {
-        padding-top: 5rem;
+    
+    .login-conta {
+        margin: 5px;
     }
 
 }
