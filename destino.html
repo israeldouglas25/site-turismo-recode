@@ -116,21 +116,25 @@
             <hr>
             <!--form Cadastro de dados dos passageiros -->
             <form class="row g-3">
-                <div class="col-md-4">
-                    <label for="validationDefault01" class="form-label">Nome</label>
+                <div class="col-md-6">
+                    <label for="validationDefault01" class="form-label">Nome Completo</label>
                     <input type="text" class="form-control" id="validationDefault01" required>
                 </div>
-                <div class="col-md-4">
-                    <label for="validationDefault02" class="form-label">Sobrenome</label>
-                    <input type="text" class="form-control" id="validationDefault02" required>
+                <div class="col-md-5">
+                    <label for="validationDefault02" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="validationDefault02" required>
+                </div>
+                <div class="col-md-1">
+                    <label for="validationDefault02" class="form-label">Idade</label>
+                    <input type="number" class="form-control" id="validationDefault02" required>
+                </div>
+                <div class="col-md-8">
+                    <label for="validationDefault03" class="form-label">Logradouro</label>
+                    <input type="text" class="form-control" id="validationDefault03" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="validationDefaultUsername" class="form-label">E-mail</label>
-                    <div class="input-group">
-                        <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                        <input type="email" class="form-control" id="validationDefaultUsername"
-                            placeholder="exemplo@email.com" aria-describedby="inputGroupPrepend2" required>
-                    </div>
+                    <label for="validationDefault03" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="validationDefault03" required>
                 </div>
                 <div class="col-md-6">
                     <label for="validationDefault03" class="form-label">Cidade</label>
@@ -152,7 +156,7 @@
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label for="validationDefault05" class="form-label">Celular</label>
+                    <label for="validationDefault05" class="form-label">Telefone</label>
                     <input type="text" class="form-control" id="validationDefault05" placeholder="(xx) x xxxx-xxxx"
                         required>
                 </div>
@@ -165,7 +169,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <button class="btn botao" type="submit">Enviar</button>
+                    <button class="btn botao" type="submit">Adicionar</button>
                 </div>
             </form>
 

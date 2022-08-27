@@ -186,6 +186,11 @@ a {
     height: 80vh;
 }
 
+.form-label {
+    color: #008584;
+    font-weight: bold;
+}
+
 .fonte-card {
     color: #f5f5f5;
 }
