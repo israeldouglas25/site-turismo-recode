@@ -7,7 +7,7 @@ public class Usuario {
 	private String email;
 	private String senha;
 	
-	private Permissoes permissoes;
+	private Permissoes permissao;
 	
 	// Contrutores
 	public Usuario() {
@@ -19,7 +19,7 @@ public class Usuario {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
-		this.permissoes = permissoes;
+		this.permissao = permissoes;
 	}
 	
 	// Gets e Sets
@@ -56,11 +56,11 @@ public class Usuario {
 	}
 	
 	public void setPermissoes(Permissoes permissoes) {
-		this.permissoes = permissoes;
+		this.permissao = permissoes;
 	}
 	
 	public Permissoes getPermissoes() {
-		return permissoes;
+		return permissao;
 	}
 	
 	//metodos
@@ -68,6 +68,6 @@ public class Usuario {
 		return "Id: "+ this.id +" Nome: " +this.nome 
 				+ " Email: " + this.email 
 				+ " Senha: " + this.senha
-				+ " Tipo permissao: " + this.permissoes.getTipo(); 
+				+ " Tipo permissao: " + this.permissao.getTipo(); 
 	}
 }
