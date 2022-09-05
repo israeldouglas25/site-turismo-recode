@@ -12,6 +12,7 @@ public class Viagem {
 	private LocalDate dataVolta;
 	private int qtdViajantes;
 	private int qtdQuartos;
+	private double preco;
 	
 	private Viajante viajante;
 	
@@ -23,7 +24,7 @@ public class Viagem {
 	}
 
 	public Viagem(int id, String origem, String destino, String dataIda, String dataVolta, int qtdViajantes, int qtdQuartos,
-			Viajante viajante) {
+			Viajante viajante, double preco) {
 		this.id = id;
 		this.origem = origem;
 		this.destino = destino;
@@ -32,6 +33,7 @@ public class Viagem {
 		this.qtdViajantes = qtdViajantes;
 		this.qtdQuartos = qtdQuartos;
 		this.viajante = viajante;
+		this.setPreco(preco);
 	}
 
 	public int getId() {
@@ -98,11 +100,19 @@ public class Viagem {
 		this.viajante = viajante;
 	}
 
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+
 	@Override
 	public String toString() {
 		return "Viagem [id=" + id + ", origem=" + origem + ", destino=" + destino + ", dataIda=" + dataIda
 				+ ", dataVolta=" + dataVolta + ", qtdViajantes=" + qtdViajantes + ", qtdQuartos=" + qtdQuartos
-				+ ", viajante=" + viajante + "]";
+				+ ", preco=" + preco + ", viajante=" + viajante + "]";
 	}
 	
 	

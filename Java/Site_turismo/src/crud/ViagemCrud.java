@@ -25,6 +25,7 @@ public class ViagemCrud {
 		int qtd_viajantes = 0;
 		int qtd_quartos = 0;
 		int id_viajante = 0;
+		double preco = 0;
 
 		do {
 			System.out.println("=== CRUD VIAGEM ===");
@@ -54,10 +55,12 @@ public class ViagemCrud {
 				qtd_quartos = sc.nextInt();
 				System.out.println("Digite o codigo do viajante:");
 				id_viajante = sc.nextInt();
+				System.out.println("Digite o preco da viagem:");
+				preco = sc.nextDouble();
 
 				Viajante viajante = viajanteDAO.getViajanteById(id_viajante);
 
-				Viagem v1 = new Viagem(id, origem, destino, data_ida, data_volta, qtd_viajantes, qtd_quartos, viajante);
+				Viagem v1 = new Viagem(id, origem, destino, data_ida, data_volta, qtd_viajantes, qtd_quartos, viajante, preco);
 
 				viagemDAO.save(v1);
 				System.out.println("\n***  VIAGEM CADASTRADA COM SUCESSO  ***\n");
@@ -67,7 +70,7 @@ public class ViagemCrud {
 					System.out.println("ID: " + vg.getId() + "\nORIGEM: " + vg.getOrigem() + "\nDESTINO: "
 							+ vg.getDestino() + "\nSAIDA: " + vg.getDataIda() + "\nVOLTA: " + vg.getDataVolta()
 							+ "\nQTD VIAJANTES: " + vg.getQtdViajantes() + "\nQTD QUARTOS: " + vg.getQtdQuartos()
-							+ "\nID VIAJANTE: " + vg.getViajante().getId());
+							+ "\nID VIAJANTE: " + vg.getViajante().getId()+ "\nPRECO: "+ vg.getPreco());
 					System.out.println("");
 				}
 				break;
@@ -89,11 +92,13 @@ public class ViagemCrud {
 				qtd_quartos = sc.nextInt();
 				System.out.println("Atualize o codigo do viajante:");
 				id_viajante = sc.nextInt();
+				System.out.println("Atualize o preco da viagem:");
+				preco = sc.nextDouble();
 
 				Viajante vAtual = viajanteDAO.getViajanteById(id_viajante);
 
 				Viagem v2 = new Viagem(posicao, origem, destino, data_ida, data_volta, qtd_viajantes, qtd_quartos,
-						vAtual);
+						vAtual, preco);
 
 				viagemDAO.update(v2);
 				System.out.println("Viagem de codigo " + v2.getId() + " atualizado.");
@@ -114,7 +119,7 @@ public class ViagemCrud {
 				System.out.println("ID: " + v3.getId() + "\nORIGEM: " + v3.getOrigem() + "\nDESTINO: " + v3.getDestino()
 						+ "\nSAIDA: " + v3.getDataIda() + "\nVOLTA: " + v3.getDataVolta() + "\nQTD VIAJANTES: "
 						+ v3.getQtdViajantes() + "\nQTD QUARTOS: " + v3.getQtdQuartos() + "\nID VIAJANTE: "
-						+ v3.getViajante().getId());
+						+ v3.getViajante().getId()+ "\nPRECO: "+ v3.getPreco());
 				System.out.println("");
 				break;
 			default:

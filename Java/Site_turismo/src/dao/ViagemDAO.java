@@ -17,8 +17,8 @@ public class ViagemDAO {
 	PreparedStatement pstm = null;
 
 	public void save(Viagem viagem) {
-		String sql = "INSERT INTO viagem(origem, destino, data_ida, data_volta, qtd_viajantes, qtd_quartos, id_viajante)"
-				+ "values(?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO viagem(origem, destino, data_ida, data_volta, qtd_viajantes, qtd_quartos, id_viajante, preco)"
+				+ "values(?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 
@@ -33,6 +33,7 @@ public class ViagemDAO {
 			pstm.setInt(5, viagem.getQtdViajantes());
 			pstm.setInt(6, viagem.getQtdQuartos());
 			pstm.setInt(7, viagem.getViajante().getId());
+			pstm.setDouble(8, viagem.getPreco());
 
 			pstm.execute();
 
@@ -81,6 +82,7 @@ public class ViagemDAO {
 				viajante.setId(rset.getInt("id_viajante"));
 
 				viagem.setViajante(viajante);
+				viagem.setPreco(rset.getDouble("preco"));
 
 				listaViagem.add(viagem);
 			}
@@ -108,7 +110,7 @@ public class ViagemDAO {
 	}
 
 	public void update(Viagem viagem) {
-		String sql = "UPDATE viagem SET origem = ?, destino = ?, data_ida = ?, data_volta = ?, qtd_viajantes = ?, qtd_quartos = ?, id_viajante = ? WHERE id_viagem = ?";
+		String sql = "UPDATE viagem SET origem = ?, destino = ?, data_ida = ?, data_volta = ?, qtd_viajantes = ?, qtd_quartos = ?, id_viajante = ?, preco = ? WHERE id_viagem = ?";
 
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
@@ -122,7 +124,8 @@ public class ViagemDAO {
 			pstm.setInt(5, viagem.getQtdViajantes());
 			pstm.setInt(6, viagem.getQtdQuartos());
 			pstm.setInt(7, viagem.getViajante().getId());
-			pstm.setInt(8, viagem.getId());
+			pstm.setDouble(8, viagem.getPreco());
+			pstm.setInt(9, viagem.getId());
 
 			pstm.execute();
 
@@ -197,6 +200,7 @@ public class ViagemDAO {
 
 			viajante.setId(rset.getInt("id_viajante"));
 			viagem.setViajante(viajante);
+			viagem.setPreco(rset.getDouble("preco"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
