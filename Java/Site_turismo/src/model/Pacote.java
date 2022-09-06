@@ -1,17 +1,21 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Pacote {
 	
 	private int id;
-	private String data;
+	private LocalDate data;
 	private double valor;
 	
 	private Usuario usuario;
 	
-	private List<Itens_pacote> itens = new ArrayList<Itens_pacote>();
+	private List<ItensPacote> itens = new ArrayList<ItensPacote>();
+	
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
 	public Pacote() {
 
@@ -20,7 +24,7 @@ public class Pacote {
 	public Pacote(int id, String data, Usuario usuario) {
 		super();
 		this.id = id;
-		this.data = data;
+		this.data = LocalDate.parse(data, formatter);
 		this.usuario = usuario;
 	}
 
@@ -33,11 +37,11 @@ public class Pacote {
 	}
 
 	public String getData() {
-		return data;
+		return formatter.format(data);
 	}
 
 	public void setData(String data) {
-		this.data = data;
+		this.data = LocalDate.parse(data);
 	}
 
 	public double getValor() {
@@ -56,11 +60,11 @@ public class Pacote {
 		this.usuario = usuario;
 	}
 
-	public List<Itens_pacote> getItens() {
+	public List<ItensPacote> getItens() {
 		return itens;
 	}
 
-	public void setItens(List<Itens_pacote> itens) {
+	public void setItens(List<ItensPacote> itens) {
 		this.itens = itens;
 	}
 
