@@ -1,10 +1,11 @@
+<%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="icon" href="../../assets/img/Viagem1.png" type="image/png" />
+<link rel="icon" href="./assets/img/Viagem1.png" type="image/png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +16,8 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<link rel="stylesheet" href="../../assets/css/style.css" />
-<title>Paixão Nordestina / Create</title>
+<link rel="stylesheet" href="./assets/css/style.css" />
+<title>Paixão Nordertina / Permissões</title>
 </head>
 <body>
 	<header>
@@ -24,8 +25,8 @@
 		<nav class="navbar navbar-expand-lg fixed-top">
 			<div class="container-fluid">
 				<figure>
-					<a class="navbar-brand" href="../../index.html"><img
-						class="rounded-circle" src="../../assets/img/Viagem1.png"
+					<a class="navbar-brand" href="./index.html"><img
+						class="rounded-circle" src="./assets/img/Viagem1.png"
 						alt="Logomarca paixão nordestina"></a>
 				</figure>
 				<button class="navbar-toggler" type="button"
@@ -39,11 +40,11 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link fonte"
-							href="../../views/destino">Destinos</a></li>
+							href="./views/destino">Destinos</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
-							href="../../views/promocoes">Promoções</a></li>
+							href="./views/promocoes">Promoções</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
-							href="../../views/contato">Contato</a></li>
+							href="./views/contato">Contato</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle fonte" href="#"
 							id="navbarDropdownMenuLink" role="button"
@@ -60,24 +61,34 @@
 		</nav>
 	</header>
 
-	<div>
-		<img class="banner"
-			src="https://revistaazul.voeazul.com.br/wp-content/uploads/2022/04/azul-praias-do-nordeste-2.jpeg"
-			alt="">
-	</div>
-	<div class="container py-3">
-		<form action="../../create-permissao">
-			<h2 class="text-center fonte-especial">Criar</h2>
-			<div class="form-group mb-3">
-				<label for="Tipo" class="form-label"> Tipo </label> <input
-					type="text" id="Tipo" name="tipo" class="form-control" value="" />
-			</div>
+	<main>
+		<div>
+			<img class="banner"
+				src="https://revistaazul.voeazul.com.br/wp-content/uploads/2022/04/azul-praias-do-nordeste-2.jpeg"
+				alt="">
+		</div>
+		<div class="container py-3">
+			<form action="./update-permissao">
+				<h2 class="text-center fonte-especial">Atualizar</h2>
 
-			<button type="submit" class="btn botao">Enviar</button>
-			<a href="../../permissoes" class="btn btn-danger"
-				style="margin-left: 10px"> Cancelar </a>
-		</form>
-	</div>
+				<div class="form-group mb-3">
+					<label for="id" class="form-label"> Id </label> <input type="text"
+						id="id" name="id" class="form-control"
+						value="<%=request.getAttribute("id")%>" readonly />
+				</div>
+
+				<div class="form-group mb-3">
+					<label for="nome" class="form-label"> Nome </label> <input
+						type="text" id="Tipo" name="tipo" class="form-control"
+						value="<%=request.getAttribute("tipo")%>" />
+				</div>
+
+				<button type="submit" class="btn botao">Enviar</button>
+				<a href="./permissoes" class="btn btn-danger"
+					style="margin-left: 10px"> Cancelar </a>
+			</form>
+		</div>
+	</main>
 
 	<footer class="bg-footer">
 		<div class="container-fluid">

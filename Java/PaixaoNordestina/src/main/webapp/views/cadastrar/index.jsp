@@ -1,10 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" import="model.Usuario"
+	import="java.util.List"
+	import="java.util.ArrayList"%>
+
+<%
+@SuppressWarnings("unchecked")
+List<Usuario> listaUsuarios = (ArrayList<Usuario>) request.getAttribute("cadastro");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="icon" href="../../assets/img/Viagem1.png" type="image/png" />
+<link rel="icon" href="./assets/img/Viagem1.png" type="image/png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +24,8 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<link rel="stylesheet" href="../../assets/css/style.css" />
-<title>Paixão Nordestina / Create</title>
+<link rel="stylesheet" href="./assets/css/style.css" />
+<title>Paixão Nordertina / Usuarios</title>
 </head>
 <body>
 	<header>
@@ -24,8 +33,8 @@
 		<nav class="navbar navbar-expand-lg fixed-top">
 			<div class="container-fluid">
 				<figure>
-					<a class="navbar-brand" href="../../index.html"><img
-						class="rounded-circle" src="../../assets/img/Viagem1.png"
+					<a class="navbar-brand" href="./index.html"><img
+						class="rounded-circle" src="./assets/img/Viagem1.png"
 						alt="Logomarca paixão nordestina"></a>
 				</figure>
 				<button class="navbar-toggler" type="button"
@@ -39,11 +48,11 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link fonte"
-							href="../../views/destino">Destinos</a></li>
+							href="./views/destino">Destinos</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
-							href="../../views/promocoes">Promoções</a></li>
+							href="./views/promocoes">Promoções</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
-							href="../../views/contato">Contato</a></li>
+							href="./views/contato">Contato</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle fonte" href="#"
 							id="navbarDropdownMenuLink" role="button"
@@ -60,24 +69,58 @@
 		</nav>
 	</header>
 
-	<div>
-		<img class="banner"
-			src="https://revistaazul.voeazul.com.br/wp-content/uploads/2022/04/azul-praias-do-nordeste-2.jpeg"
-			alt="">
-	</div>
-	<div class="container py-3">
-		<form action="../../create-permissao">
-			<h2 class="text-center fonte-especial">Criar</h2>
-			<div class="form-group mb-3">
-				<label for="Tipo" class="form-label"> Tipo </label> <input
-					type="text" id="Tipo" name="tipo" class="form-control" value="" />
+	<main>
+		<div>
+			<img class="banner"
+				src="https://revistaazul.voeazul.com.br/wp-content/uploads/2022/04/azul-praias-do-nordeste-2.jpeg"
+				alt="">
+		</div>
+		<div class="container p-4">
+			<div class="d-flex justify-content-end">
+				<a href="./views/cadastrar/index.jsp" class="btn botao mb-2">
+					Cadastrar usuario </a>
 			</div>
+			<table class="table table-responsive table-hover">
+				<thead class="table-light">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Nome</th>
+						<th Scope="col">E-mail</th>
+						<th Scope="col">Senha</th>
+						<th Scope="col">Permissão</th>
+						<th scope="col">Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+					for (Usuario u : listaUsuarios) {
+					%>
+					<tr>
+						<td><%=u.getId()%></td>
+						<td><%=u.getNome()%></td>
+						<td><%=u.getEmail()%></td>
+						<td><%=u.getSenha()%></td>
+						<td><%=u.getPermissoes().getId()%></td>
+						<td>
+							<div class="d-flex">
+								<a href="edit-cadastro?id=<%=u.getId()%>" class="mx-1"
+									title="Editar"> <i class="bi bi-file-earmark-text"></i>
+								</a> <a href="delet-cadastro?id=<%=u.getId()%>" class="mx-1"
+									title="Excluir"
+									onclick="return confirm('Deseja excluir o usuario <%=u.getNome()%>.')">
+									<i class="bi bi-trash"></i>
+								</a>
+							</div>
+						</td>
+					</tr>
+					<%
+					}
+					%>
+				</tbody>
+			</table>
+		</div>
+	</main>
 
-			<button type="submit" class="btn botao">Enviar</button>
-			<a href="../../permissoes" class="btn btn-danger"
-				style="margin-left: 10px"> Cancelar </a>
-		</form>
-	</div>
 
 	<footer class="bg-footer">
 		<div class="container-fluid">
@@ -109,5 +152,6 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
+
 </body>
 </html>

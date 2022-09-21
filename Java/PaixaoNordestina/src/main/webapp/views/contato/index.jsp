@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +18,8 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <link rel="stylesheet" href="../../assets/css/style.css" />
-<title>Paixão Nordestina / Create</title>
+
+<title>Paixão Nordestina / Contato</title>
 </head>
 <body>
 	<header>
@@ -38,12 +41,11 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link fonte" href="../destino">Destinos</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
-							href="../../views/destino">Destinos</a></li>
+							href="../promocoes">Promoções</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
-							href="../../views/promocoes">Promoções</a></li>
-						<li class="nav-item"><a class="nav-link fonte"
-							href="../../views/contato">Contato</a></li>
+							href="#">Contato</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle fonte" href="#"
 							id="navbarDropdownMenuLink" role="button"
@@ -53,6 +55,7 @@
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="./cadastrar.html">Cadastrar</a></li>
 								<li><a class="dropdown-item" href="./login.html">Entrar</a></li>
+								<li><a class="dropdown-item" href="../../permissoes">Permissão</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -60,24 +63,63 @@
 		</nav>
 	</header>
 
-	<div>
-		<img class="banner"
-			src="https://revistaazul.voeazul.com.br/wp-content/uploads/2022/04/azul-praias-do-nordeste-2.jpeg"
-			alt="">
-	</div>
-	<div class="container py-3">
-		<form action="../../create-permissao">
-			<h2 class="text-center fonte-especial">Criar</h2>
-			<div class="form-group mb-3">
-				<label for="Tipo" class="form-label"> Tipo </label> <input
-					type="text" id="Tipo" name="tipo" class="form-control" value="" />
-			</div>
+	<main class="bg-main">
+		<div>
+			<img class="banner" src="../../assets/img/banner.png" alt="">
+		</div>
+		<div class="container">
+			<!-- form -->
+			<form>
+				<h1 class="fonte-especial">Contato</h1>
+				<hr>
+				<div class="row">
+					<div class="col-md">
+						<div class="mb-3">
+							<label for="nomeContato" class="form-label">Nome</label> <input
+								type="text" class="form-control" id="nomeContato"
+								aria-describedby="helpIdNome" placeholder="Nome">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="mb-3">
+							<label for="sobrenomeContato" class="form-label">Sobrenome</label>
+							<input type="text" class="form-control" id="nomeContato"
+								aria-describedby="helpIdSobrenome" placeholder="Sobrenome">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md">
+						<div class="mb-3">
+							<label for="emailContato" class="form-label">Email</label> <input
+								type="email" class="form-control" id="emailContato"
+								aria-describedby="emailHelpId" placeholder="exemplo@mail.com">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="mb-3">
+							<label for="telefoneContato" class="form-label">Telefone</label>
+							<input type="text" class="form-control" id="telefoneContato"
+								aria-describedby="helpId" placeholder="(xx) xxxxx-xxxx">
+						</div>
+					</div>
+				</div>
+				<div class="mb-3">
+					<label for="areaTextoContato" class="form-label">Mensagem</label>
+					<textarea class="form-control" id="areaTextoContato" rows="10"
+						placeholder="Deixe aqui sua mensagem que entraremos em contato."></textarea>
+				</div>
 
-			<button type="submit" class="btn botao">Enviar</button>
-			<a href="../../permissoes" class="btn btn-danger"
-				style="margin-left: 10px"> Cancelar </a>
-		</form>
-	</div>
+				<div class="mb-3 form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Aceitar
+						os termos e condições</label>
+				</div>
+				<button type="submit" class="btn botao mb-3">Enviar</button>
+			</form>
+		</div>
+
+	</main>
 
 	<footer class="bg-footer">
 		<div class="container-fluid">
@@ -86,7 +128,7 @@
 					<p class="fonte-especial display-6 text-center">Aceitamos todos
 						os cartões</p>
 					<figure class="d-flex justify-content-center">
-						<img id="img-cartao" src="./assets/img/aceitamos-cartoes.png"
+						<img id="img-cartao" src="../../assets/img/aceitamos-cartoes.png"
 							alt="">
 					</figure>
 				</article>
@@ -104,10 +146,13 @@
 			</section>
 		</div>
 	</footer>
-	<script src="./assets/js/script.js"></script>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
+
+	<script src="../../assets/js/script.js"></script>
+
 </body>
 </html>

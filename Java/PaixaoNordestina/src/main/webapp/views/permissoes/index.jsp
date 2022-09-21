@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ 
+page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="model.Permissoes" import="java.util.List"%>
 
 <%
@@ -29,7 +30,7 @@ List<Permissoes> lista = (List<Permissoes>) request.getAttribute("permissoes");
 <body>
 	<header>
 		<!-- Incluindo o menu de navegação -->
-		<nav class="navbar navbar-expand-lg">
+		<nav class="navbar navbar-expand-lg fixed-top">
 			<div class="container-fluid">
 				<figure>
 					<a class="navbar-brand" href="./index.html"><img
@@ -47,11 +48,11 @@ List<Permissoes> lista = (List<Permissoes>) request.getAttribute("permissoes");
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link fonte"
-							href="./destino.html">Destinos</a></li>
+							href="./views/destino">Destinos</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
-							href="./promocao.html">Promoções</a></li>
+							href="./views/promocoes">Promoções</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
-							href="./contato.html">Contato</a></li>
+							href="./views/contato">Contato</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle fonte" href="#"
 							id="navbarDropdownMenuLink" role="button"
@@ -68,11 +69,16 @@ List<Permissoes> lista = (List<Permissoes>) request.getAttribute("permissoes");
 		</nav>
 	</header>
 
-	<section class="container">
-		<div class="p-4">
+	<main>
+		<div>
+			<img class="banner"
+				src="https://revistaazul.voeazul.com.br/wp-content/uploads/2022/04/azul-praias-do-nordeste-2.jpeg"
+				alt="">
+		</div>
+		<div class="container p-4">
 			<div class="d-flex justify-content-end">
-				<a href="./views/permissoes/create.html"
-					class="btn botao mb-2"> Criar Permissão </a>
+				<a href="./views/permissoes/create.html" class="btn botao mb-2">
+					Criar Permissão </a>
 			</div>
 			<table class="table table-responsive table-hover">
 				<thead class="table-light">
@@ -91,11 +97,13 @@ List<Permissoes> lista = (List<Permissoes>) request.getAttribute("permissoes");
 						<td><%=p.getTipo()%></td>
 						<td>
 							<div class="d-flex">
-								<a href="edit?id=<%=p.getId()%>" class="mx-1" title="Editar"></a>
-								<i class="bi bi-file-earmark-text"></i> <a
-									href="delet?id=<%=p.getId()%>" class="mx-1" title="Excluir"
+								<a href="edit-permissao?id=<%=p.getId()%>" class="mx-1"
+									title="Editar"> <i class="bi bi-file-earmark-text"></i>
+								</a> <a href="delet-permissao?id=<%=p.getId()%>" class="mx-1"
+									title="Excluir"
 									onclick="return confirm('Deseja excluir a permissão <%=p.getTipo()%>.')">
-								</a> <i class="bi bi-trash"></i>
+									<i class="bi bi-trash"></i>
+								</a>
 							</div>
 						</td>
 					</tr>
@@ -105,7 +113,7 @@ List<Permissoes> lista = (List<Permissoes>) request.getAttribute("permissoes");
 				</tbody>
 			</table>
 		</div>
-	</section>
+	</main>
 
 
 	<footer class="bg-footer">
@@ -123,9 +131,11 @@ List<Permissoes> lista = (List<Permissoes>) request.getAttribute("permissoes");
 					<p class="fonte-especial display-6 text-center">Visite nossas
 						redes sociais</p>
 					<ul class="d-flex justify-content-evenly pt-5">
-						<a href="#"><i class="bi bi-instagram" id="instagram"></i></a>
-						<a href="#"><i class="bi bi-facebook" id="facebook"></i></a>
-						<a href="#"><i class="bi bi-twitter" id="twitter"></i></a>
+						<a href="#"><i class="bi bi-instagram icon-footer"
+							id="instagram"></i></a>
+						<a href="#"><i class="bi bi-facebook icon-footer"
+							id="facebook"></i></a>
+						<a href="#"><i class="bi bi-twitter icon-footer" id="twitter"></i></a>
 					</ul>
 				</article>
 			</section>

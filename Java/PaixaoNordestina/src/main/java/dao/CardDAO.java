@@ -7,22 +7,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import connection.ConnectionMySQL;
-import model.Permissoes;
+import model.Card;
 
-public class PermissaoDAO {
+public class CardDAO {
 
 	Connection conn = null;
 	PreparedStatement pstm = null;
 
-	public void save(Permissoes permissao) {
-		String sql = "INSERT INTO permissao(tipo) values(?)";
+	public void save(Card card) {
+		String sql = "INSERT INTO card(nome, precoPromocao) VALUES (?, ?)";
 
 		try {
-
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
 
-			pstm.setString(1, permissao.getTipo());
+			pstm.setString(1, card.getNome());
+			pstm.setDouble(2, card.getPrecoPromocao());
+
 			pstm.execute();
 
 		} catch (Exception e) {
@@ -41,31 +42,36 @@ public class PermissaoDAO {
 		}
 	}
 
-	public List<Permissoes> getPermissoes() {
-		String sql = "SELECT * FROM permissao";
+	public List<Card> getCard() {
+		String sql = "SELECT * FROM card";
 
-		List<Permissoes> permissoes = new ArrayList<Permissoes>();
+		List<Card> listaCard = new ArrayList<Card>();
+
 		ResultSet rset = null;
 
 		try {
-
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
 			rset = pstm.executeQuery();
 
 			while (rset.next()) {
-				Permissoes permissao = new Permissoes();
+				Card card = new Card();
 
-				permissao.setId(rset.getInt("id_permissao"));
-				permissao.setTipo(rset.getString("tipo"));
+				card.setId(rset.getInt("id_card"));
+				card.setNome(rset.getString("nome"));
+				card.setPrecoPromocao(rset.getDouble("precoPromocao"));
 
-				permissoes.add(permissao);
+				listaCard.add(card);
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
+
 		} finally {
 			try {
+				if (rset != null) {
+					rset.close();
+				}
 				if (pstm != null) {
 					pstm.close();
 				}
@@ -76,19 +82,21 @@ public class PermissaoDAO {
 				e.printStackTrace();
 			}
 		}
-		return permissoes;
+
+		return listaCard;
 	}
 
-	public void update(Permissoes permissao) {
-		String sql = "UPDATE permissao set tipo = ? WHERE id_permissao = ?";
+	public void update(Card card) {
+		String sql = "UPDATE card set nome = ?, precoPromocao = ? WHERE id_card = ?";
 
 		try {
-
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
 
-			pstm.setString(1, permissao.getTipo());
-			pstm.setInt(2, permissao.getId());
+			pstm.setString(1, card.getNome());
+			pstm.setDouble(2, card.getPrecoPromocao());
+			pstm.setInt(3, card.getId());
+
 			pstm.execute();
 
 		} catch (Exception e) {
@@ -108,8 +116,8 @@ public class PermissaoDAO {
 	}
 
 	public void deleteById(int id) {
-		String sql = "DELETE FROM permissao WHERE id_permissao = ?";
-		
+		String sql = "DELETE FROM card WHERE id_card = ?";
+
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
@@ -134,13 +142,13 @@ public class PermissaoDAO {
 		}
 	}
 
-	public Permissoes getPermissaoById(int id) {
-		String sql = "SELECT * FROM permissao WHERE id_permissao = ?";
-		
-		Permissoes permissoes = new Permissoes();
-		
+	public Card getCardById(int id) {
+		String sql = "SELECT * FROM card WHERE id_card = ?";
+
+		Card card = new Card();
+
 		ResultSet rset = null;
-		
+
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
@@ -150,10 +158,11 @@ public class PermissaoDAO {
 			rset = pstm.executeQuery();
 			rset.next();
 			
-			permissoes.setId(rset.getInt("id_permissao"));
-			permissoes.setTipo(rset.getString("tipo"));
-			
-		}catch (Exception e) {
+			card.setId(rset.getInt("id_card"));
+			card.setNome(rset.getString("nome"));
+			card.setPrecoPromocao(rset.getDouble("precoPromocao"));
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -167,7 +176,8 @@ public class PermissaoDAO {
 				e.printStackTrace();
 			}
 		}
-		
-		return permissoes;
+
+		return card;
 	}
+
 }
