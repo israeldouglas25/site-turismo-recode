@@ -29,7 +29,7 @@
 					<a class="navbar-brand" href="../../index.html"><img
 						class="rounded-circle" src="../../assets/img/Viagem2.jpg"
 						alt="Logomarca"></a>
-				</nav>
+				</nav> 
 				<article class="col-md-8 caixa-conta">
 					<div class="d-flex justify-content-center">
 						<h1 class="fonte-titulo mt-5 mb-3">Atualizar</h1>

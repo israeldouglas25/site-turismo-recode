@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="model.Usuario"
-	import="java.util.List"
-	import="java.util.ArrayList"%>
+	pageEncoding="UTF-8" import="model.Usuario" import="java.util.List"%>
 
 <%
 @SuppressWarnings("unchecked")
-List<Usuario> listaUsuarios = (ArrayList<Usuario>) request.getAttribute("cadastro");
+List<Usuario> usuarios = (List<Usuario>) request.getAttribute("usuarios");
 %>
 <!DOCTYPE html>
 <html>
@@ -60,7 +58,7 @@ List<Usuario> listaUsuarios = (ArrayList<Usuario>) request.getAttribute("cadastr
 						</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="./cadastrar.html">Cadastrar</a></li>
+								<li><a class="dropdown-item" href="./create.html">Cadastrar</a></li>
 								<li><a class="dropdown-item" href="./login.html">Entrar</a></li>
 							</ul></li>
 					</ul>
@@ -77,7 +75,7 @@ List<Usuario> listaUsuarios = (ArrayList<Usuario>) request.getAttribute("cadastr
 		</div>
 		<div class="container p-4">
 			<div class="d-flex justify-content-end">
-				<a href="./views/cadastrar/index.jsp" class="btn botao mb-2">
+				<a href="./views/usuarios/create.html" class="btn botao mb-2">
 					Cadastrar usuario </a>
 			</div>
 			<table class="table table-responsive table-hover">
@@ -93,7 +91,7 @@ List<Usuario> listaUsuarios = (ArrayList<Usuario>) request.getAttribute("cadastr
 				</thead>
 				<tbody>
 					<%
-					for (Usuario u : listaUsuarios) {
+					for (Usuario u : usuarios) {
 					%>
 					<tr>
 						<td><%=u.getId()%></td>
@@ -103,9 +101,9 @@ List<Usuario> listaUsuarios = (ArrayList<Usuario>) request.getAttribute("cadastr
 						<td><%=u.getPermissoes().getId()%></td>
 						<td>
 							<div class="d-flex">
-								<a href="edit-cadastro?id=<%=u.getId()%>" class="mx-1"
+								<a href="./edit-usuario?id=<%=u.getId()%>" class="mx-1"
 									title="Editar"> <i class="bi bi-file-earmark-text"></i>
-								</a> <a href="delet-cadastro?id=<%=u.getId()%>" class="mx-1"
+								</a> <a href="./delet-usuario?id=<%=u.getId()%>" class="mx-1"
 									title="Excluir"
 									onclick="return confirm('Deseja excluir o usuario <%=u.getNome()%>.')">
 									<i class="bi bi-trash"></i>

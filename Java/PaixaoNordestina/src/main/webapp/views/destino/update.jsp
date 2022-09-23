@@ -1,12 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="model.Viajante" import="java.util.List"%>
-
-<%
-List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
-%>
-
+<%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,13 +17,12 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <link rel="stylesheet" href="./assets/css/style.css" />
-
-<title>Paixão Nordestina / Destino</title>
+<title>Paixão Nordertina / Viajante</title>
 </head>
 <body>
 	<header>
 		<!-- Incluindo o menu de navegação -->
-		<nav class="navbar navbar-expand-lg fixed-top">
+		<nav class="navbar navbar-expand-lg bg-navbar">
 			<div class="container-fluid">
 				<figure>
 					<a class="navbar-brand" href="./index.html"><img
@@ -46,7 +39,8 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link fonte" href="#">Destinos</a></li>
+						<li class="nav-item"><a class="nav-link fonte"
+							href="./views/destino">Destinos</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
 							href="./views/promocoes">Promoções</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
@@ -60,7 +54,6 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 								aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="./cadastrar.html">Cadastrar</a></li>
 								<li><a class="dropdown-item" href="./login.html">Entrar</a></li>
-								<li><a class="dropdown-item" href="../../permissoes">Permissão</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -69,78 +62,34 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 	</header>
 
 	<main class="bg-main">
-		<div>
-			<img class="banner" src="./assets/img/banner-1.jpg" alt="">
-		</div>
 		<div class="container">
-			<!-- form Datas, número de viajantes -->
-			<h1 class="fonte-especial">Qual o seu destino</h1>
-			<hr>
-			<div class="row g-2 my-3">
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="text" class="form-control" name="Label" id="Label"
-							placeholder="..."> <label for="floatingLabel">Origem</label>
-					</div>
+			<form action="./update-viajante" class="row g-3">
+				<h2 class="text-center fonte-especial  mt-5">Atualizar</h2>
+				<div class="form-group mb-3">
+					<label for="id" class="form-label">Id</label><input type="text"
+						id="id" name="id" class="form-control"
+						value="<%=request.getAttribute("id")%>" readonly />
 				</div>
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="text" class="form-control" name="Label" id="Label"
-							placeholder="..."> <label for="floatingLabel">Destino</label>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="date" class="form-control" name="Label" id="Label"
-							placeholder="..."> <label for="floatingLabel">Data
-							de ida</label>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="date" class="form-control" name="Label" id="Label"
-							placeholder="..."> <label for="floatingLabel">Data
-							de volta</label>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="number" class="form-control" name="Label" id="Label"
-							value="2" placeholder="..."> <label for="floatingLabel">Viajantes</label>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="number" class="form-control" name="Label" id="Label"
-							value="1" placeholder="..."> <label for="floatingLabel">Quartos</label>
-					</div>
-				</div>
-				<div class="col-md p-1">
-					<a href="./promocao.html" class="btn botao btn-lg">Buscar</a>
-				</div>
-			</div>
-
-			<h2 class="fonte-especial pt-2">Dados dos viajantes</h2>
-			<hr>
-			<!--form Cadastro de dados dos passageiros -->
-			<form action="./create-viajante" class="row g-3">
 				<div class="col-md-6">
 					<label for="nome" class="form-label">Nome Completo</label> <input
-						type="text" class="form-control" id="nome" name="nome" required>
+						type="text" class="form-control" id="nome" name="nome"
+						value="<%=request.getAttribute("nome")%>" />
 				</div>
 				<div class="col-md-6">
 					<label for="email" class="form-label">E-mail</label> <input
-						type="email" class="form-control" id="email" name="email" required>
+						type="email" class="form-control" id="email" name="email"
+						value="<%=request.getAttribute("email")%>">
 				</div>
 				<div class="col-md-2">
 					<label for="idade" class="form-label">Idade</label> <input
 						type="number" class="form-control" id="idade" name="idade"
-						required>
+						value="<%=request.getAttribute("idade")%>">
 				</div>
 				<div class="col-md-4">
 					<label for="estado" class="form-label">Estado</label> <select
 						class="form-select" id="estado" name="estado" required>
-						<option selected disabled value="">Selecione</option>
+						<option selected disabled
+							value="<%=request.getAttribute("estado")%>">Selecione</option>
 						<option>ALAGOAS</option>
 						<option>BAHIA</option>
 						<option>CEARA</option>
@@ -154,67 +103,26 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 				</div>
 				<div class="col-md-3">
 					<label for="cpf" class="form-label">CPF</label> <input type="text"
-						class="form-control" id="cpf" name="cpf" required>
+						class="form-control" id="cpf" name="cpf"
+						value="<%=request.getAttribute("cpf")%>">
 				</div>
 				<div class="col-md-3">
 					<label for="telefone" class="form-label">Telefone</label> <input
-						type="text" class="form-control" id="telefone" name="telefone" required>
+						type="text" class="form-control" id="telefone" name="telefone"
+						value="<%=request.getAttribute("telefone")%>">
 				</div>
 				<div class="col-6">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox" value=""
-							id="invalidCheck2"> <label
-							class="form-check-label" for="invalidCheck2"> Concordar
-							com os termos e condições </label>
+							id="invalidCheck2"> <label class="form-check-label"
+							for="invalidCheck2"> Concordar com os termos e condições
+						</label>
 					</div>
 				</div>
 				<div class="col-6 mb-3 d-flex justify-content-end">
 					<button class="btn botao" type="submit">Adicionar</button>
 				</div>
 			</form>
-
-			<table class="table table-responsive table-hover">
-				<thead class="table-light">
-					<tr>
-						<th scope="col" class="form-label">#</th>
-						<th scope="col" class="form-label">NOME</th>
-						<th scope="col" class="form-label">EMAIL</th>
-						<th scope="col" class="form-label">IDADE</th>
-						<th scope="col" class="form-label">ESTADO</th>
-						<th scope="col" class="form-label">CPF</th>
-						<th scope="col" class="form-label">TELEFONE</th>
-						<th scope="col" class="form-label">AÇÕES</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%
-					for (Viajante v : viajantes) {
-					%>
-					<tr>
-						<td><%=v.getId()%></td>
-						<td><%=v.getNome()%></td>
-						<td><%=v.getEmail()%></td>
-						<td><%=v.getIdade()%></td>
-						<td><%=v.getEstado()%></td>
-						<td><%=v.getCpf()%></td>
-						<td><%=v.getTelefone()%></td>
-						<td>
-							<div class="d-flex">
-								<a href="edit-viajante?id=<%=v.getId()%>" class="mx-1"
-									title="Editar"> <i class="bi bi-file-earmark-text"></i>
-								</a> <a href="delet-viajante?id=<%=v.getId()%>" class="mx-1"
-									title="Excluir"
-									onclick="return confirm('Deseja excluir a permissão <%=v.getNome()%>.')">
-									<i class="bi bi-trash"></i>
-								</a>
-							</div>
-						</td>
-					</tr>
-					<%
-					}
-					%>
-				</tbody>
-			</table>
 		</div>
 	</main>
 
@@ -225,7 +133,7 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 					<p class="fonte-especial display-6 text-center">Aceitamos todos
 						os cartões</p>
 					<figure class="d-flex justify-content-center">
-						<img id="img-cartao" src="../../assets/img/aceitamos-cartoes.png"
+						<img id="img-cartao" src="./assets/img/aceitamos-cartoes.png"
 							alt="">
 					</figure>
 				</article>
@@ -243,13 +151,11 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 			</section>
 		</div>
 	</footer>
-
+	<script src="./assets/js/script.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
-
-	<script src="./assets/js/script.js"></script>
 
 </body>
 </html>

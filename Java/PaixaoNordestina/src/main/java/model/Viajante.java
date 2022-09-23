@@ -6,28 +6,23 @@ public class Viajante {
 	private String nome;
 	private String email;
 	private int idade;
-	private String logradouro;
-	private String bairro;
-	private String cidade;
 	private String estado;
 	private String telefone;
+	private String cpf;
 	
 	public Viajante() {
 	
 	}
-	
-	public Viajante(int id, String nome, String email, int idade, String logradouro, String bairro, String cidade,
-			String estado, String telefone) {
+
+	public Viajante(int id, String nome, String email, int idade, String estado, String telefone, String cpf) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.idade = idade;
-		this.logradouro = logradouro;
-		this.bairro = bairro;
-		this.cidade = cidade;
 		this.estado = estado;
 		this.telefone = telefone;
+		this.cpf = cpf;
 	}
 
 	public int getId() {
@@ -62,36 +57,20 @@ public class Viajante {
 		this.idade = idade;
 	}
 
-	public String getLogradouro() {
-		return logradouro;
-	}
-
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
 	public String getEstado() {
 		return estado;
 	}
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getTelefone() {
@@ -104,9 +83,8 @@ public class Viajante {
 
 	@Override
 	public String toString() {
-		return "Viajante [id=" + id + ", nome=" + nome + ", email=" + email + ", idade=" + idade + ", logradouro="
-				+ logradouro + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", telefone="
-				+ telefone + "]";
-	}
+		return "Viajante [id=" + id + ", nome=" + nome + ", email=" + email + ", idade=" + idade + ", estado=" + estado
+				+ ", telefone=" + telefone + ", cpf=" + cpf + "]";
+	}	
 	
 }

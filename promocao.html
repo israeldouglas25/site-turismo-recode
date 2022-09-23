@@ -74,14 +74,15 @@
                     <article class="card border-color">
                         <img src="./Imagens/card-alagoas.jpg" class="card-img-top" alt="Praia Maragogi">
                         <div class="card-img-overlay fonte-card d-flex align-items-center">
-                            <h5 class="card-title fonte-text-shadow">Alagoas</h5>
+                            <h5 class="card-title fonte-text-shadow" id="card-1-nome">Alagoas</h5>
                         </div>
                         <div class="card-body">
                             <div>
                                 <span class="span-promocoes">Promoção</span>
-                                <span> a partir de R$ 200</span>
+                                <input type="text" value="a partir de R$ 200" style="border: none;"/>
+                                <!-- <span> a partir de R$ 200</span> -->
                             </div>
-                            <a href="#" class="btn botao card-link w-100 mt-3">Ver ofertas</a>
+                            <button class="btn botao card-link w-100 mt-3" onclick="mudarNome()">Editar valor</button>
                         </div>
                     </article>
                 </section>

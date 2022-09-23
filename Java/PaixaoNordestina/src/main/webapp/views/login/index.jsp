@@ -79,7 +79,7 @@
 						</div>
 						<div class="col-12 d-flex justify-content-center">
 							<p>
-								Não tem conta? <a href="../cadastrar">Crie sua conta
+								Não tem conta? <a href="../usuarios/create.html">Crie sua conta
 									aqui</a>
 							</p>
 						</div>

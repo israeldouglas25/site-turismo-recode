@@ -15,8 +15,8 @@ public class ViajanteDAO {
 	PreparedStatement pstm = null;
 
 	public void save(Viajante viajante) {
-		String sql = "INSERT INTO viajante (nome, email, idade, logradouro, bairro, cidade, estado, telefone) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO viajante (nome, email, idade, estado, cpf, telefone) "
+				+ "VALUES (?, ?, ?, ?, ?, ?)";
 
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
@@ -25,11 +25,9 @@ public class ViajanteDAO {
 			pstm.setString(1, viajante.getNome());
 			pstm.setString(2, viajante.getEmail());
 			pstm.setInt(3, viajante.getIdade());
-			pstm.setString(4, viajante.getLogradouro());
-			pstm.setString(5, viajante.getBairro());
-			pstm.setString(6, viajante.getCidade());
-			pstm.setString(7, viajante.getEstado());
-			pstm.setString(8, viajante.getTelefone());
+			pstm.setString(4, viajante.getEstado());
+			pstm.setString(5, viajante.getCpf());
+			pstm.setString(6, viajante.getTelefone());
 
 			pstm.execute();
 
@@ -69,10 +67,8 @@ public class ViajanteDAO {
 				viajante.setNome(rset.getString("nome"));
 				viajante.setEmail(rset.getString("email"));
 				viajante.setIdade(rset.getInt("idade"));
-				viajante.setLogradouro(rset.getString("logradouro"));
-				viajante.setBairro(rset.getString("bairro"));
-				viajante.setCidade(rset.getString("cidade"));
 				viajante.setEstado(rset.getString("estado"));
+				viajante.setCpf(rset.getString("cpf"));
 				viajante.setTelefone(rset.getString("telefone"));
 
 				listaViajante.add(viajante);
@@ -102,7 +98,7 @@ public class ViajanteDAO {
 
 	public void update(Viajante viajante) {
 
-		String sql = "UPDATE viajante SET nome = ?, email = ?, idade = ?, logradouro = ?, bairro = ?, cidade = ?, estado = ?, telefone = ? WHERE id_viajante = ?";
+		String sql = "UPDATE viajante SET nome = ?, email = ?, idade = ?, estado = ?, cpf = ?, telefone = ? WHERE id_viajante = ?";
 
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
@@ -111,12 +107,10 @@ public class ViajanteDAO {
 			pstm.setString(1, viajante.getNome());
 			pstm.setString(2, viajante.getEmail());
 			pstm.setInt(3, viajante.getIdade());
-			pstm.setString(4, viajante.getLogradouro());
-			pstm.setString(5, viajante.getBairro());
-			pstm.setString(6, viajante.getCidade());
-			pstm.setString(7, viajante.getEstado());
-			pstm.setString(8, viajante.getTelefone());
-			pstm.setInt(9, viajante.getId());
+			pstm.setString(4, viajante.getEstado());
+			pstm.setString(5, viajante.getCpf());
+			pstm.setString(6, viajante.getTelefone());
+			pstm.setInt(7, viajante.getId());
 
 			pstm.execute();
 
@@ -181,6 +175,11 @@ public class ViajanteDAO {
 
 			viajante.setId(rset.getInt("id_viajante"));
 			viajante.setNome(rset.getString("nome"));
+			viajante.setEmail(rset.getString("email"));
+			viajante.setIdade(rset.getInt("idade"));
+			viajante.setEstado(rset.getString("estado"));
+			viajante.setCpf(rset.getString("cpf"));
+			viajante.setTelefone(rset.getString("telefone"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
