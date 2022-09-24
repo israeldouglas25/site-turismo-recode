@@ -36,7 +36,7 @@ public class UsuarioServlet extends HttpServlet {
 			read(request, response);
 			break;
 		case "/create-usuario":
-			//create(request, response);
+			create(request, response);
 			break;
 		case "/edit-usuario":
 			//edit(request, response);
@@ -61,19 +61,22 @@ public class UsuarioServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("./views/usuarios/index.jsp");
 		rd.forward(request, response);
 	}
-/*
+
 	// CREATE
 	protected void create(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		permissoes.setTipo(request.getParameter("tipo"));
-		permissaoDAO.save(permissoes);
-		response.sendRedirect("permissoes");
+		usuario.setNome(request.getParameter("nome"));
+		usuario.setEmail(request.getParameter("email"));
+		usuario.setSenha(request.getParameter("senha"));
+		
+		usuarioDAO.save(usuario);
+		response.sendRedirect("usuarios");
 
 	}
 
 	// READ BY ID
-	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/*	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		permissoes = permissaoDAO.getPermissaoById(id);

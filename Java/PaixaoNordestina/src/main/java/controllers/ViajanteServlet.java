@@ -55,7 +55,7 @@ public class ViajanteServlet extends HttpServlet {
 
 		request.setAttribute("viajantes", lista);
 
-		RequestDispatcher rd = request.getRequestDispatcher("./views/destino/index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("./views/viajante/index.jsp");
 		rd.forward(request, response);
 	}
 

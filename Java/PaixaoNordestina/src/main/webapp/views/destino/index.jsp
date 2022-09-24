@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="model.Viajante" import="java.util.List"%>
+	pageEncoding="UTF-8" import="model.Viagem" import="java.util.List"%>
 
 <%
-List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
+@SuppressWarnings("unchecked")
+List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 %>
 
 <!DOCTYPE html>
@@ -32,7 +33,7 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 		<nav class="navbar navbar-expand-lg fixed-top">
 			<div class="container-fluid">
 				<figure>
-					<a class="navbar-brand" href="./index.html"><img
+					<a class="navbar-brand" href="../../index.html"><img
 						class="rounded-circle" src="./assets/img/Viagem1.png"
 						alt="Logomarca paixão nordestina"></a>
 				</figure>
@@ -58,9 +59,9 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 						</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="./cadastrar.html">Cadastrar</a></li>
-								<li><a class="dropdown-item" href="./login.html">Entrar</a></li>
-								<li><a class="dropdown-item" href="../../permissoes">Permissão</a></li>
+								<li><a class="dropdown-item" href="./views/usuarios/create.html">Cadastrar</a></li>
+								<li><a class="dropdown-item" href="./views/login">Entrar</a></li>
+								<li><a class="dropdown-item" href="./permissoes">Permissão</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -76,139 +77,87 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 			<!-- form Datas, número de viajantes -->
 			<h1 class="fonte-especial">Qual o seu destino</h1>
 			<hr>
-			<div class="row g-2 my-3">
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="text" class="form-control" name="Label" id="Label"
-							placeholder="..."> <label for="floatingLabel">Origem</label>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="text" class="form-control" name="Label" id="Label"
-							placeholder="..."> <label for="floatingLabel">Destino</label>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="date" class="form-control" name="Label" id="Label"
-							placeholder="..."> <label for="floatingLabel">Data
-							de ida</label>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="date" class="form-control" name="Label" id="Label"
-							placeholder="..."> <label for="floatingLabel">Data
-							de volta</label>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="number" class="form-control" name="Label" id="Label"
-							value="2" placeholder="..."> <label for="floatingLabel">Viajantes</label>
-					</div>
-				</div>
-				<div class="col-md">
-					<div class="form-floating mb-3">
-						<input type="number" class="form-control" name="Label" id="Label"
-							value="1" placeholder="..."> <label for="floatingLabel">Quartos</label>
-					</div>
-				</div>
-				<div class="col-md p-1">
-					<a href="./promocao.html" class="btn botao btn-lg">Buscar</a>
-				</div>
-			</div>
-
-			<h2 class="fonte-especial pt-2">Dados dos viajantes</h2>
-			<hr>
-			<!--form Cadastro de dados dos passageiros -->
-			<form action="./create-viajante" class="row g-3">
-				<div class="col-md-6">
-					<label for="nome" class="form-label">Nome Completo</label> <input
-						type="text" class="form-control" id="nome" name="nome" required>
-				</div>
-				<div class="col-md-6">
-					<label for="email" class="form-label">E-mail</label> <input
-						type="email" class="form-control" id="email" name="email" required>
-				</div>
-				<div class="col-md-2">
-					<label for="idade" class="form-label">Idade</label> <input
-						type="number" class="form-control" id="idade" name="idade"
+			<form action="" class="row g-3">
+				<div class="col-md-12">
+					<label for="origem" class="form-label">Origem</label> <input
+						type="text" class="form-control" id="origem" name="origem"
 						required>
 				</div>
-				<div class="col-md-4">
-					<label for="estado" class="form-label">Estado</label> <select
-						class="form-select" id="estado" name="estado" required>
+				<div class="col-md-8">
+					<label for="destino" class="form-label">Destino</label> <select
+						class="form-select" id="destino" name="destino" onChange="update()" required>
 						<option selected disabled value="">Selecione</option>
-						<option>ALAGOAS</option>
-						<option>BAHIA</option>
-						<option>CEARA</option>
-						<option>MARANHAO</option>
-						<option>PARAIBA</option>
-						<option>PERNAMBUCO</option>
-						<option>PIAUI</option>
-						<option>RIO GRANDE DO NORTE</option>
-						<option>SERGIPE</option>
+						<option value="1">ALAGOAS</option>
+						<option value="2">BAHIA</option>
+						<option value="3">CEARA</option>
+						<option value="4">MARANHAO</option>
+						<option value="5">PARAIBA</option>
+						<option value="6">PERNAMBUCO</option>
+						<option value="7">PIAUI</option>
+						<option value="8">RIO GRANDE DO NORTE</option>
+						<option value="9">SERGIPE</option>
 					</select>
 				</div>
-				<div class="col-md-3">
-					<label for="cpf" class="form-label">CPF</label> <input type="text"
-						class="form-control" id="cpf" name="cpf" required>
+				<div class="col-md-4">
+					<label for="preco" class="form-label">Preco da viagem</label> <input
+						type="text" class="form-control" id="preco" name="preco" disabled>
 				</div>
-				<div class="col-md-3">
-					<label for="telefone" class="form-label">Telefone</label> <input
-						type="text" class="form-control" id="telefone" name="telefone" required>
+				<div class="col-md-4">
+					<label for="dataIda" class="form-label">Data de ida</label> <input
+						type="date" class="form-control" name="dataIda" id="dataIda">
 				</div>
-				<div class="col-6">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value=""
-							id="invalidCheck2"> <label
-							class="form-check-label" for="invalidCheck2"> Concordar
-							com os termos e condições </label>
-					</div>
+				<div class="col-md-4">
+					<label for="dataVolta" class="form-label">Data de Volta</label> <input
+						type="date" class="form-control" name="dataVolta" id="dataVolta" onChange="calculateDataDiff()">
 				</div>
-				<div class="col-6 mb-3 d-flex justify-content-end">
-					<button class="btn botao" type="submit">Adicionar</button>
+				<div class="col-md-4">
+					<label for="dias" class="form-label">Total de dias</label> <input
+						type="text" class="form-control" id="dias" name="dias" disabled>
+				</div>
+				<div class="col-4">
+					<label for="qtdViajantes" class="form-label">Viajantes</label> <input
+						type="number" class="form-control" name="qtdViajantes"
+						id="qtdViajantes" onChange="totalViagem()">
+				</div>
+				<div class="col-4">
+					<label for="qtdQuartos" class="form-label">Quartos</label> <input
+						type="number" class="form-control" name="qtdQuartos"
+						id="qtdQuartos" value="1">
+				</div>
+				<div class="col-4">
+					<label for="valorTotal" class="form-label">Valor Total</label> <input
+						type="number" class="form-control" name="valorTotal"
+						id="valorTotal" disabled>
+				</div>
+				<div class="col-12 mb-3 d-grid">
+					<button class="btn botao" type="submit">Adicionar Destino</button>
 				</div>
 			</form>
 
+			<h2 class="text-center fonte-especial mt-3">Lista de viagens</h2>
 			<table class="table table-responsive table-hover">
 				<thead class="table-light">
 					<tr>
 						<th scope="col" class="form-label">#</th>
-						<th scope="col" class="form-label">NOME</th>
-						<th scope="col" class="form-label">EMAIL</th>
-						<th scope="col" class="form-label">IDADE</th>
-						<th scope="col" class="form-label">ESTADO</th>
-						<th scope="col" class="form-label">CPF</th>
-						<th scope="col" class="form-label">TELEFONE</th>
-						<th scope="col" class="form-label">AÇÕES</th>
+						<th scope="col" class="form-label">DESTINO</th>
+						<th scope="col" class="form-label">DIAS</th>
+						<th scope="col" class="form-label">QTD VIAJANTES</th>
+						<th scope="col" class="form-label">PREÇO</th>
+						<th scope="col" class="form-label">TOTAL</th>
 					</tr>
 				</thead>
 				<tbody>
 					<%
-					for (Viajante v : viajantes) {
+					for (Viagem vg : viagem) {
 					%>
 					<tr>
-						<td><%=v.getId()%></td>
-						<td><%=v.getNome()%></td>
-						<td><%=v.getEmail()%></td>
-						<td><%=v.getIdade()%></td>
-						<td><%=v.getEstado()%></td>
-						<td><%=v.getCpf()%></td>
-						<td><%=v.getTelefone()%></td>
-						<td>
-							<div class="d-flex">
-								<a href="edit-viajante?id=<%=v.getId()%>" class="mx-1"
-									title="Editar"> <i class="bi bi-file-earmark-text"></i>
-								</a> <a href="delet-viajante?id=<%=v.getId()%>" class="mx-1"
-									title="Excluir"
-									onclick="return confirm('Deseja excluir a permissão <%=v.getNome()%>.')">
-									<i class="bi bi-trash"></i>
-								</a>
-							</div>
-						</td>
+						<td><%=vg.getId()%></td>
+						<td><%=vg.getDestino()%></td>
+						<td><%=vg.getDias()%></td>
+						<td><%=vg.getQtdViajantes()%></td>
+						<td><%=vg.getPreco()%></td>
+						<td><%=vg.getTotal()%></td>
+
 					</tr>
 					<%
 					}
@@ -217,7 +166,6 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 			</table>
 		</div>
 	</main>
-
 	<footer class="bg-footer">
 		<div class="container-fluid">
 			<section class="row pt-3">
@@ -244,12 +192,11 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 		</div>
 	</footer>
 
+	<script src="./assets/js/script.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
-
-	<script src="./assets/js/script.js"></script>
 
 </body>
 </html>

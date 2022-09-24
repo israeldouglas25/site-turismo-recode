@@ -1,10 +1,11 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Viagem {
-	
+
 	private int id;
 	private String origem;
 	private String destino;
@@ -13,27 +14,29 @@ public class Viagem {
 	private int qtdViajantes;
 	private int qtdQuartos;
 	private double preco;
-	
-	private Viajante viajante;
-	
+	private double total;
+	private int dias;
+
 	// classe responsavel por formatar um padrao diferente do formato ISO
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	public Viagem() {
-		
+
 	}
 
-	public Viagem(int id, String origem, String destino, String dataIda, String dataVolta, int qtdViajantes, int qtdQuartos,
-			Viajante viajante, double preco) {
+	public Viagem(int id, String dataIda, String dataVolta, int qtdViajantes, int qtdQuartos, double preco,
+			double total) {
 		this.id = id;
-		this.origem = origem;
-		this.destino = destino;
 		this.dataIda = LocalDate.parse(dataIda, formatter);
 		this.dataVolta = LocalDate.parse(dataVolta, formatter);
+		// Retorno dos dias
+		Period periodo = Period.between(this.dataIda, this.dataVolta);
+		this.dias = periodo.getDays();
+		// ==========================
 		this.qtdViajantes = qtdViajantes;
 		this.qtdQuartos = qtdQuartos;
-		this.viajante = viajante;
-		this.setPreco(preco);
+		this.preco = preco;
+		this.total = setTotal(total * qtdViajantes);
 	}
 
 	public int getId() {
@@ -92,14 +95,6 @@ public class Viagem {
 		this.qtdQuartos = qtdQuartos;
 	}
 
-	public Viajante getViajante() {
-		return viajante;
-	}
-
-	public void setViajante(Viajante viajante) {
-		this.viajante = viajante;
-	}
-
 	public double getPreco() {
 		return preco;
 	}
@@ -108,13 +103,21 @@ public class Viagem {
 		this.preco = preco;
 	}
 
-	@Override
-	public String toString() {
-		return "Viagem [id=" + id + ", origem=" + origem + ", destino=" + destino + ", dataIda=" + dataIda
-				+ ", dataVolta=" + dataVolta + ", qtdViajantes=" + qtdViajantes + ", qtdQuartos=" + qtdQuartos
-				+ ", preco=" + preco + ", viajante=" + viajante + "]";
+	public double getTotal() {
+		return total;
 	}
-	
-	
+
+	public double setTotal(double total) {
+		this.total = total + (preco * dias);
+		return this.total;
+	}
+
+	public int getDias() {
+		return dias;
+	}
+
+	public void setDias(int dias) {
+		this.dias = dias;
+	}
 
 }
