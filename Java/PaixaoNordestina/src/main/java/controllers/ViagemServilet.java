@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ViagemDAO;
-import model.Viagem;
+import dao.DestinoDAO;
+import model.Destino;
 
 @WebServlet(urlPatterns = { "/destino", "/create-destino", "/edit-destino", "/update-destino", "/delet-destino" })
 public class ViagemServilet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	ViagemDAO viagemDAO = new ViagemDAO();
-	Viagem viagem = new Viagem();
+	DestinoDAO viagemDAO = new DestinoDAO();
+	Destino viagem = new Destino();
 
 	public ViagemServilet() {
 		super();
@@ -51,7 +51,7 @@ public class ViagemServilet extends HttpServlet {
 
 	// READ
 	protected void read(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Viagem> lista = viagemDAO.getViagem();
+		List<Destino> lista = viagemDAO.getViagem();
 
 		request.setAttribute("destino", lista);
 

@@ -11,13 +11,13 @@ import java.util.List;
 import connection.ConnectionMySQL;
 import model.Permissoes;
 import model.Usuario;
-import model.Viagem;
+import model.Destino;
 
-public class ViagemDAO {
+public class DestinoDAO {
 	Connection conn = null;
 	PreparedStatement pstm = null;
 
-	public void save(Viagem viagem) {
+	public void save(Destino viagem) {
 		String sql = "INSERT INTO viagem(origem, destino, data_ida, data_volta, qtd_viajantes, qtd_quartos, preco, total, dias)"
 				+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -55,11 +55,11 @@ public class ViagemDAO {
 		}
 	}
  
-	public List<Viagem> getViagem() {
+	public List<Destino> getViagem() {
 
 		String sql = "SELECT * FROM viagem";
 
-		List<Viagem> listaViagem = new ArrayList<Viagem>();
+		List<Destino> listaViagem = new ArrayList<Destino>();
 
 		ResultSet rset = null;
 
@@ -70,7 +70,7 @@ public class ViagemDAO {
 			
 
 			while (rset.next()) {
-				Viagem viagem = new Viagem();
+				Destino viagem = new Destino();
 
 				viagem.setId(rset.getInt("id_viagem"));
 				viagem.setOrigem(rset.getString("origem"));
@@ -108,7 +108,7 @@ public class ViagemDAO {
 		return listaViagem;
 	}
 
-	public void update(Viagem viagem) {
+	public void update(Destino viagem) {
 		String sql = "UPDATE viagem SET origem = ?, destino = ?, data_ida = ?, data_volta = ?, qtd_viajantes = ?, "
 				+ "qtd_quartos = ?, preco = ?, total = ?, dias = ? WHERE id_viagem = ?";
 
@@ -173,10 +173,10 @@ public class ViagemDAO {
 		}
 	}
 
-	public Viagem getViagemById(int id) {
+	public Destino getViagemById(int id) {
 		String sql = "SELECT * FROM viagem WHERE id_viagem = ?";
 
-		Viagem viagem = new Viagem();
+		Destino viagem = new Destino();
 
 		ResultSet rset = null;
 

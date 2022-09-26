@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Viagem {
+public class Destino {
 
 	private int id;
 	private String origem;
@@ -20,11 +20,11 @@ public class Viagem {
 	 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
 	
 
-	public Viagem() {
+	public Destino() {
 
 	}
 
-	public Viagem(int id, String dataIda, String dataVolta, int qtdViajantes, int qtdQuartos, double preco,
+	public Destino(int id, String dataIda, String dataVolta, int qtdViajantes, int qtdQuartos, double preco,
 			double total) {
 		this.id = id;
 		this.dataIda = LocalDate.parse(dataIda, formatter);

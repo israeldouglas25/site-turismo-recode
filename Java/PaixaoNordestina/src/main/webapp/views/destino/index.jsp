@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="model.Viagem" import="java.util.List"
+	pageEncoding="UTF-8" import="model.Destino" import="java.util.List"
 	import="java.text.SimpleDateFormat"%>
 
 <%
 @SuppressWarnings("unchecked")
-List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
+List<Destino> viagem = (List<Destino>) request.getAttribute("destino");
 %>
 
 <!DOCTYPE html>
@@ -163,7 +163,7 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 				</thead>
 				<tbody>
 					<%
-					for (Viagem vg : viagem) {
+					for (Destino vg : viagem) {
 					%>
 					<tr>
 						<td><%=vg.getId()%></td>

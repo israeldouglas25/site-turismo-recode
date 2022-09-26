@@ -9,7 +9,7 @@ import java.util.List;
 import connection.ConnectionMySQL;
 import model.ItensPacote;
 import model.Pacote;
-import model.Viagem;
+import model.Destino;
 
 public class ItensPacoteDAO {
 	Connection conn = null;
@@ -60,7 +60,7 @@ public class ItensPacoteDAO {
 			while (rset.next()) {
 				ItensPacote item = new ItensPacote();
 				Pacote pacote = new Pacote();
-				Viagem viagem = new Viagem();
+				Destino viagem = new Destino();
 
 				item.setId(rset.getInt("id_item"));
 				item.setQtdViajantes(rset.getInt("qtd_viajantes"));
@@ -159,7 +159,7 @@ public class ItensPacoteDAO {
 		String sql = "SELECT * FROM item_pacote WHERE id_item = ?";
 
 		ItensPacote item = new ItensPacote();
-		Viagem viagem = new Viagem();
+		Destino viagem = new Destino();
 		Pacote pacote = new Pacote();
 
 		ResultSet rset = null;

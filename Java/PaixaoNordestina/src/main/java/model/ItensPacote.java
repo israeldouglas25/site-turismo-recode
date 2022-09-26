@@ -7,13 +7,13 @@ public class ItensPacote {
 	private double valor;
 
 	private Pacote pacote;
-	private Viagem viagem;
+	private Destino viagem;
 
 	public ItensPacote() {
 
 	}
 
-	public ItensPacote(int id, int qtdViajantes, Pacote pacote, Viagem viagem) {
+	public ItensPacote(int id, int qtdViajantes, Pacote pacote, Destino viagem) {
 		super();
 		this.id = id;
 		this.qtdViajantes = qtdViajantes;
@@ -54,11 +54,11 @@ public class ItensPacote {
 		this.pacote = pacote;
 	}
 
-	public Viagem getViagem() {
+	public Destino getViagem() {
 		return viagem;
 	}
 
-	public void setViagem(Viagem viagem) {
+	public void setViagem(Destino viagem) {
 		this.viagem = viagem;
 	}
 
