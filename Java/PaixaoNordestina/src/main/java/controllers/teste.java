@@ -1,26 +1,27 @@
 package controllers;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Stream;
 
-import dao.CardDAO;
-import dao.UsuarioDAO;
-import model.Card;
-import model.Usuario;
+import dao.ContatoDAO;
+import model.Contato;
 
 public class teste {
 
 	public static void main(String[] args) {
-		CardDAO cardDAO = new CardDAO();
-		UsuarioDAO uDAO = new UsuarioDAO();
+		//CardDAO cardDAO = new CardDAO();
+		//UsuarioDAO uDAO = new UsuarioDAO();
+		ContatoDAO contatoDAO = new ContatoDAO();
 
 		int id = 0;
-		int posicao = 2;
-		String nome = "Bahia";
-		double preco = 400;
+		//int posicao = 2;
+		//double preco = 400;
+		/*
+		 * String nome = "Douglas"; String email = "douglas@email"; String telefone =
+		 * "2222-3333"; String mensagem = "minha segunda mensagem";
+		 * 
+		 * Contato contato = new Contato(id, nome, email, telefone, mensagem);
+		 * contatoDAO.save(contato);
+		 */
 
 		// CREATE
 		// Card card3 = new Card(id, nome, preco);
@@ -45,10 +46,8 @@ public class teste {
 		//System.out.println("ID: " + busca.getId() + "\nNOME: " + busca.getNome() + "\nPRECO: " + busca.getPrecoPromocao());
 
 		
-		Stream.of(1,2,3,4,5,6)
-	    .filter(el -> el % 2 == 0)
-	    .reduce(Integer::sum)
-	    .ifPresent(el -> System.out.printf("The result is: %d.%n", el));
+		for(Contato c : contatoDAO.getContato()) { System.out.println("ID: "+ c.getId() +
+				  "\nNOME: "+ c.getNome() + "\nEMAIL: "+ c.getEmail() + "\nTELEFONE: "+ c.getTelefone() + "\nMSG: "+ c.getMensagem()); }
 	}
 	
 

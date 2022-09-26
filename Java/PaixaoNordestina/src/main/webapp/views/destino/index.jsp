@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="model.Viagem" import="java.util.List" import="java.text.SimpleDateFormat"%>
+	pageEncoding="UTF-8" import="model.Viagem" import="java.util.List"
+	import="java.text.SimpleDateFormat"%>
 
 <%
 @SuppressWarnings("unchecked")
@@ -77,7 +78,7 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 			<!-- form Datas, número de viajantes -->
 			<h1 class="fonte-especial">Qual o seu destino</h1>
 			<hr>
-			<form action="./create-destino" class="row g-3">
+			<form action="./create-destino" onsubmit="criarViagem()" class="row g-3">
 				<div class="col-md-6">
 					<label for="origem" class="form-label">Origem</label> <input
 						type="text" class="form-control" id="origem" name="origem"
@@ -86,7 +87,7 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 				<div class="col-md-6">
 					<label for="destino" class="form-label">Destino</label> <select
 						class="form-select" id="destino" name="destino"
-						onChange="update()" required>
+						onchange="update()" required>
 						<option selected disabled value="">Selecione</option>
 						<option value="1">ALAGOAS</option>
 						<option value="2">BAHIA</option>
@@ -168,10 +169,8 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 						<td><%=vg.getId()%></td>
 						<td><%=vg.getOrigem()%></td>
 						<td><%=vg.getDestino()%></td>
-						<%-- <td><%=dataFormat.format(vg.getDataIda())%></td>
-						<td><%=dataFormat.format(vg.getDataVolta())%></td> --%>
-						<td><%=vg.getDataIda()%></td>
-						<td><%=vg.getDataVolta()%></td>
+						<td class="testeData"><%=vg.getDataIda()%></td>
+						<td class="testeData"><%=vg.getDataVolta()%></td>
 						<td><%=vg.getDias()%></td>
 						<td><%=vg.getQtdViajantes()%></td>
 						<td><%=vg.getQtdQuartos()%></td>
@@ -203,7 +202,7 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 					<p class="fonte-especial display-6 text-center">Aceitamos todos
 						os cartões</p>
 					<figure class="d-flex justify-content-center">
-						<img id="img-cartao" src="../../assets/img/aceitamos-cartoes.png"
+						<img id="img-cartao" src="../assets/img/aceitamos-cartoes.png"
 							alt="">
 					</figure>
 				</article>
@@ -223,6 +222,16 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 	</footer>
 
 	<script src="./assets/js/script.js"></script>
+	<script type="text/javascript">
+		var data = document.getElementsByClassName("testeData")
+
+		for (let v = 0; v < data.length; v++) {
+			const dataSplitted = data[v].innerText.split("-").reverse().join(
+					"/")
+			document.getElementsByClassName("testeData")[v].innerText = dataSplitted
+		}
+		console.log("Esta rodando")
+	</script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

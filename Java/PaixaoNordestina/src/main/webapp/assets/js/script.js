@@ -18,10 +18,11 @@ function update() {
 	var select = document.getElementById('destino');
 
 	var option = select.options[select.selectedIndex].value;
-
+	console.log(option)
 	switch (option) {
+
 		case '1':
-			document.getElementById('preco').value = 100;
+			document.getElementById('preco').value = '100';
 			break;
 		case '2':
 			document.getElementById('preco').value = 200;
@@ -48,10 +49,10 @@ function update() {
 			document.getElementById('preco').value = 900;
 			break;
 		default:
-			console.log('erro')
+			console.log("erro")
 	}
+	console.log(document.getElementById('preco').value)
 }
-update();
 // ==========================================================
 
 // ======= FUNÇÃO QUE CALCULA QUANTIDADE DE DATAS ===========
@@ -60,40 +61,43 @@ const inputVolta = document.querySelector('#dataVolta');
 const totalDias = document.querySelector('#dias');
 
 function calculateDataDiff() {
-    
-    let dataIda = inputIda.value;
-    let dataVolta = inputVolta.value;
 
-    dataIda = new Date(dataIda)
-    dataVolta = new Date(dataVolta)
+	let dataIda = inputIda.value;
+	let dataVolta = inputVolta.value;
 
-    let diffInTime = Math.abs(dataVolta - dataIda)
-    let timeInOneDay = (1000 * 60 * 60 * 24) //milisegundos * segundos * minutos * horas por dia
-    let diffInDays = Math.ceil(diffInTime / timeInOneDay)
+	dataIda = new Date(dataIda)
+	dataVolta = new Date(dataVolta)
 
-    totalDias.value = diffInDays
+	let diffInTime = Math.abs(dataVolta - dataIda)
+	let timeInOneDay = (1000 * 60 * 60 * 24) //milisegundos * segundos * minutos * horas por dia
+	let diffInDays = Math.ceil(diffInTime / timeInOneDay)
 
-    return totalDias
+	totalDias.value = diffInDays
+
+	return totalDias
 }
-        
-// ====FUNÇÃO QUE MULTIPLICA P VALOR DE DIAS, VIAJANTES E PRECO ===
-		
-		const precos = document.querySelector('#preco')
-        const dias = document.querySelector('#dias')
-        const viajantes = document.querySelector('#qtdViajantes')
-        const total = document.querySelector('#valorTotal')
 
-        function totalViagem() {
-            let preco = precos.value
-            let dia = dias.value
-            let viajante = viajantes.value
+// ==== FUNÇÃO QUE MULTIPLICA P VALOR DE DIAS, VIAJANTES E PRECO ===
 
-            valorTotal.value = preco * dia * viajante
-            
-            return valorTotal
-        }
+const precos = document.querySelector('#preco')
+const dias = document.querySelector('#dias')
+const viajantes = document.querySelector('#qtdViajantes')
+const total = document.querySelector('#valorTotal')
 
+function totalViagem() {
+	let preco = precos.value
+	let dia = dias.value
+	let viajante = viajantes.value
 
+	document.getElementById('valorTotal').value = preco * dia * viajante
 
+}
 
+//==================== FUNÇÃO TESTE DATA =======================
+
+function criarViagem() {
+
+	const preco = document.querySelector('#preco')
+	cnosole.log(preco)
+}
 

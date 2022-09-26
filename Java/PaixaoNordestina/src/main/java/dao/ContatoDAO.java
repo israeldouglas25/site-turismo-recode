@@ -7,23 +7,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import connection.ConnectionMySQL;
-import model.Card;
+import model.Contato;
 
-public class CardDAO {
+public class ContatoDAO {
 
 	Connection conn = null;
 	PreparedStatement pstm = null;
 
-	public void save(Card card) {
-		String sql = "INSERT INTO card(nome, precoPromocao) VALUES (?, ?)";
+	public void save(Contato contato) {
+		String sql = "INSERT INTO contato(nome, email, telefone, mensagem) values(?,?,?,?)";
 
 		try {
+
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
 
-			pstm.setString(1, card.getNome());
-			pstm.setDouble(2, card.getPrecoPromocao());
-
+			pstm.setString(1, contato.getNome());
+			pstm.setString(2, contato.getEmail());
+			pstm.setString(3, contato.getTelefone());
+			pstm.setString(4, contato.getMensagem());
 			pstm.execute();
 
 		} catch (Exception e) {
@@ -42,36 +44,34 @@ public class CardDAO {
 		}
 	}
 
-	public List<Card> getCard() {
-		String sql = "SELECT * FROM card";
+	public List<Contato> getContato() {
+		String sql = "SELECT * FROM contato";
 
-		List<Card> listaCard = new ArrayList<Card>();
-
+		List<Contato> contatos = new ArrayList<Contato>();
 		ResultSet rset = null;
 
 		try {
+
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
 			rset = pstm.executeQuery();
 
 			while (rset.next()) {
-				Card card = new Card();
+				Contato contato = new Contato();
 
-				card.setId(rset.getInt("id_card"));
-				card.setNome(rset.getString("nome"));
-				card.setPrecoPromocao(rset.getDouble("precoPromocao"));
+				contato.setId(rset.getInt("id_contato"));
+				contato.setNome(rset.getString("nome"));
+				contato.setEmail(rset.getString("email"));
+				contato.setTelefone(rset.getString("telefone"));
+				contato.setMensagem(rset.getString("mensagem"));
 
-				listaCard.add(card);
+				contatos.add(contato);
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
-
 		} finally {
 			try {
-				if (rset != null) {
-					rset.close();
-				}
 				if (pstm != null) {
 					pstm.close();
 				}
@@ -82,21 +82,23 @@ public class CardDAO {
 				e.printStackTrace();
 			}
 		}
-
-		return listaCard;
+		return contatos;
 	}
 
-	public void update(Card card) {
-		String sql = "UPDATE card set nome = ?, precoPromocao = ? WHERE id_card = ?";
+	public void update(Contato contato) {
+		String sql = "UPDATE contato set nome = ?, email = ?, telefone = ?, mensagem = ? WHERE id_contato = ?";
 
 		try {
+
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
 
-			pstm.setString(1, card.getNome());
-			pstm.setDouble(2, card.getPrecoPromocao());
-			pstm.setInt(3, card.getId());
-
+			pstm.setString(1, contato.getNome());
+			pstm.setString(2, contato.getEmail());
+			pstm.setString(3, contato.getTelefone());
+			pstm.setString(4, contato.getMensagem());
+			pstm.setInt(5, contato.getId());
+			
 			pstm.execute();
 
 		} catch (Exception e) {
@@ -116,8 +118,8 @@ public class CardDAO {
 	}
 
 	public void deleteById(int id) {
-		String sql = "DELETE FROM card WHERE id_card = ?";
-
+		String sql = "DELETE FROM contato WHERE id_contato = ?";
+		
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
@@ -142,13 +144,13 @@ public class CardDAO {
 		}
 	}
 
-	public Card getCardById(int id) {
-		String sql = "SELECT * FROM card WHERE id_card = ?";
-
-		Card card = new Card();
-
+	public Contato getContatoById(int id) {
+		String sql = "SELECT * FROM contato WHERE id_contato = ?";
+		
+		Contato contato = new Contato();
+		
 		ResultSet rset = null;
-
+		
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
@@ -158,11 +160,13 @@ public class CardDAO {
 			rset = pstm.executeQuery();
 			rset.next();
 			
-			card.setId(rset.getInt("id_card"));
-			card.setNome(rset.getString("nome"));
-			card.setPrecoPromocao(rset.getDouble("precoPromocao"));
-
-		} catch (Exception e) {
+			contato.setId(rset.getInt("id_contato"));
+			contato.setNome(rset.getString("nome"));
+			contato.setEmail(rset.getString("email"));
+			contato.setTelefone(rset.getString("telefone"));
+			contato.setMensagem(rset.getString("mensagem"));
+			
+		}catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -176,8 +180,7 @@ public class CardDAO {
 				e.printStackTrace();
 			}
 		}
-
-		return card;
+		
+		return contato;
 	}
-
 }

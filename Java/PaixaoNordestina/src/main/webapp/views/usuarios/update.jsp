@@ -34,7 +34,7 @@
 						<h1 class="fonte-titulo mt-5 mb-3">Atualizar</h1>
 					</div>
 					<!-- form -->
-					<form action="../../update-cadastro"
+					<form action="./update-usuario"
 						class="row mt-3 d-flexjustify-content-around">
 						<div class="col-12 mb-2">
 							<label for="idLogin" class="form-label">ID</label> <input
@@ -57,33 +57,17 @@
 								type="password" class="form-control" id="senhaLogin"
 								name="senha" value="<%=request.getAttribute("nome")%>">
 						</div>
-						<div class="col-md-6 mb-2">
-							<label for="senhaLogin" class="form-label">Confirmar
-								Senha</label> <input type="password" class="form-control"
-								id="senhaLogin">
-						</div>
-
-						<div class="mt-4">
-							<p class="text m-2">
-								<span> ou acesse pela conta </span>
-							</p>
-						</div>
-						<div class="col-md login-conta">
-							<div class="facebook">
-								<a class="login-facebook" href=""> <i class="bi bi-facebook"></i>
-									ENTRAR COM FACEBOOK
-								</a>
-							</div>
-						</div>
-						<div class="col-md login-conta">
-							<div class="google">
-								<a class="login-google" href=""> <i class="bi bi-google"></i>
-									ENTRAR COM GOOGLE
-								</a>
-							</div>
+						<div class="col-md-6">
+							<label for="tipoPermissao" class="form-label">Destino</label> <select
+								class="form-select" id="tipoPermissao" name="tipoPermissao"
+								required>
+								<option selected disabled value="">Selecione</option>
+								<option value="1">Administrador</option>
+								<option value="2">Cliente</option>
+							</select>
 						</div>
 						<div class="d-flex justify-content-center mb-3">
-							<button type="submit" class="btn botao ">ENTRAR</button>
+							<button type="submit" class="btn botao ">Atualizar</button>
 						</div>
 						<div class="col-12 d-flex justify-content-center">
 							<p>

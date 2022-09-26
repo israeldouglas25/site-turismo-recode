@@ -63,7 +63,11 @@ public class ViagemServilet extends HttpServlet {
 	protected void create(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		//String data = request.getParameter("dataIda");
+		String preco1 = request.getParameter("preco");
+		
+		int qtdViajantes = Integer.parseInt(request.getParameter("qtdViajantes"));
+		Double totalViagem = Double.parseDouble(request.getParameter("total"));
+		Double precoViagem = totalViagem / qtdViajantes;
 		
 		viagem.setOrigem(request.getParameter("origem"));
 		viagem.setDestino(request.getParameter("destino"));
@@ -71,7 +75,7 @@ public class ViagemServilet extends HttpServlet {
 		viagem.setDataVolta(request.getParameter("dataVolta"));
 		viagem.setQtdViajantes(Integer.parseInt(request.getParameter("qtdViajantes")));
 		viagem.setQtdQuartos(Integer.parseInt(request.getParameter("qtdQuartos")));
-		viagem.setPreco(Double.parseDouble(request.getParameter("preco")));
+		viagem.setPreco(precoViagem);
 		viagem.setTotal(Double.parseDouble(request.getParameter("total")));
 		viagem.setDias(Integer.parseInt(request.getParameter("dias")));
 

@@ -68,44 +68,37 @@
 		</div>
 		<div class="container">
 			<!-- form -->
-			<form>
+			<form action="../../create-contato">
 				<h1 class="fonte-especial">Contato</h1>
 				<hr>
 				<div class="row">
 					<div class="col-md">
 						<div class="mb-3">
-							<label for="nomeContato" class="form-label">Nome</label> <input
-								type="text" class="form-control" id="nomeContato"
+							<label for="nome" class="form-label">Nome Completo</label> <input
+								type="text" class="form-control" id="nome" name="nome"
 								aria-describedby="helpIdNome" placeholder="Nome">
-						</div>
-					</div>
-					<div class="col-md">
-						<div class="mb-3">
-							<label for="sobrenomeContato" class="form-label">Sobrenome</label>
-							<input type="text" class="form-control" id="nomeContato"
-								aria-describedby="helpIdSobrenome" placeholder="Sobrenome">
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md">
 						<div class="mb-3">
-							<label for="emailContato" class="form-label">Email</label> <input
-								type="email" class="form-control" id="emailContato"
+							<label for="email" class="form-label">Email</label> <input
+								type="email" class="form-control" id="email" name="email"
 								aria-describedby="emailHelpId" placeholder="exemplo@mail.com">
 						</div>
 					</div>
 					<div class="col-md">
 						<div class="mb-3">
-							<label for="telefoneContato" class="form-label">Telefone</label>
-							<input type="text" class="form-control" id="telefoneContato"
+							<label for="telefone" class="form-label">Telefone</label>
+							<input type="text" class="form-control" id="telefone" name="telefone"
 								aria-describedby="helpId" placeholder="(xx) xxxxx-xxxx">
 						</div>
 					</div>
 				</div>
 				<div class="mb-3">
-					<label for="areaTextoContato" class="form-label">Mensagem</label>
-					<textarea class="form-control" id="areaTextoContato" rows="10"
+					<label for="mensagem" class="form-label">Mensagem</label>
+					<textarea class="form-control" id="mensagem" name="mensagem" rows="10"
 						placeholder="Deixe aqui sua mensagem que entraremos em contato."></textarea>
 				</div>
 

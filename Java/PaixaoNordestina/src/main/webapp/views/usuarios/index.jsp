@@ -82,12 +82,12 @@ List<Usuario> usuarios = (List<Usuario>) request.getAttribute("usuarios");
 			<table class="table table-responsive table-hover">
 				<thead class="table-light">
 					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Nome</th>
-						<th Scope="col">E-mail</th>
-						<th Scope="col">Senha</th>
-						<th Scope="col">Permissão</th>
-						<th scope="col">Ações</th>
+						<th scope="col" class="form-label">#</th>
+						<th scope="col" class="form-label">Nome</th>
+						<th Scope="col" class="form-label">E-mail</th>
+						<th Scope="col" class="form-label">Senha</th>
+						<th Scope="col" class="form-label">Permissão</th>
+						<th scope="col" class="form-label">Ações</th>
 					</tr>
 				</thead>
 				<tbody>
