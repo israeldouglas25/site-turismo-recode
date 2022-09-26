@@ -157,7 +157,7 @@ List<Viajante> viajantes = (List<Viajante>) request.getAttribute("viajantes");
 									title="Editar"> <i class="bi bi-file-earmark-text"></i>
 								</a> <a href="delet-viajante?id=<%=v.getId()%>" class="mx-1"
 									title="Excluir"
-									onclick="return confirm('Deseja excluir a permissão <%=v.getNome()%>.')">
+									onclick="return confirm('Deseja excluir o viajante <%=v.getNome()%>.')">
 									<i class="bi bi-trash"></i>
 								</a>
 							</div>

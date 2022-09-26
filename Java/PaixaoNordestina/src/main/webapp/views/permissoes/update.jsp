@@ -22,7 +22,7 @@
 <body>
 	<header>
 		<!-- Incluindo o menu de navegação -->
-		<nav class="navbar navbar-expand-lg fixed-top">
+		<nav class="navbar navbar-expand-lg bg-navbar">
 			<div class="container-fluid">
 				<figure>
 					<a class="navbar-brand" href="./index.html"><img

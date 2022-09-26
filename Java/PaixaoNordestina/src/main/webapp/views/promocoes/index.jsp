@@ -48,7 +48,7 @@ List<Card> lista = (List<Card>) request.getAttribute("card");
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link fonte"
-							href="../destino">Destinos</a></li>
+							href="../../destino">Destinos</a></li>
 						<li class="nav-item"><a class="nav-link fonte" href="#">Promoções</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
 							href="../contato">Contato</a></li>
@@ -59,9 +59,8 @@ List<Card> lista = (List<Card>) request.getAttribute("card");
 						</a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
-								<li><a class="dropdown-item" href="./cadastrar.html">Cadastrar</a></li>
-								<li><a class="dropdown-item" href="./login.html">Entrar</a></li>
-								<li><a class="dropdown-item" href="../../permissoes">Permissão</a></li>
+								<li><a class="dropdown-item" href="../usuarios/create.html">Cadastrar</a></li>
+								<li><a class="dropdown-item" href="../login">Entrar</a></li>
 							</ul></li>
 					</ul>
 				</div>

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import connection.ConnectionMySQL;
+import model.Permissoes;
+import model.Usuario;
 import model.Viagem;
 
 public class ViagemDAO {
@@ -52,7 +54,7 @@ public class ViagemDAO {
 			}
 		}
 	}
-
+ 
 	public List<Viagem> getViagem() {
 
 		String sql = "SELECT * FROM viagem";
@@ -65,7 +67,7 @@ public class ViagemDAO {
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
 			rset = pstm.executeQuery();
-			SimpleDateFormat dataFormat = new SimpleDateFormat("dd/MM/yyyy");
+			
 
 			while (rset.next()) {
 				Viagem viagem = new Viagem();
@@ -73,8 +75,8 @@ public class ViagemDAO {
 				viagem.setId(rset.getInt("id_viagem"));
 				viagem.setOrigem(rset.getString("origem"));
 				viagem.setDestino(rset.getString("destino"));
-				viagem.setDataIda(dataFormat.format(rset.getDate("data_ida")));
-				viagem.setDataVolta(dataFormat.format(rset.getDate("data_volta")));
+				viagem.setDataIda(rset.getDate("data_ida").toString());
+				viagem.setDataVolta(rset.getDate("data_volta").toString());
 				viagem.setQtdViajantes(rset.getInt("qtd_viajantes"));
 				viagem.setQtdQuartos(rset.getInt("qtd_quartos"));
 				viagem.setPreco(rset.getDouble("preco"));
@@ -214,5 +216,53 @@ public class ViagemDAO {
 			}
 		}
 		return viagem;
+	}
+
+	public List<Usuario> getUsuario() {
+		String sql = "SELECT * FROM usuario ORDER BY nome;";
+
+		List<Usuario> listaUsuario = new ArrayList<Usuario>();
+
+		ResultSet rset = null;
+
+		try {
+			conn = ConnectionMySQL.createConnectionMySQL();
+			pstm = conn.prepareStatement(sql);
+			rset = pstm.executeQuery();
+
+			while (rset.next()) {
+				Usuario usuario = new Usuario();
+				Permissoes permissao = new Permissoes();
+
+				usuario.setId(rset.getInt("id_usuario"));
+				usuario.setNome(rset.getString("nome"));
+				usuario.setEmail(rset.getString("email"));
+				usuario.setSenha(rset.getString("senha"));
+
+				permissao.setId(rset.getInt("tipo_permissao"));
+
+				usuario.setPermissoes(permissao);
+
+				listaUsuario.add(usuario);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if (rset != null) {
+					rset.close();
+				}
+				if (pstm != null) {
+					pstm.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return listaUsuario;
 	}
 }

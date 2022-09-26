@@ -23,9 +23,10 @@ public class ViagemServilet extends HttpServlet {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String action = request.getServletPath();
-		
+
 		switch (action) {
 		case "/destino":
 			read(request, response);
@@ -33,19 +34,19 @@ public class ViagemServilet extends HttpServlet {
 		case "/create-destino":
 			create(request, response);
 			break;
-			/*case "/edit-viajante":
+		case "/edit-destino":
 			edit(request, response);
 			break;
-		case "/update-viajante":
+		case "/update-destino":
 			update(request, response);
 			break;
-		case "/delet-viajante":
+		case "/delet-destino":
 			delet(request, response);
 			break;
 		default:
 			response.sendRedirect("index.html");
 			break;
-		*/}
+		}
 	}
 
 	// READ
@@ -57,24 +58,76 @@ public class ViagemServilet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("./views/destino/index.jsp");
 		rd.forward(request, response);
 	}
-	
+
 	// CREATE
-		protected void create(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
+	protected void create(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-			viagem.setOrigem(request.getParameter("origem"));
-			viagem.setDestino(request.getParameter("destino"));
-			viagem.setDataIda(request.getParameter("dataIda"));
-			viagem.setDataVolta(request.getParameter("dataVolta"));
-			viagem.setQtdViajantes(Integer.parseInt(request.getParameter("qtdViajantes")));
-			viagem.setQtdQuartos(Integer.parseInt(request.getParameter("qtdQuartos")));
-			viagem.setPreco(Double.parseDouble(request.getParameter("preco")));
-			viagem.setTotal(Double.parseDouble(request.getParameter("total")));
-			viagem.setDias(Integer.parseInt(request.getParameter("dias")));
+		//String data = request.getParameter("dataIda");
+		
+		viagem.setOrigem(request.getParameter("origem"));
+		viagem.setDestino(request.getParameter("destino"));
+		viagem.setDataIda(request.getParameter("dataIda"));
+		viagem.setDataVolta(request.getParameter("dataVolta"));
+		viagem.setQtdViajantes(Integer.parseInt(request.getParameter("qtdViajantes")));
+		viagem.setQtdQuartos(Integer.parseInt(request.getParameter("qtdQuartos")));
+		viagem.setPreco(Double.parseDouble(request.getParameter("preco")));
+		viagem.setTotal(Double.parseDouble(request.getParameter("total")));
+		viagem.setDias(Integer.parseInt(request.getParameter("dias")));
 
-			viagemDAO.save(viagem);
-			response.sendRedirect("viagem");
+		viagemDAO.save(viagem);
+		response.sendRedirect("destino");
 
-		}
+	}
+
+	// READ BY ID
+	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+
+		viagem = viagemDAO.getViagemById(id);
+
+		request.setAttribute("id", viagem.getId());
+		request.setAttribute("origem", viagem.getOrigem());
+		request.setAttribute("destino", viagem.getDestino());
+		request.setAttribute("dataIda", viagem.getDataIda());
+		request.setAttribute("dataVolta", viagem.getDataVolta());
+		request.setAttribute("qtdViajantes", viagem.getQtdViajantes());
+		request.setAttribute("qtdQuartos", viagem.getQtdQuartos());
+		request.setAttribute("preco", viagem.getPreco());
+		request.setAttribute("total", viagem.getTotal());
+		request.setAttribute("dias", viagem.getDias());
+
+		RequestDispatcher rd = request.getRequestDispatcher("./views/destino/update.jsp");
+		rd.forward(request, response);
+
+	}
+
+	// UPDATE
+	protected void update(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		viagem.setId(Integer.parseInt(request.getParameter("id")));
+		viagem.setOrigem(request.getParameter("origem"));
+		viagem.setDestino(request.getParameter("destino"));
+		viagem.setDataIda(request.getParameter("dataIda"));
+		viagem.setDataVolta(request.getParameter("dataVolta"));
+		viagem.setQtdViajantes(Integer.parseInt(request.getParameter("qtdViajantes")));
+		viagem.setQtdQuartos(Integer.parseInt(request.getParameter("qtdQuartos")));
+		viagem.setPreco(Double.parseDouble(request.getParameter("preco")));
+		viagem.setTotal(Double.parseDouble(request.getParameter("total")));
+		viagem.setDias(Integer.parseInt(request.getParameter("dias")));
+
+		viagemDAO.update(viagem);
+		response.sendRedirect("destino");
+	}
+
+	// DELET
+	protected void delet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		int id = Integer.parseInt(request.getParameter("id"));
+		viagemDAO.deleteById(id);
+		response.sendRedirect("destino");
+	}
 
 }

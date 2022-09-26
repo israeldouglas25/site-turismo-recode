@@ -57,7 +57,6 @@ update();
 // ======= FUNÇÃO QUE CALCULA QUANTIDADE DE DATAS ===========
 const inputIda = document.querySelector('#dataIda');
 const inputVolta = document.querySelector('#dataVolta');
-const button = document.querySelector('button');
 const totalDias = document.querySelector('#dias');
 
 function calculateDataDiff() {

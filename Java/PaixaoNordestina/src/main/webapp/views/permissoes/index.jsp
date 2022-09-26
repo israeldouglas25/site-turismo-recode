@@ -47,7 +47,7 @@ List<Permissoes> lista = (List<Permissoes>) request.getAttribute("permissoes");
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link fonte"
-							href="./views/destino">Destinos</a></li>
+							href="./destino">Destinos</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
 							href="./views/promocoes">Promoções</a></li>
 						<li class="nav-item"><a class="nav-link fonte"

@@ -1,10 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="model.Viagem" import="java.util.List" import="java.text.SimpleDateFormat"%>
-
-<%
-@SuppressWarnings("unchecked")
-List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
-%>
+<%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -30,7 +24,7 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 <body>
 	<header>
 		<!-- Incluindo o menu de navegação -->
-		<nav class="navbar navbar-expand-lg fixed-top">
+		<nav class="navbar navbar-expand-lg bg-navbar">
 			<div class="container-fluid">
 				<figure>
 					<a class="navbar-brand" href="./index.html"><img
@@ -47,7 +41,7 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link fonte" href="#">Destinos</a></li>
+						<li class="nav-item"><a class="nav-link fonte" href="./destino">Destinos</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
 							href="./views/promocoes">Promoções</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
@@ -62,6 +56,7 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 								<li><a class="dropdown-item"
 									href="./views/usuarios/create.html">Cadastrar</a></li>
 								<li><a class="dropdown-item" href="./views/login">Entrar</a></li>
+								<li><a class="dropdown-item" href="./permissoes">Permissão</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -70,24 +65,26 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 	</header>
 
 	<main class="bg-main">
-		<div>
-			<img class="banner" src="./assets/img/banner-1.jpg" alt="">
-		</div>
 		<div class="container">
 			<!-- form Datas, número de viajantes -->
-			<h1 class="fonte-especial">Qual o seu destino</h1>
+			<h1 class="text-center fonte-especial p-3">Atualizar</h1>
 			<hr>
-			<form action="./create-destino" class="row g-3">
+			<form action="./update-destino" class="row g-3">
+				<div class="form-group mb-3">
+					<label for="id" class="form-label">Id</label><input type="text"
+						id="id" name="id" class="form-control"
+						value="<%=request.getAttribute("id")%>" readonly />
+				</div>
 				<div class="col-md-6">
 					<label for="origem" class="form-label">Origem</label> <input
 						type="text" class="form-control" id="origem" name="origem"
-						required>
+						value="<%=request.getAttribute("origem")%>">
 				</div>
 				<div class="col-md-6">
 					<label for="destino" class="form-label">Destino</label> <select
 						class="form-select" id="destino" name="destino"
-						onChange="update()" required>
-						<option selected disabled value="">Selecione</option>
+						onChange="update()">
+						<option selected disabled value="<%=request.getAttribute("destino")%>">Selecione</option>
 						<option value="1">ALAGOAS</option>
 						<option value="2">BAHIA</option>
 						<option value="3">CEARA</option>
@@ -108,92 +105,40 @@ List<Viagem> viagem = (List<Viagem>) request.getAttribute("destino");
 				</div>
 				<div class="col-md-4">
 					<label for="preco" class="form-label">Preco da viagem</label> <input
-						type="text" class="form-control" id="preco" name="preco" disabled>
+						type="text" class="form-control" id="preco" name="preco" value="<%=request.getAttribute("preco")%>" disabled>
 				</div>
 				<div class="col-md-4">
 					<label for="dataIda" class="form-label">Data de ida</label> <input
-						type="date" class="form-control" name="dataIda" id="dataIda">
+						type="date" class="form-control" name="dataIda" id="dataIda" value="<%=request.getAttribute("dataIda")%>">
 				</div>
 				<div class="col-md-4">
 					<label for="dataVolta" class="form-label">Data de Volta</label> <input
-						type="date" class="form-control" name="dataVolta" id="dataVolta"
+						type="date" class="form-control" name="dataVolta" id="dataVolta" value="<%=request.getAttribute("dataVolta")%>"
 						onChange="calculateDataDiff()">
 				</div>
 				<div class="col-md-4">
 					<label for="dias" class="form-label">Total de dias</label> <input
-						type="text" class="form-control" id="dias" name="dias" disabled>
+						type="text" class="form-control" id="dias" name="dias" value="<%=request.getAttribute("dias")%>" disabled>
 				</div>
 				<div class="col-4">
 					<label for="qtdViajantes" class="form-label">Viajantes</label> <input
 						type="number" class="form-control" name="qtdViajantes"
-						id="qtdViajantes" onChange="totalViagem()">
+						id="qtdViajantes" value="<%=request.getAttribute("qtdViajantes")%>" onChange="totalViagem()">
 				</div>
 				<div class="col-4">
 					<label for="qtdQuartos" class="form-label">Quartos</label> <input
 						type="number" class="form-control" name="qtdQuartos"
-						id="qtdQuartos" value="1">
+						id="qtdQuartos" value="<%=request.getAttribute("qtdQuartos")%>">
 				</div>
 				<div class="col-4">
 					<label for="valorTotal" class="form-label">Valor Total</label> <input
 						type="number" class="form-control" name="valorTotal"
-						id="valorTotal" disabled>
+						id="valorTotal" value="<%=request.getAttribute("total")%>" disabled>
 				</div>
 				<div class="col-12 mb-3 d-grid">
-					<button class="btn botao" type="submit">Adicionar Destino</button>
+					<button class="btn botao" type="submit">Atualizar Destino</button>
 				</div>
 			</form>
-
-			<h2 class="text-center fonte-especial mt-3">Lista de viagens</h2>
-			<table class="table table-responsive table-hover">
-				<thead class="table-light">
-					<tr>
-						<th scope="col" class="form-label">#</th>
-						<th scope="col" class="form-label">ORIGEM</th>
-						<th scope="col" class="form-label">DESTINO</th>
-						<th scope="col" class="form-label">DATA IDA</th>
-						<th scope="col" class="form-label">DATA VOLTA</th>
-						<th scope="col" class="form-label">DIAS</th>
-						<th scope="col" class="form-label">QTD VIAJANTES</th>
-						<th scope="col" class="form-label">QTD QUARTOS</th>
-						<th scope="col" class="form-label">PREÇO</th>
-						<th scope="col" class="form-label">TOTAL</th>
-						<th scope="col" class="form-label">AÇÕES</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%
-					for (Viagem vg : viagem) {
-					%>
-					<tr>
-						<td><%=vg.getId()%></td>
-						<td><%=vg.getOrigem()%></td>
-						<td><%=vg.getDestino()%></td>
-						<%-- <td><%=dataFormat.format(vg.getDataIda())%></td>
-						<td><%=dataFormat.format(vg.getDataVolta())%></td> --%>
-						<td><%=vg.getDataIda()%></td>
-						<td><%=vg.getDataVolta()%></td>
-						<td><%=vg.getDias()%></td>
-						<td><%=vg.getQtdViajantes()%></td>
-						<td><%=vg.getQtdQuartos()%></td>
-						<td><%=vg.getPreco()%></td>
-						<td><%=vg.getTotal()%></td>
-						<td>
-							<div class="d-flex">
-								<a href="edit-destino?id=<%=vg.getId()%>" class="mx-1"
-									title="Editar"> <i class="bi bi-file-earmark-text"></i>
-								</a> <a href="delet-destino?id=<%=vg.getId()%>" class="mx-1"
-									title="Excluir"
-									onclick="return confirm('Deseja excluir a viagem para <%=vg.getDestino()%>.')">
-									<i class="bi bi-trash"></i>
-								</a>
-							</div>
-						</td>
-					</tr>
-					<%
-					}
-					%>
-				</tbody>
-			</table>
 		</div>
 	</main>
 	<footer class="bg-footer">

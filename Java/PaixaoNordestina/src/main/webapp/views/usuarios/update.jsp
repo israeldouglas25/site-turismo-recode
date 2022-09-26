@@ -24,8 +24,7 @@
 	<main class="bg-light">
 		<div class="container">
 			<section class="row caixa">
-				<nav
-					class="col-md-4 d-flex justify-content-center align-items-center bg-footer">
+				<nav class="col-md-4 d-flex justify-content-center align-items-center bg-footer">
 					<a class="navbar-brand" href="../../index.html"><img
 						class="rounded-circle" src="../../assets/img/Viagem2.jpg"
 						alt="Logomarca"></a>

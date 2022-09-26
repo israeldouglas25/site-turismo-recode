@@ -1,7 +1,6 @@
 package model;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class Viagem {
@@ -18,7 +17,8 @@ public class Viagem {
 	private int dias;
 
 	// classe responsavel por formatar um padrao diferente do formato ISO
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
+	
 
 	public Viagem() {
 
@@ -29,14 +29,10 @@ public class Viagem {
 		this.id = id;
 		this.dataIda = LocalDate.parse(dataIda, formatter);
 		this.dataVolta = LocalDate.parse(dataVolta, formatter);
-		// Retorno dos dias
-		Period periodo = Period.between(this.dataIda, this.dataVolta);
-		this.dias = periodo.getDays();
-		// ==========================
 		this.qtdViajantes = qtdViajantes;
 		this.qtdQuartos = qtdQuartos;
 		this.preco = preco;
-		this.total = setTotal(total * qtdViajantes);
+		this.total = total;
 	}
 
 	public int getId() {
@@ -68,7 +64,7 @@ public class Viagem {
 	}
 
 	public void setDataIda(String dataIda) {
-		this.dataIda = LocalDate.parse(dataIda, formatter);
+		this.dataIda = LocalDate.parse(dataIda);
 	}
 
 	public String getDataVolta() {
@@ -76,7 +72,7 @@ public class Viagem {
 	}
 
 	public void setDataVolta(String dataVolta) {
-		this.dataVolta = LocalDate.parse(dataVolta, formatter);
+		this.dataVolta = LocalDate.parse(dataVolta);
 	}
 
 	public int getQtdViajantes() {
@@ -107,9 +103,8 @@ public class Viagem {
 		return total;
 	}
 
-	public double setTotal(double total) {
-		this.total = total + (preco * dias);
-		return this.total;
+	public void setTotal(double total) {
+		this.total = total;
 	}
 
 	public int getDias() {

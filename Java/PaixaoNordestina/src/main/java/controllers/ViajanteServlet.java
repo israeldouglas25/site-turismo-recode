@@ -89,7 +89,7 @@ public class ViajanteServlet extends HttpServlet {
 		request.setAttribute("cpf", viajante.getCpf());
 		request.setAttribute("telefone", viajante.getTelefone());
 
-		RequestDispatcher rd = request.getRequestDispatcher("./views/destino/update.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("./views/viajante/update.jsp");
 		rd.forward(request, response);
 
 	}
