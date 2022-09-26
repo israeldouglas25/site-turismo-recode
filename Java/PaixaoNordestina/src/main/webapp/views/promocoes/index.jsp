@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="model.Card" import="java.util.List"%>
-
-<%
-@SuppressWarnings("unchecked")
-List<Card> lista = (List<Card>) request.getAttribute("card");
-%>
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
