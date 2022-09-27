@@ -78,86 +78,29 @@ List<Destino> viagem = (List<Destino>) request.getAttribute("destino");
 			<!-- form Datas, número de viajantes -->
 			<h1 class="fonte-especial">Qual o seu destino</h1>
 			<hr>
-			<form action="./create-destino" onsubmit="criarViagem()" class="row g-3">
+			
+			<form action="./create-destino" class="row g-3">
 				<div class="col-md-6">
-					<label for="origem" class="form-label">Origem</label> <input
-						type="text" class="form-control" id="origem" name="origem"
+					<label for="destino" class="form-label">Destino</label> <input
+						type="text" class="form-control" id="destino" name="destino"
 						required>
 				</div>
 				<div class="col-md-6">
-					<label for="destino" class="form-label">Destino</label> <select
-						class="form-select" id="destino" name="destino"
-						onchange="update()" required>
-						<option selected disabled value="">Selecione</option>
-						<option value="1">ALAGOAS</option>
-						<option value="2">BAHIA</option>
-						<option value="3">CEARA</option>
-						<option value="4">MARANHAO</option>
-						<option value="5">PARAIBA</option>
-						<option value="6">PERNAMBUCO</option>
-						<option value="7">PIAUI</option>
-						<option value="8">RIO GRANDE DO NORTE</option>
-						<option value="9">SERGIPE</option>
-					</select>
+					<label for="preco" class="form-label">Preco</label> <input
+						type="number" class="form-control" id="preco" name="preco" required>
 				</div>
-				<div class="col-md-8">
-					<label for="listaViajantes" class="form-label">Nome do
-						Viajante</label> <select class="form-select" id="listaViajantes"
-						name="listaViajantes">
-						<option selected disabled value="">Selecione</option>
-					</select>
-				</div>
-				<div class="col-md-4">
-					<label for="preco" class="form-label">Preco da viagem</label> <input
-						type="text" class="form-control" id="preco" name="preco" disabled>
-				</div>
-				<div class="col-md-4">
-					<label for="dataIda" class="form-label">Data de ida</label> <input
-						type="date" class="form-control" name="dataIda" id="dataIda">
-				</div>
-				<div class="col-md-4">
-					<label for="dataVolta" class="form-label">Data de Volta</label> <input
-						type="date" class="form-control" name="dataVolta" id="dataVolta"
-						onChange="calculateDataDiff()">
-				</div>
-				<div class="col-md-4">
-					<label for="dias" class="form-label">Total de dias</label> <input
-						type="text" class="form-control" id="dias" name="dias" disabled>
-				</div>
-				<div class="col-4">
-					<label for="qtdViajantes" class="form-label">Viajantes</label> <input
-						type="number" class="form-control" name="qtdViajantes"
-						id="qtdViajantes" onChange="totalViagem()">
-				</div>
-				<div class="col-4">
-					<label for="qtdQuartos" class="form-label">Quartos</label> <input
-						type="number" class="form-control" name="qtdQuartos"
-						id="qtdQuartos" value="1">
-				</div>
-				<div class="col-4">
-					<label for="valorTotal" class="form-label">Valor Total</label> <input
-						type="number" class="form-control" name="valorTotal"
-						id="valorTotal" disabled>
-				</div>
-				<div class="col-12 mb-3 d-grid">
+				<div class="col-md mb-3 d-flex justify-content-end">
 					<button class="btn botao" type="submit">Adicionar Destino</button>
 				</div>
 			</form>
-
-			<h2 class="text-center fonte-especial mt-3">Lista de viagens</h2>
+			
+			<h2 class="text-center fonte-especial">Lista de Destino</h2>
 			<table class="table table-responsive table-hover">
 				<thead class="table-light">
 					<tr>
 						<th scope="col" class="form-label">#</th>
-						<th scope="col" class="form-label">ORIGEM</th>
 						<th scope="col" class="form-label">DESTINO</th>
-						<th scope="col" class="form-label">DATA IDA</th>
-						<th scope="col" class="form-label">DATA VOLTA</th>
-						<th scope="col" class="form-label">DIAS</th>
-						<th scope="col" class="form-label">QTD VIAJANTES</th>
-						<th scope="col" class="form-label">QTD QUARTOS</th>
 						<th scope="col" class="form-label">PREÇO</th>
-						<th scope="col" class="form-label">TOTAL</th>
 						<th scope="col" class="form-label">AÇÕES</th>
 					</tr>
 				</thead>
@@ -167,15 +110,8 @@ List<Destino> viagem = (List<Destino>) request.getAttribute("destino");
 					%>
 					<tr>
 						<td><%=vg.getId()%></td>
-						<td><%=vg.getOrigem()%></td>
 						<td><%=vg.getDestino()%></td>
-						<td class="testeData"><%=vg.getDataIda()%></td>
-						<td class="testeData"><%=vg.getDataVolta()%></td>
-						<td><%=vg.getDias()%></td>
-						<td><%=vg.getQtdViajantes()%></td>
-						<td><%=vg.getQtdQuartos()%></td>
 						<td><%=vg.getPreco()%></td>
-						<td><%=vg.getTotal()%></td>
 						<td>
 							<div class="d-flex">
 								<a href="edit-destino?id=<%=vg.getId()%>" class="mx-1"
@@ -202,7 +138,7 @@ List<Destino> viagem = (List<Destino>) request.getAttribute("destino");
 					<p class="fonte-especial display-6 text-center">Aceitamos todos
 						os cartões</p>
 					<figure class="d-flex justify-content-center">
-						<img id="img-cartao" src="../assets/img/aceitamos-cartoes.png"
+						<img id="img-cartao" src="./assets/img/aceitamos-cartoes.png"
 							alt="">
 					</figure>
 				</article>
@@ -222,16 +158,6 @@ List<Destino> viagem = (List<Destino>) request.getAttribute("destino");
 	</footer>
 
 	<script src="./assets/js/script.js"></script>
-	<script type="text/javascript">
-		var data = document.getElementsByClassName("testeData")
-
-		for (let v = 0; v < data.length; v++) {
-			const dataSplitted = data[v].innerText.split("-").reverse().join(
-					"/")
-			document.getElementsByClassName("testeData")[v].innerText = dataSplitted
-		}
-		console.log("Esta rodando")
-	</script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

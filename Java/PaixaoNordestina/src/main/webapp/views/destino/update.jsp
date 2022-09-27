@@ -41,7 +41,8 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link fonte" href="./destino">Destinos</a></li>
+						<li class="nav-item"><a class="nav-link fonte"
+							href="./destino">Destinos</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
 							href="./views/promocoes">Promoções</a></li>
 						<li class="nav-item"><a class="nav-link fonte"
@@ -76,66 +77,16 @@
 						value="<%=request.getAttribute("id")%>" readonly />
 				</div>
 				<div class="col-md-6">
-					<label for="origem" class="form-label">Origem</label> <input
-						type="text" class="form-control" id="origem" name="origem"
-						value="<%=request.getAttribute("origem")%>">
+					<label for="destino" class="form-label">Destino</label> <input
+						type="text" class="form-control" id="destino" name="destino"
+						value="<%=request.getAttribute("destino")%>">
 				</div>
 				<div class="col-md-6">
-					<label for="destino" class="form-label">Destino</label> <select
-						class="form-select" id="destino" name="destino"
-						onChange="update()">
-						<option selected disabled value="<%=request.getAttribute("destino")%>">Selecione</option>
-						<option value="1">ALAGOAS</option>
-						<option value="2">BAHIA</option>
-						<option value="3">CEARA</option>
-						<option value="4">MARANHAO</option>
-						<option value="5">PARAIBA</option>
-						<option value="6">PERNAMBUCO</option>
-						<option value="7">PIAUI</option>
-						<option value="8">RIO GRANDE DO NORTE</option>
-						<option value="9">SERGIPE</option>
-					</select>
+					<label for="preco" class="form-label">Preco</label> <input
+						type="number" class="form-control" id="preco" name="preco"
+						value="<%=request.getAttribute("preco")%>">
 				</div>
-				<div class="col-md-8">
-					<label for="listaViajantes" class="form-label">Nome do
-						Viajante</label> <select class="form-select" id="listaViajantes"
-						name="listaViajantes">
-						<option selected disabled value="">Selecione</option>
-					</select>
-				</div>
-				<div class="col-md-4">
-					<label for="preco" class="form-label">Preco da viagem</label> <input
-						type="text" class="form-control" id="preco" name="preco" value="<%=request.getAttribute("preco")%>" disabled>
-				</div>
-				<div class="col-md-4">
-					<label for="dataIda" class="form-label">Data de ida</label> <input
-						type="date" class="form-control" name="dataIda" id="dataIda" value="<%=request.getAttribute("dataIda")%>">
-				</div>
-				<div class="col-md-4">
-					<label for="dataVolta" class="form-label">Data de Volta</label> <input
-						type="date" class="form-control" name="dataVolta" id="dataVolta" value="<%=request.getAttribute("dataVolta")%>"
-						onChange="calculateDataDiff()">
-				</div>
-				<div class="col-md-4">
-					<label for="dias" class="form-label">Total de dias</label> <input
-						type="text" class="form-control" id="dias" name="dias" value="<%=request.getAttribute("dias")%>" disabled>
-				</div>
-				<div class="col-4">
-					<label for="qtdViajantes" class="form-label">Viajantes</label> <input
-						type="number" class="form-control" name="qtdViajantes"
-						id="qtdViajantes" value="<%=request.getAttribute("qtdViajantes")%>" onChange="totalViagem()">
-				</div>
-				<div class="col-4">
-					<label for="qtdQuartos" class="form-label">Quartos</label> <input
-						type="number" class="form-control" name="qtdQuartos"
-						id="qtdQuartos" value="<%=request.getAttribute("qtdQuartos")%>">
-				</div>
-				<div class="col-4">
-					<label for="valorTotal" class="form-label">Valor Total</label> <input
-						type="number" class="form-control" name="valorTotal"
-						id="valorTotal" value="<%=request.getAttribute("total")%>" disabled>
-				</div>
-				<div class="col-12 mb-3 d-grid">
+				<div class="col-md mb-3 d-flex justify-content-end">
 					<button class="btn botao" type="submit">Atualizar Destino</button>
 				</div>
 			</form>

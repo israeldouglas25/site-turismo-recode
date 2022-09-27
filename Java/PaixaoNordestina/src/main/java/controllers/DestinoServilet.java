@@ -14,12 +14,12 @@ import dao.DestinoDAO;
 import model.Destino;
 
 @WebServlet(urlPatterns = { "/destino", "/create-destino", "/edit-destino", "/update-destino", "/delet-destino" })
-public class ViagemServilet extends HttpServlet {
+public class DestinoServilet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	DestinoDAO viagemDAO = new DestinoDAO();
-	Destino viagem = new Destino();
+	DestinoDAO destinoDAO = new DestinoDAO();
+	Destino destino = new Destino();
 
-	public ViagemServilet() {
+	public DestinoServilet() {
 		super();
 	}
 
@@ -51,7 +51,7 @@ public class ViagemServilet extends HttpServlet {
 
 	// READ
 	protected void read(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Destino> lista = viagemDAO.getViagem();
+		List<Destino> lista = destinoDAO.getdestino();
 
 		request.setAttribute("destino", lista);
 
@@ -62,24 +62,12 @@ public class ViagemServilet extends HttpServlet {
 	// CREATE
 	protected void create(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String preco1 = request.getParameter("preco");
 		
-		int qtdViajantes = Integer.parseInt(request.getParameter("qtdViajantes"));
-		Double totalViagem = Double.parseDouble(request.getParameter("total"));
-		Double precoViagem = totalViagem / qtdViajantes;
 		
-		viagem.setOrigem(request.getParameter("origem"));
-		viagem.setDestino(request.getParameter("destino"));
-		viagem.setDataIda(request.getParameter("dataIda"));
-		viagem.setDataVolta(request.getParameter("dataVolta"));
-		viagem.setQtdViajantes(Integer.parseInt(request.getParameter("qtdViajantes")));
-		viagem.setQtdQuartos(Integer.parseInt(request.getParameter("qtdQuartos")));
-		viagem.setPreco(precoViagem);
-		viagem.setTotal(Double.parseDouble(request.getParameter("total")));
-		viagem.setDias(Integer.parseInt(request.getParameter("dias")));
+		destino.setDestino(request.getParameter("destino"));	
+		destino.setPreco(Double.parseDouble( request.getParameter("preco")));
 
-		viagemDAO.save(viagem);
+		destinoDAO.save(destino);
 		response.sendRedirect("destino");
 
 	}
@@ -88,18 +76,11 @@ public class ViagemServilet extends HttpServlet {
 	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 
-		viagem = viagemDAO.getViagemById(id);
+		destino = destinoDAO.getdestinoById(id);
 
-		request.setAttribute("id", viagem.getId());
-		request.setAttribute("origem", viagem.getOrigem());
-		request.setAttribute("destino", viagem.getDestino());
-		request.setAttribute("dataIda", viagem.getDataIda());
-		request.setAttribute("dataVolta", viagem.getDataVolta());
-		request.setAttribute("qtdViajantes", viagem.getQtdViajantes());
-		request.setAttribute("qtdQuartos", viagem.getQtdQuartos());
-		request.setAttribute("preco", viagem.getPreco());
-		request.setAttribute("total", viagem.getTotal());
-		request.setAttribute("dias", viagem.getDias());
+		request.setAttribute("id", destino.getId());		
+		request.setAttribute("destino", destino.getDestino());	
+		request.setAttribute("preco", destino.getPreco());
 
 		RequestDispatcher rd = request.getRequestDispatcher("./views/destino/update.jsp");
 		rd.forward(request, response);
@@ -110,18 +91,11 @@ public class ViagemServilet extends HttpServlet {
 	protected void update(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		viagem.setId(Integer.parseInt(request.getParameter("id")));
-		viagem.setOrigem(request.getParameter("origem"));
-		viagem.setDestino(request.getParameter("destino"));
-		viagem.setDataIda(request.getParameter("dataIda"));
-		viagem.setDataVolta(request.getParameter("dataVolta"));
-		viagem.setQtdViajantes(Integer.parseInt(request.getParameter("qtdViajantes")));
-		viagem.setQtdQuartos(Integer.parseInt(request.getParameter("qtdQuartos")));
-		viagem.setPreco(Double.parseDouble(request.getParameter("preco")));
-		viagem.setTotal(Double.parseDouble(request.getParameter("total")));
-		viagem.setDias(Integer.parseInt(request.getParameter("dias")));
+		destino.setId(Integer.parseInt(request.getParameter("id")));	
+		destino.setDestino(request.getParameter("destino"));		
+		destino.setPreco(Double.parseDouble(request.getParameter("preco")));
 
-		viagemDAO.update(viagem);
+		destinoDAO.update(destino);
 		response.sendRedirect("destino");
 	}
 
@@ -130,7 +104,7 @@ public class ViagemServilet extends HttpServlet {
 			throws ServletException, IOException {
 
 		int id = Integer.parseInt(request.getParameter("id"));
-		viagemDAO.deleteById(id);
+		destinoDAO.deleteById(id);
 		response.sendRedirect("destino");
 	}
 

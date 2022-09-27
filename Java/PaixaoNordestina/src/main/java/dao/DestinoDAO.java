@@ -1,41 +1,28 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import connection.ConnectionMySQL;
-import model.Permissoes;
-import model.Usuario;
 import model.Destino;
 
 public class DestinoDAO {
 	Connection conn = null;
 	PreparedStatement pstm = null;
 
-	public void save(Destino viagem) {
-		String sql = "INSERT INTO viagem(origem, destino, data_ida, data_volta, qtd_viajantes, qtd_quartos, preco, total, dias)"
-				+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	public void save(Destino destino) {
+		String sql = "INSERT INTO destino(destino, preco)" + "values(?, ?)";
 
 		try {
 
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-			pstm.setString(1, viagem.getOrigem());
-			pstm.setString(2, viagem.getDestino());
-			pstm.setDate(3, new Date(formatter.parse(viagem.getDataIda()).getTime()));
-			pstm.setDate(4, new Date(formatter.parse(viagem.getDataVolta()).getTime()));
-			pstm.setInt(5, viagem.getQtdViajantes());
-			pstm.setInt(6, viagem.getQtdQuartos());
-			pstm.setDouble(7, viagem.getPreco());
-			pstm.setDouble(8, viagem.getTotal());
-			pstm.setInt(9, viagem.getDias());
+			pstm.setString(1, destino.getDestino());
+			pstm.setDouble(2, destino.getPreco());
 
 			pstm.execute();
 
@@ -54,12 +41,12 @@ public class DestinoDAO {
 			}
 		}
 	}
- 
-	public List<Destino> getViagem() {
 
-		String sql = "SELECT * FROM viagem";
+	public List<Destino> getdestino() {
 
-		List<Destino> listaViagem = new ArrayList<Destino>();
+		String sql = "SELECT * FROM destino";
+
+		List<Destino> listadestino = new ArrayList<Destino>();
 
 		ResultSet rset = null;
 
@@ -67,23 +54,15 @@ public class DestinoDAO {
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
 			rset = pstm.executeQuery();
-			
 
 			while (rset.next()) {
-				Destino viagem = new Destino();
+				Destino destino = new Destino();
 
-				viagem.setId(rset.getInt("id_viagem"));
-				viagem.setOrigem(rset.getString("origem"));
-				viagem.setDestino(rset.getString("destino"));
-				viagem.setDataIda(rset.getDate("data_ida").toString());
-				viagem.setDataVolta(rset.getDate("data_volta").toString());
-				viagem.setQtdViajantes(rset.getInt("qtd_viajantes"));
-				viagem.setQtdQuartos(rset.getInt("qtd_quartos"));
-				viagem.setPreco(rset.getDouble("preco"));
-				viagem.setTotal(rset.getDouble("total"));
-				viagem.setDias(rset.getInt("dias"));
+				destino.setId(rset.getInt("id_destino"));
+				destino.setDestino(rset.getString("destino"));
+				destino.setPreco(rset.getDouble("preco"));
 
-				listaViagem.add(viagem);
+				listadestino.add(destino);
 			}
 
 		} catch (Exception e) {
@@ -105,28 +84,19 @@ public class DestinoDAO {
 			}
 		}
 
-		return listaViagem;
+		return listadestino;
 	}
 
-	public void update(Destino viagem) {
-		String sql = "UPDATE viagem SET origem = ?, destino = ?, data_ida = ?, data_volta = ?, qtd_viajantes = ?, "
-				+ "qtd_quartos = ?, preco = ?, total = ?, dias = ? WHERE id_viagem = ?";
+	public void update(Destino destino) {
+		String sql = "UPDATE destino SET destino = ?, preco = ? WHERE id_destino = ?";
 
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-			pstm.setString(1, viagem.getOrigem());
-			pstm.setString(2, viagem.getDestino());
-			pstm.setDate(3, new Date(formatter.parse(viagem.getDataIda()).getTime()));
-			pstm.setDate(4, new Date(formatter.parse(viagem.getDataVolta()).getTime()));
-			pstm.setInt(5, viagem.getQtdViajantes());
-			pstm.setInt(6, viagem.getQtdQuartos());
-			pstm.setDouble(7, viagem.getPreco());
-			pstm.setDouble(8, viagem.getTotal());
-			pstm.setInt(9, viagem.getDias());
-			pstm.setInt(10, viagem.getId());
+			pstm.setString(1, destino.getDestino());
+			pstm.setDouble(2, destino.getPreco());
+			pstm.setInt(3, destino.getId());
 
 			pstm.execute();
 
@@ -147,7 +117,7 @@ public class DestinoDAO {
 	}
 
 	public void deleteById(int id) {
-		String sql = "DELETE FROM viagem WHERE id_viagem = ?";
+		String sql = "DELETE FROM destino WHERE id_destino = ?";
 
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
@@ -173,33 +143,25 @@ public class DestinoDAO {
 		}
 	}
 
-	public Destino getViagemById(int id) {
-		String sql = "SELECT * FROM viagem WHERE id_viagem = ?";
+	public Destino getdestinoById(int id) {
+		String sql = "SELECT * FROM destino WHERE id_destino = ?";
 
-		Destino viagem = new Destino();
+		Destino destino = new Destino();
 
 		ResultSet rset = null;
 
 		try {
 			conn = ConnectionMySQL.createConnectionMySQL();
 			pstm = conn.prepareStatement(sql);
-			SimpleDateFormat dataFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 			pstm.setInt(1, id);
 
 			rset = pstm.executeQuery();
 			rset.next();
 
-			viagem.setId(rset.getInt("id_viagem"));
-			viagem.setOrigem(rset.getString("origem"));
-			viagem.setDestino(rset.getString("destino"));
-			viagem.setDataIda(dataFormat.format(rset.getDate("data_ida")));
-			viagem.setDataVolta(dataFormat.format(rset.getDate("data_volta")));
-			viagem.setQtdViajantes(rset.getInt("qtd_viajantes"));
-			viagem.setQtdQuartos(rset.getInt("qtd_quartos"));
-			viagem.setPreco(rset.getDouble("preco"));
-			viagem.setTotal(rset.getDouble("total"));
-			viagem.setDias(rset.getInt("dias"));
+			destino.setId(rset.getInt("id_destino"));
+			destino.setDestino(rset.getString("destino"));
+			destino.setPreco(rset.getDouble("preco"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -215,54 +177,7 @@ public class DestinoDAO {
 				e.printStackTrace();
 			}
 		}
-		return viagem;
+		return destino;
 	}
 
-	public List<Usuario> getUsuario() {
-		String sql = "SELECT * FROM usuario ORDER BY nome;";
-
-		List<Usuario> listaUsuario = new ArrayList<Usuario>();
-
-		ResultSet rset = null;
-
-		try {
-			conn = ConnectionMySQL.createConnectionMySQL();
-			pstm = conn.prepareStatement(sql);
-			rset = pstm.executeQuery();
-
-			while (rset.next()) {
-				Usuario usuario = new Usuario();
-				Permissoes permissao = new Permissoes();
-
-				usuario.setId(rset.getInt("id_usuario"));
-				usuario.setNome(rset.getString("nome"));
-				usuario.setEmail(rset.getString("email"));
-				usuario.setSenha(rset.getString("senha"));
-
-				permissao.setId(rset.getInt("tipo_permissao"));
-
-				usuario.setPermissoes(permissao);
-
-				listaUsuario.add(usuario);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-
-		} finally {
-			try {
-				if (rset != null) {
-					rset.close();
-				}
-				if (pstm != null) {
-					pstm.close();
-				}
-				if (conn != null) {
-					conn.close();
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return listaUsuario;
-	}
 }
