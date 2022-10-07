@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cadastrar</title>
+	<link rel="stylesheet" href="./css/reset.css">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+	<link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body class="bg-light">
+	<header>
+		<!-- Incluindo o menu de navegação -->
+		<nav class="navbar navbar-expand-lg bg-navbar">
+			<div class="container-fluid">
+				<figure>
+					<a class="navbar-brand" href="/"><img class="rounded-circle" src="./Imagens/Viagem1.png"
+							alt="Logomarca paixão nordestina"></a>
+				</figure>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon d-flex justify-content-center align-items-center"><i
+							class="bi bi-list"></i></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link fonte" href="./destino">Destinos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link fonte" href="./promocao">Promoções</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link fonte" href="./contato">Contato</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle fonte" href="#" id="navbarDropdownMenuLink" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								Acesse aqui
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="./cadastrar">Cadastrar</a></li>
+								<li><a class="dropdown-item" href="./login">Entrar</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<main class="bg-light">
+		<div class="container">
+			<section class="row caixa">
+				<nav class="col-md-4 d-flex justify-content-center align-items-center bg-footer">
+					<a class="navbar-brand" href="/"><img class="rounded-circle" src="./Imagens/Viagem2.jpg"
+							alt="Logomarca"></a>
+				</nav>
+				<article class="col-md-8 caixa-conta">
+					<div class="d-flex justify-content-center">
+						<h1 class="fonte-titulo mt-5 mb-3">Crie sua conta aqui</h1>
+					</div>
+					<!-- form -->
+					<form class="row mt-3 d-flex justify-content-around">
+						<div class="col-12 mb-2">
+							<label for="nomeLogin" class="form-label">Nome Completo</label>
+							<input type="text" class="form-control" id="nomeLogin" aria-describedby="nomeHelpId">
+						</div>
+						<div class="col-12 mb-2">
+							<label for="emailLogin" class="form-label">E-mail</label>
+							<input type="email" class="form-control" id="emailLogin" aria-describedby="emailHelpId">
+						</div>
+						<div class="col-md-6 mb-2">
+							<label for="senhaLogin" class="form-label">Senha</label>
+							<input type="password" class="form-control" id="senhaLogin">
+						</div>
+						<div class="col-md-6 mb-2">
+							<label for="senhaLogin" class="form-label">Confirmar Senha</label>
+							<input type="password" class="form-control" id="senhaLogin">
+						</div>
+						<!--
+                        <div class="mt-4">
+                            <p class="text m-2"><span> ou acesse pela conta </span></p>
+                        </div>
+                        <div class="col-md login-conta">
+                            <div class="facebook">
+                                <a class="login-facebook" href="">
+                                    <i class="bi bi-facebook"></i>
+                                    ENTRAR COM FACEBOOK
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md login-conta">
+                            <div class="google">
+                                <a class="login-google" href="">
+                                    <i class="bi bi-google"></i>
+                                    ENTRAR COM GOOGLE
+                                </a>
+                            </div>
+                        </div>
+                        -->
+						<div class="d-flex justify-content-center mb-3">
+							<button type="submit" class="btn botao ">ENTRAR</button>
+						</div>
+						<div class="col-12 d-flex justify-content-center">
+							<p>Ja tem conta? <a href="./login">Entre aqui</a></p>
+						</div>
+					</form>
+				</article>
+			</section>
+		</div>
+	</main>
+	<footer>
+		<div class="d-flex justify-content-center p-4">
+			<p> &copy; Paixão Nordestina 2022 - Todos os direitos reservados a pagina inicial</p>
+		</div>
+	</footer>
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
