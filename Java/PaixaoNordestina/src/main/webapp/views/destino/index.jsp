@@ -4,7 +4,7 @@
 
 <%
 @SuppressWarnings("unchecked")
-List<Destino> viagem = (List<Destino>) request.getAttribute("destino");
+List<Destino> destino = (List<Destino>) request.getAttribute("destino");
 %>
 
 <!DOCTYPE html>
@@ -106,7 +106,7 @@ List<Destino> viagem = (List<Destino>) request.getAttribute("destino");
 				</thead>
 				<tbody>
 					<%
-					for (Destino vg : viagem) {
+					for (Destino vg : destino) {
 					%>
 					<tr>
 						<td><%=vg.getId()%></td>
