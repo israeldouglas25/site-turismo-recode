@@ -21,11 +21,6 @@ public class PagesController {
 		return "promocao";
 	}
 	
-	@GetMapping("/contato")
-	public String contato() {		
-		return "contato/cadastrar";
-	}
-	
 	@GetMapping("/cadastrar")
 	public String cadastro() {		
 		return "cliente/cadastrar";

@@ -5,28 +5,28 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="../img/viagem1.png" type="image/png" />
+	<link rel="icon" href="../../img/viagem1.png" type="image/png" />
 	<title>Paixão Nordestina</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../../css/reset.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 	<!-- <link rel="stylesheet" href="./css/bootstrap.css"> -->
-	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../../css/styles.css">
 </head>
 
 <body>
 	<header>
 		<!-- Incluindo o menu de navegação -->
-		<nav class="navbar navbar-expand-lg fixed-top">
+		<nav class="navbar navbar-expand-lg bg-navbar">
 			<div class="container-fluid">
 				<figure>
-					<a class="navbar-brand" href="/"><img class="rounded-circle" src="../img/Viagem1.png"
+					<a class="navbar-brand" href="/"><img class="rounded-circle" src="../../img/Viagem1.png"
 							alt="Logomarca paixão nordestina"></a>
 				</figure>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -62,58 +62,33 @@
 	</header>
 
 	<main class="bg-main">
-		<div>
-			<img class="banner" src="../img/banner.png" alt="">
-		</div>
 		<div class="container">
+			<br>
 			<!-- form -->
-			<form method="POST" th:object="${contato}">
-				<h1 class="fonte-especial">Contato</h1>
-				<hr>
-				<div class="row">
-					<div class="col-md">
-						<div class="mb-3">
-							<label for="nome" class="form-label">Nome</label>
-							<input type="text" class="form-control" id="nome" name="nome" th:field="*{nome}"
-								aria-describedby="helpIdNome" placeholder="Nome" required>
-						</div>
-					</div>
-					<div class="col-md">
-						<div class="mb-3">
-							<label for="sobrenome" class="form-label">Sobrenome</label>
-							<input type="text" class="form-control" id="sobrenome" aria-describedby="helpIdSobrenome"
-								placeholder="Sobrenome" name="sobrenome" th:field="*{sobrenome}" required>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md">
-						<div class="mb-3">
-							<label for="email" class="form-label">Email</label>
-							<input type="email" class="form-control" id="email" aria-describedby="emailHelpId"
-								placeholder="exemplo@mail.com" name="email" th:field="*{email}" required>
-						</div>
-					</div>
-					<div class="col-md">
-						<div class="mb-3">
-							<label for="telefone" class="form-label">Telefone</label>
-							<input type="text" class="form-control" id="telefone" aria-describedby="helpId"
-								placeholder="(xx) xxxxx-xxxx" name="telefone" th:field="*{telefone}" required>
-						</div>
-					</div>
-				</div>
-				<div class="mb-3">
-					<label for="mensagem" class="form-label">Mensagem</label>
-					<textarea class="form-control" id="mensagem" rows="10"
-						placeholder="Deixe aqui sua mensagem que entraremos em contato." name="mensagem" th:field="*{mensagem}" required></textarea>
-				</div>
+			<section class="row caixa">
 
-				<div class="mb-3 form-check">
-					<input type="checkbox" class="form-check-input" id="exampleCheck1">
-					<label class="form-check-label" for="exampleCheck1">Aceitar os termos e condições</label>
-				</div>
-				<button type="submit" class="btn botao mb-3">Enviar</button>
-			</form>
+				<form method="POST" th:object="${cargo}">
+					<h1 class="fonte-especial">Cargo</h1>
+					<hr>
+					<br><br>
+					<input type="hidden" th:field="*{id}">
+					<div class="row">
+						<div class="col-sm-12 mb-3">
+							<label for="nome" class="form-label">Nome</label>
+							<input type="text" class="form-control" placeholder="Digite o cargo aqui" th:field="*{nome}"
+								required>
+						</div>
+					</div>
+
+					<button type="submit" class="btn botao mb-3">Enviar</button>
+					
+					<div class="d-flex justify-content-end">
+						<a th:href="@{/cargos}" class="btn botao mb-2">
+							Listar Cargos </a>
+					</div>
+
+				</form>
+			</section>
 		</div>
 
 	</main>

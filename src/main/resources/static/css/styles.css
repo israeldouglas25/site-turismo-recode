@@ -68,8 +68,9 @@ a {
 .caixa {
     border: 1px solid #000000;
     box-shadow: #000000 0.1rem 0.1rem 0.3rem;
-    margin: 40px auto 5px auto;
+    margin: auto auto;
     max-width: 1025px;
+    min-height: 50vh;
     width: 100%;
 }
 
@@ -217,7 +218,7 @@ a {
 .fonte-especial {
     font-family: 'Pacifico', cursive;
     color: #008584;
-    margin-top: 10px;
+    padding-top: 10px;
 }
 
 .botao {
