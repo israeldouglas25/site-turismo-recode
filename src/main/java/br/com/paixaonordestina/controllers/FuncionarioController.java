@@ -42,31 +42,41 @@ public class FuncionarioController {
 
 		return modelAndView;
 	}
-	
+
 	@GetMapping("/{id}/editar")
-    public ModelAndView editar(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("funcionario/formulario");
+	public ModelAndView editar(@PathVariable Long id) {
+		ModelAndView modelAndView = new ModelAndView("funcionario/formulario");
 
-        modelAndView.addObject("funcionario", funcionarioRepository.getReferenceById(id));
-        modelAndView.addObject("cargos", cargoRepository.findAll());
-        modelAndView.addObject("ufs", UF.values());
+		modelAndView.addObject("funcionario", funcionarioRepository.getReferenceById(id));
+		modelAndView.addObject("cargos", cargoRepository.findAll());
+		modelAndView.addObject("ufs", UF.values());
 
-        return modelAndView;
-    }
+		return modelAndView;
+	}
 
-	@PostMapping({"/cadastrar", "/{id}/editar"})
+	@PostMapping("/cadastrar")
 	public String cadastrar(Funcionario funcionario) {
 
 		funcionarioRepository.save(funcionario);
 
 		return "redirect:/funcionarios";
 	}
-	
-	@GetMapping("/{id}/excluir")
-    public String excluir(@PathVariable Long id) {
-        funcionarioRepository.deleteById(id);
 
-        return "redirect:/funcionarios";
-    }
+	@PostMapping("/{id}/editar")
+	public String editar(Funcionario funcionario, @PathVariable Long id) {
+		String senhaAtual = funcionarioRepository.getReferenceById(id).getSenha();
+		funcionario.setSenha(senhaAtual);
+
+		funcionarioRepository.save(funcionario);
+
+		return "redirect:/funcionarios";
+	}
+
+	@GetMapping("/{id}/excluir")
+	public String excluir(@PathVariable Long id) {
+		funcionarioRepository.deleteById(id);
+
+		return "redirect:/funcionarios";
+	}
 
 }
