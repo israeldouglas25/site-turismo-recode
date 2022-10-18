@@ -73,18 +73,22 @@
 					<br><br>
 					<input type="hidden" th:field="*{id}">
 					<div class="row">
-						<div class="col-sm-12 mb-3">
+						<div class="col-sm-12">
 							<label for="nome" class="form-label">Nome</label>
 							<input type="text" class="form-control" placeholder="Digite o cargo aqui" th:field="*{nome}"
 								required>
 						</div>
 					</div>
+					<div class="row mt-5">
+						<div class="col-sm-6">
+							<button type="submit" class="btn botao">ENVIAR</button>
+							<a href="/" class="btn btn-danger"> VOLTAR </a>
+						</div>
 
-					<button type="submit" class="btn botao mb-3">Enviar</button>
-					
-					<div class="d-flex justify-content-end">
-						<a th:href="@{/cargos}" class="btn botao mb-2">
-							Listar Cargos </a>
+						<div class="col-sm-6 d-flex justify-content-end">
+							<a th:href="@{/cargos}" class="btn botao mb-2">
+								Listar Cargos </a>
+						</div>
 					</div>
 
 				</form>

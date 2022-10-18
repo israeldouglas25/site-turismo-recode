@@ -105,14 +105,18 @@
 				<div class="mb-3">
 					<label for="mensagem" class="form-label">Mensagem</label>
 					<textarea class="form-control" id="mensagem" rows="10"
-						placeholder="Deixe aqui sua mensagem que entraremos em contato." name="mensagem" th:field="*{mensagem}" required></textarea>
+						placeholder="Deixe aqui sua mensagem que entraremos em contato." name="mensagem"
+						th:field="*{mensagem}" required></textarea>
 				</div>
 
 				<div class="mb-3 form-check">
 					<input type="checkbox" class="form-check-input" id="exampleCheck1">
 					<label class="form-check-label" for="exampleCheck1">Aceitar os termos e condições</label>
 				</div>
-				<button type="submit" class="btn botao mb-3">Enviar</button>
+				<div>
+					<button type="submit" class="btn botao">ENVIAR</button>
+					<a href="/" class="btn btn-danger"> VOLTAR </a>
+				</div>
 			</form>
 		</div>
 
