@@ -13,6 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.paixaonordestina.model.Contato;
 import br.com.paixaonordestina.repository.ContatoRepository;
 
+/**
+ * Controle de contato
+ * 
+ * @author Israel
+ *
+ */
 @Controller
 @RequestMapping("/contato")
 public class ContatoController {
@@ -20,6 +26,11 @@ public class ContatoController {
 	@Autowired
 	private ContatoRepository contatoRepository;
 
+	/**
+	 * Lista todos os contatos na pagina.
+	 * 
+	 * @return
+	 */
 	@GetMapping
 	public ModelAndView listar() {
 
@@ -31,6 +42,11 @@ public class ContatoController {
 		return modelAndView;
 	}
 
+	/**
+	 * Mostrar a pagina de envio do contato.
+	 * 
+	 * @return
+	 */
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrar() {
 
@@ -41,6 +57,12 @@ public class ContatoController {
 		return modelAndView;
 	}
 
+	/**
+	 * Envia o contato para o banco de dados.
+	 * 
+	 * @param contato
+	 * @return
+	 */
 	@PostMapping("/cadastrar")
 	public ModelAndView cadastrar(Contato contato) {
 
@@ -51,6 +73,12 @@ public class ContatoController {
 		return modelAndView;
 	}
 
+	/**
+	 * Exclui o contato através do ID passado por parametro.
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}/excluir")
 	public ModelAndView excluir(@PathVariable("id") Long id) {
 

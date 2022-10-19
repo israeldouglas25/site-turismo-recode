@@ -11,6 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.paixaonordestina.model.Cargo;
 import br.com.paixaonordestina.repository.CargoRepository;
 
+/**
+ * Controle da pagina de cargos.
+ * 
+ * @author Israel
+ *
+ */
 @Controller
 @RequestMapping("/cargos")
 public class CargoController {
@@ -18,6 +24,11 @@ public class CargoController {
 	@Autowired
 	private CargoRepository cargoRepository;
 
+	/**
+	 * Retornara a lista de cargos cadastrados.
+	 * 
+	 * @return
+	 */
 	@GetMapping
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView("cargo/home");
@@ -27,6 +38,11 @@ public class CargoController {
 		return modelAndView;
 	}
 
+	/**
+	 * Mostrar a tela para cadastro do cargo.
+	 * 
+	 * @return
+	 */
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrar() {
 		ModelAndView modelAndView = new ModelAndView("cargo/formulario");
@@ -36,6 +52,12 @@ public class CargoController {
 		return modelAndView;
 	}
 
+	/**
+	 * Mostra a tela de edição do cargo através do ID.
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}/editar")
 	public ModelAndView editar(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("cargo/formulario");
@@ -45,6 +67,12 @@ public class CargoController {
 		return modelAndView;
 	}
 
+	/**
+	 * Salva o cargo cadastrado ou editado.
+	 * 
+	 * @param cargo
+	 * @return
+	 */
 	@PostMapping({ "/cadastrar", "/{id}/editar" })
 	public String salvar(Cargo cargo) {
 		cargoRepository.save(cargo);
@@ -52,6 +80,12 @@ public class CargoController {
 		return "redirect:/cargos";
 	}
 
+	/**
+	 * Deleta o cargo através do ID recebido por parametro
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}/excluir")
 	public String excluir(@PathVariable Long id) {
 		cargoRepository.deleteById(id);

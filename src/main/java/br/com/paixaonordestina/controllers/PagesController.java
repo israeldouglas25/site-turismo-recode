@@ -3,6 +3,12 @@ package br.com.paixaonordestina.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * Controle das sem necessidade de comunicação com o back-end.
+ * 
+ * @author israe
+ *
+ */
 @Controller
 public class PagesController {
 

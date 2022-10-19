@@ -13,16 +13,35 @@ import br.com.paixaonordestina.model.UF;
 import br.com.paixaonordestina.repository.CargoRepository;
 import br.com.paixaonordestina.repository.FuncionarioRepository;
 
+/**
+ * Controle de funcionarios.
+ * 
+ * @author Israel
+ *
+ */
 @Controller
 @RequestMapping("/funcionarios")
 public class FuncionarioController {
 
+	/**
+	 * Anotação para a interface de funcionario, onde pode ser usados os metodos
+	 * create, read, update e delete.
+	 */
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
 
+	/**
+	 * Anotação para a interface de funcionario, onde pode ser usados os metodos
+	 * create, read, update e delete.
+	 */
 	@Autowired
 	private CargoRepository cargoRepository;
 
+	/**
+	 * Lista de funcionarios
+	 * 
+	 * @return
+	 */
 	@GetMapping
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView("funcionario/listar");
@@ -32,6 +51,11 @@ public class FuncionarioController {
 		return modelAndView;
 	}
 
+	/**
+	 * Pagina de cadastro do funcionario com os metodos de cargo e UF (estado).
+	 * 
+	 * @return
+	 */
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrar() {
 		ModelAndView modelAndView = new ModelAndView("funcionario/formulario");
@@ -43,6 +67,13 @@ public class FuncionarioController {
 		return modelAndView;
 	}
 
+	/**
+	 * Retorna os campos preenchido com as informações cadastradas através do
+	 * parametro do ID selecionado.
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}/editar")
 	public ModelAndView editar(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("funcionario/formulario");
@@ -54,6 +85,12 @@ public class FuncionarioController {
 		return modelAndView;
 	}
 
+	/**
+	 * Cadastro o funcionario no banco de dados.
+	 * 
+	 * @param funcionario
+	 * @return
+	 */
 	@PostMapping("/cadastrar")
 	public String cadastrar(Funcionario funcionario) {
 
@@ -62,6 +99,13 @@ public class FuncionarioController {
 		return "redirect:/funcionarios";
 	}
 
+	/**
+	 * Salva a edição realizada sem alterar a senha cadastrada.
+	 * 
+	 * @param funcionario
+	 * @param id
+	 * @return
+	 */
 	@PostMapping("/{id}/editar")
 	public String editar(Funcionario funcionario, @PathVariable Long id) {
 		String senhaAtual = funcionarioRepository.getReferenceById(id).getSenha();
@@ -72,6 +116,12 @@ public class FuncionarioController {
 		return "redirect:/funcionarios";
 	}
 
+	/**
+	 * Exclui o funcionario recebendo o ID como parametro.
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}/excluir")
 	public String excluir(@PathVariable Long id) {
 		funcionarioRepository.deleteById(id);
