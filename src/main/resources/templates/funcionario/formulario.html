@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: layout (~{::main}, ~{::styles}, _)}">
 
-<th:block th:fragment="styles">
-	<link rel="stylesheet" href="../css/styles.css">
-</th:block>
+<th:block th:fragment="styles"></th:block>
 
 <head>
 <meta charset="UTF-8">
@@ -11,7 +9,7 @@
 
 <body>
 
-	<main class="bg-main">
+	<main>
 		<br>
 		<div class="container">
 			<div class="row">
@@ -209,7 +207,7 @@
 		</div>
 		<br>
 	</main>
-
+	<th:block th:fragment="scripts"></th:block>
 </body>
 
 </html>
