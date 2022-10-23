@@ -1,165 +1,181 @@
 <!DOCTYPE html>
-<html th:replace="~{layout :: layout (~{::main})}">
+<html th:replace="~{layout :: layout (~{::main}, ~{::styles}, _)}">
+<th:block th:fragment="styles"></th:block>
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 </head>
 
 <body>
 
-    <main class="bg-main">
-        <div>
-            <img class="banner" src="./img/banner-2.jpg" alt="">
-        </div>
-        <div class="container">
-            <!-- paragrafo -->
-            <h1 class="fonte-especial">Pacotes e promoções de viagens</h1>
-            <hr>
-            <!-- cards de apresentação -->
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./img/card-alagoas.jpg" class="card-img-top" alt="Praia Maragogi">
-                        <div class="card-img-overlay fonte-card d-flex align-items-center">
-                            <h5 class="card-title fonte-text-shadow" id="card-1-nome">Alagoas</h5>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <span class="span-promocoes">Promoção</span>
-                                <input type="text" value="a partir de R$ 200" style="border: none;"/>
-                                <!-- <span> a partir de R$ 200</span> -->
-                            </div>
-                            <button class="btn botao card-link w-100 mt-3" onclick="mudarNome()">Editar valor</button>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./img/card-bahia.jpg" class="card-img-top" alt="Elevador Lacerda">
-                        <div class="card-img-overlay fonte-card d-flex align-items-center">
-                            <h5 class="card-title fonte-text-shadow">Bahia</h5>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <span class="span-promocoes">Promoção</span>
-                                <span> a partir de R$ 200</span>
-                            </div>
-                            <a href="#" class="btn botao card-link w-100 mt-3">Ver ofertas</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./img/card-ceara.webp" class="card-img-top" alt="Praia de Jericoacoara">
-                        <div class="card-img-overlay fonte-card d-flex align-items-center">
-                            <h5 class="card-title fonte-text-shadow">Ceará</h5>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <span class="span-promocoes">Promoção</span>
-                                <span> a partir de R$ 200</span>
-                            </div>
-                            <a href="#" class="btn botao card-link w-100 mt-3">Ver ofertas</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./img/card-maranhão.jpg" class="card-img-top " alt="Lençoes maranheces">
-                        <div class="card-img-overlay fonte-card d-flex align-items-center">
-                            <h5 class="card-title fonte-text-shadow">Maranhão</h5>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <span class="span-promocoes">Promoção</span>
-                                <span> a partir de R$ 200</span>
-                            </div>
-                            <a href="#" class="btn botao card-link w-100 mt-3">Ver ofertas</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./img/card-paraiba1.webp" class="card-img-top "
-                            alt="Por do sol na praia do jacaré">
-                        <div class="card-img-overlay fonte-card d-flex align-items-center">
-                            <h5 class="card-title fonte-text-shadow">Paraiba</h5>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <span class="span-promocoes">Promoção</span>
-                                <span> a partir de R$ 200</span>
-                            </div>
-                            <a href="#" class="btn botao card-link w-100 mt-3">Ver ofertas</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./img/card-pernambuco.jpg" class="card-img-top "
-                            alt="Ilha de Fernando de Noronha">
-                        <div class="card-img-overlay fonte-card d-flex align-items-center">
-                            <h5 class="card-title fonte-text-shadow">Pernambuco</h5>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <span class="span-promocoes">Promoção</span>
-                                <span> a partir de R$ 200</span>
-                            </div>
-                            <a href="#" class="btn botao card-link w-100 mt-3">Ver ofertas</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./img/card-piaui.webp" class="card-img-top " alt="Serra da Capivara">
-                        <div class="card-img-overlay fonte-card d-flex align-items-center">
-                            <h5 class="card-title fonte-text-shadow">Piaui</h5>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <span class="span-promocoes">Promoção</span>
-                                <span> a partir de R$ 200</span>
-                            </div>
-                            <a href="#" class="btn botao card-link w-100 mt-3">Ver ofertas</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./img/card-rio-grande-norte.jpg" class="card-img-top " alt="Morro do careca">
-                        <div class="card-img-overlay fonte-card d-flex align-items-center">
-                            <h5 class="card-title fonte-text-shadow">Rio Grande do Norte</h5>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <span class="span-promocoes">Promoção</span>
-                                <span> a partir de R$ 200</span>
-                            </div>
-                            <a href="#" class="btn botao card-link w-100 mt-3">Ver ofertas</a>
-                        </div>
-                    </article>
-                </section>
-                <section class="col">
-                    <article class="card border-color">
-                        <img src="./img/card-sergipe.jpg" class="card-img-top "
-                            alt="Xingó e Canindé de São Francisco">
-                        <div class="card-img-overlay fonte-card d-flex align-items-center">
-                            <h5 class="card-title fonte-text-shadow">Sergipe</h5>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                                <span class="span-promocoes">Promoção</span>
-                                <span> a partir de R$ 200</span>
-                            </div>
-                            <a href="#" class="btn botao card-link w-100 mt-3">Ver ofertas</a>
-                        </div>
-                    </article>
-                </section>
-            </div>
-        </div>
-    </main>
-
+	<main class="bg-main">
+		<div>
+			<img class="banner" src="./img/banner-2.jpg" alt="">
+		</div>
+		<div class="container">
+			<!-- paragrafo -->
+			<h1 class="fonte-especial">Pacotes e promoções de viagens</h1>
+			<hr>
+			<!-- cards de apresentação -->
+			<div class="row row-cols-1 row-cols-md-3 g-4">
+				<section class="col">
+					<article class="card border-color">
+						<img src="./img/card-alagoas.jpg" class="card-img-top"
+							alt="Praia Maragogi">
+						<div class="card-img-overlay fonte-card d-flex align-items-center">
+							<h5 class="card-title fonte-text-shadow" id="card-1-nome">Alagoas</h5>
+						</div>
+						<div class="card-body">
+							<div>
+								<span class="span-promocoes">Promoção</span> <input type="text"
+									value="a partir de R$ 200" style="border: none;" />
+								<!-- <span> a partir de R$ 200</span> -->
+							</div>
+							<button class="btn botao card-link w-100 mt-3"
+								onclick="mudarNome()">Editar valor</button>
+						</div>
+					</article>
+				</section>
+				<section class="col">
+					<article class="card border-color">
+						<img src="./img/card-bahia.jpg" class="card-img-top"
+							alt="Elevador Lacerda">
+						<div class="card-img-overlay fonte-card d-flex align-items-center">
+							<h5 class="card-title fonte-text-shadow">Bahia</h5>
+						</div>
+						<div class="card-body">
+							<div>
+								<span class="span-promocoes">Promoção</span> <span> a
+									partir de R$ 200</span>
+							</div>
+							<a href="#" class="btn botao card-link w-100 mt-3">Ver
+								ofertas</a>
+						</div>
+					</article>
+				</section>
+				<section class="col">
+					<article class="card border-color">
+						<img src="./img/card-ceara.webp" class="card-img-top"
+							alt="Praia de Jericoacoara">
+						<div class="card-img-overlay fonte-card d-flex align-items-center">
+							<h5 class="card-title fonte-text-shadow">Ceará</h5>
+						</div>
+						<div class="card-body">
+							<div>
+								<span class="span-promocoes">Promoção</span> <span> a
+									partir de R$ 200</span>
+							</div>
+							<a href="#" class="btn botao card-link w-100 mt-3">Ver
+								ofertas</a>
+						</div>
+					</article>
+				</section>
+				<section class="col">
+					<article class="card border-color">
+						<img src="./img/card-maranhão.jpg" class="card-img-top "
+							alt="Lençoes maranheces">
+						<div class="card-img-overlay fonte-card d-flex align-items-center">
+							<h5 class="card-title fonte-text-shadow">Maranhão</h5>
+						</div>
+						<div class="card-body">
+							<div>
+								<span class="span-promocoes">Promoção</span> <span> a
+									partir de R$ 200</span>
+							</div>
+							<a href="#" class="btn botao card-link w-100 mt-3">Ver
+								ofertas</a>
+						</div>
+					</article>
+				</section>
+				<section class="col">
+					<article class="card border-color">
+						<img src="./img/card-paraiba1.webp" class="card-img-top "
+							alt="Por do sol na praia do jacaré">
+						<div class="card-img-overlay fonte-card d-flex align-items-center">
+							<h5 class="card-title fonte-text-shadow">Paraiba</h5>
+						</div>
+						<div class="card-body">
+							<div>
+								<span class="span-promocoes">Promoção</span> <span> a
+									partir de R$ 200</span>
+							</div>
+							<a href="#" class="btn botao card-link w-100 mt-3">Ver
+								ofertas</a>
+						</div>
+					</article>
+				</section>
+				<section class="col">
+					<article class="card border-color">
+						<img src="./img/card-pernambuco.jpg" class="card-img-top "
+							alt="Ilha de Fernando de Noronha">
+						<div class="card-img-overlay fonte-card d-flex align-items-center">
+							<h5 class="card-title fonte-text-shadow">Pernambuco</h5>
+						</div>
+						<div class="card-body">
+							<div>
+								<span class="span-promocoes">Promoção</span> <span> a
+									partir de R$ 200</span>
+							</div>
+							<a href="#" class="btn botao card-link w-100 mt-3">Ver
+								ofertas</a>
+						</div>
+					</article>
+				</section>
+				<section class="col">
+					<article class="card border-color">
+						<img src="./img/card-piaui.webp" class="card-img-top "
+							alt="Serra da Capivara">
+						<div class="card-img-overlay fonte-card d-flex align-items-center">
+							<h5 class="card-title fonte-text-shadow">Piaui</h5>
+						</div>
+						<div class="card-body">
+							<div>
+								<span class="span-promocoes">Promoção</span> <span> a
+									partir de R$ 200</span>
+							</div>
+							<a href="#" class="btn botao card-link w-100 mt-3">Ver
+								ofertas</a>
+						</div>
+					</article>
+				</section>
+				<section class="col">
+					<article class="card border-color">
+						<img src="./img/card-rio-grande-norte.jpg" class="card-img-top "
+							alt="Morro do careca">
+						<div class="card-img-overlay fonte-card d-flex align-items-center">
+							<h5 class="card-title fonte-text-shadow">Rio Grande do Norte</h5>
+						</div>
+						<div class="card-body">
+							<div>
+								<span class="span-promocoes">Promoção</span> <span> a
+									partir de R$ 200</span>
+							</div>
+							<a href="#" class="btn botao card-link w-100 mt-3">Ver
+								ofertas</a>
+						</div>
+					</article>
+				</section>
+				<section class="col">
+					<article class="card border-color">
+						<img src="./img/card-sergipe.jpg" class="card-img-top "
+							alt="Xingó e Canindé de São Francisco">
+						<div class="card-img-overlay fonte-card d-flex align-items-center">
+							<h5 class="card-title fonte-text-shadow">Sergipe</h5>
+						</div>
+						<div class="card-body">
+							<div>
+								<span class="span-promocoes">Promoção</span> <span> a
+									partir de R$ 200</span>
+							</div>
+							<a href="#" class="btn botao card-link w-100 mt-3">Ver
+								ofertas</a>
+						</div>
+					</article>
+				</section>
+			</div>
+		</div>
+	</main>
+	<th:block th:fragment="scripts"></th:block>
 </body>
 
 </html>
