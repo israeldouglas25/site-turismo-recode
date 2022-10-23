@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html th:replace="~{layout :: layout (~{::main})}">
+<html th:replace="~{layout :: layout (~{::main}, ~{::styles}, _)}">
+<th:block th:fragment="styles"></th:block>
 
 <head>
 <meta charset="UTF-8">
@@ -76,6 +77,7 @@
 		</div>
 		<br>
 	</main>
+	<th:block th:fragment="scripts"></th:block>
 </body>
 
 </html>
