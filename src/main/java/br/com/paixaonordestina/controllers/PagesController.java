@@ -27,11 +27,6 @@ public class PagesController {
 		return "promocao";
 	}
 
-	@GetMapping("/cadastrar")
-	public String cadastro() {
-		return "cliente/cadastrar";
-	}
-
 	@GetMapping("/login")
 	public String logar() {
 		return "login";
