@@ -25,10 +25,6 @@
 										<div class="col-md-6 col-sm-12">
 											<legend class="fonte-especial">Dados Pessoais</legend>
 										</div>
-										<div class="col-md-6 col-sm-12 d-flex justify-content-end">
-											<a th:href="@{/clientes}" class="btn botao mb-2"> Lista
-												clientes </a>
-										</div>
 									</div>
 									<input type="hidden" th:field="*{id}">
 
@@ -166,8 +162,15 @@
 							</div>
 
 							<div class="card-footer">
-								<button type="submit" class="btn botao">SALVAR</button>
-								<a href="/clientes" class="btn btn-danger"> VOLTAR </a>
+								<div class="col-md-6 col-sm-12">
+									<button type="submit" class="btn botao">SALVAR</button>
+									<a href="/clientes" class="btn btn-danger"> VOLTAR </a>
+								</div>
+
+								<div class="col-md-12 col-sm-12 d-flex justify-content-end">
+									<a th:href="@{/clientes}" class="btn botao mb-2"> Lista
+										clientes </a>
+								</div>
 							</div>
 						</form>
 					</div>
