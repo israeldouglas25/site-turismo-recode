@@ -27,9 +27,4 @@ public class PagesController {
 		return "promocao";
 	}
 
-	@GetMapping("/login")
-	public String logar() {
-		return "login";
-	}
-
 }

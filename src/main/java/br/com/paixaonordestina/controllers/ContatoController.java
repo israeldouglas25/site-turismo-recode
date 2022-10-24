@@ -20,7 +20,7 @@ import br.com.paixaonordestina.repository.ContatoRepository;
  *
  */
 @Controller
-@RequestMapping("/contato")
+@RequestMapping("/contatos")
 public class ContatoController {
 
 	@Autowired
@@ -50,7 +50,7 @@ public class ContatoController {
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrar() {
 
-		ModelAndView modelAndView = new ModelAndView("contato/cadastrar.html");
+		ModelAndView modelAndView = new ModelAndView("contato/cadastrar");
 
 		modelAndView.addObject("contato", new Contato());
 

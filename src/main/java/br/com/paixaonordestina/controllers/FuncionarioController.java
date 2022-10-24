@@ -12,6 +12,7 @@ import br.com.paixaonordestina.model.Funcionario;
 import br.com.paixaonordestina.model.UF;
 import br.com.paixaonordestina.repository.CargoRepository;
 import br.com.paixaonordestina.repository.FuncionarioRepository;
+import br.com.paixaonordestina.utils.SenhaUtils;
 
 /**
  * Controle de funcionarios.
@@ -93,7 +94,9 @@ public class FuncionarioController {
 	 */
 	@PostMapping("/cadastrar")
 	public String cadastrar(Funcionario funcionario) {
+		String senhaEncriptada = SenhaUtils.encode(funcionario.getSenha());
 
+        funcionario.setSenha(senhaEncriptada);
 		funcionarioRepository.save(funcionario);
 
 		return "redirect:/funcionarios";
@@ -109,8 +112,8 @@ public class FuncionarioController {
 	@PostMapping("/{id}/editar")
 	public String editar(Funcionario funcionario, @PathVariable Long id) {
 		String senhaAtual = funcionarioRepository.getReferenceById(id).getSenha();
+		
 		funcionario.setSenha(senhaAtual);
-
 		funcionarioRepository.save(funcionario);
 
 		return "redirect:/funcionarios";
