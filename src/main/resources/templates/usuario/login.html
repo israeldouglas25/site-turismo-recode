@@ -15,25 +15,20 @@
 				<nav
 					class="col-md-4 d-flex justify-content-center align-items-center bg-footer">
 					<a class="navbar-brand" href="/"><img class="rounded-circle"
-						src="./img/Viagem2.jpg" alt="Logomarca"></a>
+						th:src="@{/img/Viagem2.jpg}" alt="Logomarca"></a>
 				</nav>
+
 				<article class="col-md-8 caixa-conta">
-					<div class="d-flex justify-content-center">
+					<div class="d-flex justify-content-center login-box-msg">
 						<h1 class="fonte-titulo mt-5">Entre em sua conta</h1>
+					</div>
+					<div th:if="${param.error != null}" class="alert alert-danger">
+						<span
+							th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span>
 					</div>
 					<!-- form -->
 					<form method="post" action="@{/login}"
 						class="row mt-3 d-flex justify-content-around was-validated">
-						<div th:if="${alerta != null}"
-							th:class="${alerta == 'erro'} ? 'alert alert-danger' : 'alert alert-success'"
-							role="alert">
-							<h4 th:text="${titulo}" class="alert-heading">Credenciais...</h4>
-							<p th:text="${texto}">E-mail ou senha incorretos...</p>
-							<hr>
-							<p class="mb-0">
-								<small th:text="${subtexto}">Acesso permitido...</small>
-							</p>
-						</div>
 						<div class="col-12 mb-3">
 							<label for="email" class="form-label">E-mail</label> <input
 								type="email" class="form-control" id="email" name="username"
@@ -85,6 +80,7 @@
 						</div>
 					</form>
 				</article>
+				
 			</section>
 		</div>
 		<br>

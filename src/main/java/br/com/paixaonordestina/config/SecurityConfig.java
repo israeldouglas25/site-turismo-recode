@@ -1,14 +1,24 @@
 package br.com.paixaonordestina.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import br.com.paixaonordestina.service.FuncionarioService;
+
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
+	
+	@Autowired
+	private FuncionarioService funcionarioService;
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -20,12 +30,12 @@ public class SecurityConfig {
         .antMatchers("/promocao").permitAll()
         .antMatchers("/contatos/cadastrar").permitAll()
         .antMatchers("/clientes/cadastrar").permitAll()
-        .antMatchers("/funcionarios/cadastrar").permitAll()
+        .antMatchers("/**").hasAnyAuthority("Gerente")
         .antMatchers("/blog/**").hasRole("USER")
         .anyRequest().authenticated()
         .and()
         	.formLogin()
-        	.loginPage("/login")
+        	.loginPage("/usuario/login")
         	.defaultSuccessUrl("/", true)
         	.failureUrl("/login-erro")
         	.permitAll()
@@ -43,5 +53,13 @@ public class SecurityConfig {
                            .antMatchers("/img/**", "/css/**", "/js/**");     
     }
 	
-
+	
+//	protected void configure(HttpSecurity httpSecurity) throws Exception {
+//		httpSecurity.authorizeRequests().antMatchers("/").permitAll();
+//	}
+//
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//		auth.userDetailsService(funcionarioService).passwordEncoder(new BCryptPasswordEncoder());
+//	}
+	
 }
