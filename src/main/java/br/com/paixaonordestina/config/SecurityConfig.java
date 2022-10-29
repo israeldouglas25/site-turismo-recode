@@ -25,26 +25,27 @@ public class SecurityConfig {
 		return http
 		.csrf().disable()
         .authorizeRequests()
-        .antMatchers("/").permitAll()
-        .antMatchers("/destino").permitAll()
-        .antMatchers("/promocao").permitAll()
-        .antMatchers("/contatos/cadastrar").permitAll()
-        .antMatchers("/clientes/cadastrar").permitAll()
-        .antMatchers("/**").hasAnyAuthority("Gerente")
+        .antMatchers("/**").permitAll()
+//        .antMatchers("/destino").permitAll()
+//        .antMatchers("/promocao").permitAll()
+//        .antMatchers("/contatos/cadastrar").permitAll()
+//        .antMatchers("/clientes/cadastrar").permitAll()
+//        .antMatchers("/**").hasAnyAuthority()
         .antMatchers("/blog/**").hasRole("USER")
         .anyRequest().authenticated()
         .and()
         	.formLogin()
         	.loginPage("/usuario/login")
         	.defaultSuccessUrl("/", true)
-        	.failureUrl("/login-erro")
+        	.failureUrl("/usuario/login")
         	.permitAll()
         .and()
         	.logout()
         	.logoutSuccessUrl("/")
         .and().httpBasic()
         .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .and().build();
+        .and()
+        .build();
 	}
 	
 	@Bean

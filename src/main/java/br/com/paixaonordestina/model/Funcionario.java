@@ -28,7 +28,7 @@ public class Funcionario extends Pessoa {
 
 	@Column(nullable = false)
 	private String senha;
-
+	
 	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}

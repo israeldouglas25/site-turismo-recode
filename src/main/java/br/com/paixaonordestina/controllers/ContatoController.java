@@ -31,7 +31,7 @@ public class ContatoController {
 	 * 
 	 * @return
 	 */
-	@GetMapping
+	@RequestMapping("/listar")
 	public ModelAndView listar() {
 
 		ModelAndView modelAndView = new ModelAndView("contato/listar");
@@ -66,7 +66,7 @@ public class ContatoController {
 	@PostMapping("/cadastrar")
 	public ModelAndView cadastrar(Contato contato) {
 
-		ModelAndView modelAndView = new ModelAndView("redirect:/contato");
+		ModelAndView modelAndView = new ModelAndView("redirect:/contatos/cadastrar");
 
 		contatoRepository.save(contato);
 
@@ -82,7 +82,7 @@ public class ContatoController {
 	@GetMapping("/{id}/excluir")
 	public ModelAndView excluir(@PathVariable("id") Long id) {
 
-		ModelAndView modelAndView = new ModelAndView("redirect:/contato");
+		ModelAndView modelAndView = new ModelAndView("redirect:/contatos/listar");
 
 		contatoRepository.deleteById(id);
 

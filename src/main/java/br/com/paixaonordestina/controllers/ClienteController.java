@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.paixaonordestina.model.Cliente;
 import br.com.paixaonordestina.model.UF;
@@ -34,7 +35,7 @@ public class ClienteController {
 	 * 
 	 * @return
 	 */
-	@GetMapping
+	@RequestMapping("/listar")
 	public ModelAndView listar() {
 		ModelAndView modelAndView = new ModelAndView("cliente/lista");
 
@@ -82,11 +83,11 @@ public class ClienteController {
 	 * @return
 	 */
 	@PostMapping("/cadastrar")
-	public String cadastrar(Cliente cliente) {
+	public String cadastrar(Cliente cliente, RedirectAttributes attributes ) {
 
 		clienteRepository.save(cliente);
-
-		return "redirect:/clientes";
+		attributes.addFlashAttribute("mensagem", "Cliente salvo com sucesso!");
+		return "redirect:/clientes/cadastrar";
 	}
 
 	/**
@@ -103,7 +104,7 @@ public class ClienteController {
 
 		clienteRepository.save(cliente);
 
-		return "redirect:/clientes";
+		return "redirect:/clientes/cadastrar";
 	}
 
 	/**
@@ -116,7 +117,7 @@ public class ClienteController {
 	public String excluir(@PathVariable Long id) {
 		clienteRepository.deleteById(id);
 
-		return "redirect:/clientes";
+		return "redirect:/clientes/listar";
 	}
 
 }

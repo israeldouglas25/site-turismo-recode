@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.paixaonordestina.model.Cargo;
 import br.com.paixaonordestina.repository.CargoRepository;
@@ -29,7 +30,7 @@ public class CargoController {
 	 * 
 	 * @return
 	 */
-	@GetMapping
+	@RequestMapping("/listar")
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView("cargo/home");
 
@@ -74,10 +75,10 @@ public class CargoController {
 	 * @return
 	 */
 	@PostMapping({ "/cadastrar", "/{id}/editar" })
-	public String salvar(Cargo cargo) {
+	public String salvar(Cargo cargo, RedirectAttributes attributes) {
 		cargoRepository.save(cargo);
-
-		return "redirect:/cargos";
+		attributes.addFlashAttribute("mensagem", "Cargo salvo com sucesso!");
+		return "redirect:/cargos/cadastrar";
 	}
 
 	/**
@@ -90,7 +91,7 @@ public class CargoController {
 	public String excluir(@PathVariable Long id) {
 		cargoRepository.deleteById(id);
 
-		return "redirect:/cargos";
+		return "redirect:/cargos/listar";
 	}
 
 }

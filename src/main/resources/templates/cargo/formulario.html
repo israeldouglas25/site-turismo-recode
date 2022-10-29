@@ -15,9 +15,14 @@
 			<section class="row caixa">
 
 				<form method="POST" th:object="${cargo}">
-					<h1 class="fonte-especial">Cargo</h1>
+					<h1 class="fonte-especial">Cadastrar Cargo</h1>
 					<hr>
 					<br>
+					<div class="alert alert-success alert-dismissible fade show"
+						th:if="${mensagem}">
+						<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+						<span th:text="${mensagem}"></span>
+					</div>
 					<br> <input type="hidden" th:field="*{id}">
 					<div class="row">
 						<div class="col-sm-12">
@@ -28,12 +33,12 @@
 					</div>
 					<div class="row mt-5">
 						<div class="col-sm-6">
-							<button type="submit" class="btn botao">ENVIAR</button>
+							<button type="submit" class="btn botao">SALVAR</button>
 							<a href="/" class="btn btn-danger"> VOLTAR </a>
 						</div>
 
 						<div class="col-sm-6 d-flex justify-content-end">
-							<a th:href="@{/cargos}" class="btn botao mb-2"> Listar Cargos
+							<a th:href="@{/cargos/listar}" class="btn btn-warning mb-2"> LISTAR CARGOS
 							</a>
 						</div>
 					</div>

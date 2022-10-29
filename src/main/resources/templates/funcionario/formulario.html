@@ -21,13 +21,18 @@
 								<div class="d-flex justify-content-center">
 									<h2 class="fonte-titulo">Cadastrar Funcionario</h2>
 								</div>
+								<div class="alert alert-success alert-dismissible fade show"
+									th:if="${mensagem}">
+									<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+									<span th:text="${mensagem}"></span>
+								</div>
 								<fieldset>
 									<div class="row">
 										<div class="col-md-6 col-sm-12">
 											<legend class="fonte-especial">Dados Pessoais</legend>
 										</div>
 										<div class="col-md-6 col-sm-12 d-flex justify-content-end">
-											<a th:href="@{/funcionarios}" class="btn botao mb-2">
+											<a th:href="@{/funcionarios/listar}" class="btn botao mb-2">
 												Listar funcionarios </a>
 										</div>
 									</div>

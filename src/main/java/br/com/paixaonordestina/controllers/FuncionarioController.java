@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.paixaonordestina.model.Funcionario;
 import br.com.paixaonordestina.model.UF;
@@ -43,7 +44,7 @@ public class FuncionarioController {
 	 * 
 	 * @return
 	 */
-	@GetMapping
+	@RequestMapping("/listar")
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView("funcionario/listar");
 
@@ -69,6 +70,22 @@ public class FuncionarioController {
 	}
 
 	/**
+	 * Cadastro o funcionario no banco de dados.
+	 * 
+	 * @param funcionario
+	 * @return
+	 */
+	@PostMapping("/cadastrar")
+	public String cadastrar(Funcionario funcionario, RedirectAttributes attributes) {
+		String senhaEncriptada = SenhaUtils.encode(funcionario.getSenha());
+		funcionario.setSenha(senhaEncriptada);
+		
+		funcionarioRepository.save(funcionario);
+		attributes.addFlashAttribute("mensagem", "Funcionario salvo com sucesso!");
+		return "redirect:/funcionarios/cadastrar";
+	}
+
+	/**
 	 * Retorna os campos preenchido com as informações cadastradas através do
 	 * parametro do ID selecionado.
 	 * 
@@ -87,22 +104,6 @@ public class FuncionarioController {
 	}
 
 	/**
-	 * Cadastro o funcionario no banco de dados.
-	 * 
-	 * @param funcionario
-	 * @return
-	 */
-	@PostMapping("/cadastrar")
-	public String cadastrar(Funcionario funcionario) {
-		String senhaEncriptada = SenhaUtils.encode(funcionario.getSenha());
-
-        funcionario.setSenha(senhaEncriptada);
-		funcionarioRepository.save(funcionario);
-
-		return "redirect:/funcionarios";
-	}
-
-	/**
 	 * Salva a edição realizada sem alterar a senha cadastrada.
 	 * 
 	 * @param funcionario
@@ -112,11 +113,11 @@ public class FuncionarioController {
 	@PostMapping("/{id}/editar")
 	public String editar(Funcionario funcionario, @PathVariable Long id) {
 		String senhaAtual = funcionarioRepository.getReferenceById(id).getSenha();
-		
+
 		funcionario.setSenha(senhaAtual);
 		funcionarioRepository.save(funcionario);
 
-		return "redirect:/funcionarios";
+		return "redirect:/funcionarios/listar";
 	}
 
 	/**
@@ -129,7 +130,7 @@ public class FuncionarioController {
 	public String excluir(@PathVariable Long id) {
 		funcionarioRepository.deleteById(id);
 
-		return "redirect:/funcionarios";
+		return "redirect:/funcionarios/listar";
 	}
 
 }
