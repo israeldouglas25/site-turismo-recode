@@ -32,7 +32,7 @@ public class CargoController {
 	 */
 	@RequestMapping("/listar")
 	public ModelAndView home() {
-		ModelAndView modelAndView = new ModelAndView("cargo/home");
+		ModelAndView modelAndView = new ModelAndView("cargo/lista");
 
 		modelAndView.addObject("cargos", cargoRepository.findAll());
 
@@ -46,7 +46,7 @@ public class CargoController {
 	 */
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrar() {
-		ModelAndView modelAndView = new ModelAndView("cargo/formulario");
+		ModelAndView modelAndView = new ModelAndView("cargo/cadastro");
 
 		modelAndView.addObject("cargo", new Cargo());
 
@@ -61,7 +61,7 @@ public class CargoController {
 	 */
 	@GetMapping("/{id}/editar")
 	public ModelAndView editar(@PathVariable Long id) {
-		ModelAndView modelAndView = new ModelAndView("cargo/formulario");
+		ModelAndView modelAndView = new ModelAndView("cargo/cadastro");
 
 		modelAndView.addObject("cargo", cargoRepository.getReferenceById(id));
 

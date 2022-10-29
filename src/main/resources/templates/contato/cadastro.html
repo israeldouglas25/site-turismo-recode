@@ -17,6 +17,11 @@
 			<form method="POST" th:object="${contato}">
 				<h1 class="fonte-especial">Contato</h1>
 				<hr>
+				<div class="alert alert-success alert-dismissible fade show"
+					th:if="${mensagem}">
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					<span th:text="${mensagem}"></span>
+				</div>
 				<div class="row">
 					<div class="col-md">
 						<div class="mb-3">

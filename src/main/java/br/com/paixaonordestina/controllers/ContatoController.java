@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.paixaonordestina.model.Contato;
 import br.com.paixaonordestina.repository.ContatoRepository;
@@ -34,7 +35,7 @@ public class ContatoController {
 	@RequestMapping("/listar")
 	public ModelAndView listar() {
 
-		ModelAndView modelAndView = new ModelAndView("contato/listar");
+		ModelAndView modelAndView = new ModelAndView("contato/lista");
 
 		List<Contato> contatos = contatoRepository.findAll();
 		modelAndView.addObject("contatos", contatos);
@@ -50,7 +51,7 @@ public class ContatoController {
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrar() {
 
-		ModelAndView modelAndView = new ModelAndView("contato/cadastrar");
+		ModelAndView modelAndView = new ModelAndView("contato/cadastro");
 
 		modelAndView.addObject("contato", new Contato());
 
@@ -64,12 +65,12 @@ public class ContatoController {
 	 * @return
 	 */
 	@PostMapping("/cadastrar")
-	public ModelAndView cadastrar(Contato contato) {
+	public ModelAndView cadastrar(Contato contato, RedirectAttributes attributes) {
 
 		ModelAndView modelAndView = new ModelAndView("redirect:/contatos/cadastrar");
-
+		
 		contatoRepository.save(contato);
-
+		attributes.addFlashAttribute("mensagem", "Mensagem enviada com sucesso!");
 		return modelAndView;
 	}
 

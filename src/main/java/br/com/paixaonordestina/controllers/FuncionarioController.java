@@ -46,7 +46,7 @@ public class FuncionarioController {
 	 */
 	@RequestMapping("/listar")
 	public ModelAndView home() {
-		ModelAndView modelAndView = new ModelAndView("funcionario/listar");
+		ModelAndView modelAndView = new ModelAndView("funcionario/lista");
 
 		modelAndView.addObject("funcionarios", funcionarioRepository.findAll());
 
@@ -60,7 +60,7 @@ public class FuncionarioController {
 	 */
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrar() {
-		ModelAndView modelAndView = new ModelAndView("funcionario/formulario");
+		ModelAndView modelAndView = new ModelAndView("funcionario/cadastro");
 
 		modelAndView.addObject("funcionario", new Funcionario());
 		modelAndView.addObject("cargos", cargoRepository.findAll());
@@ -94,7 +94,7 @@ public class FuncionarioController {
 	 */
 	@GetMapping("/{id}/editar")
 	public ModelAndView editar(@PathVariable Long id) {
-		ModelAndView modelAndView = new ModelAndView("funcionario/formulario");
+		ModelAndView modelAndView = new ModelAndView("funcionario/cadastro");
 
 		modelAndView.addObject("funcionario", funcionarioRepository.getReferenceById(id));
 		modelAndView.addObject("cargos", cargoRepository.findAll());
@@ -111,12 +111,12 @@ public class FuncionarioController {
 	 * @return
 	 */
 	@PostMapping("/{id}/editar")
-	public String editar(Funcionario funcionario, @PathVariable Long id) {
+	public String editar(Funcionario funcionario, @PathVariable Long id, RedirectAttributes attributes) {
 		String senhaAtual = funcionarioRepository.getReferenceById(id).getSenha();
 
 		funcionario.setSenha(senhaAtual);
 		funcionarioRepository.save(funcionario);
-
+		attributes.addFlashAttribute("mensagem", "Funcionário atualizado com sucesso!");
 		return "redirect:/funcionarios/listar";
 	}
 
