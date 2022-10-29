@@ -38,13 +38,17 @@
 						<td th:text="${contato.email}"></td>
 						<td th:text="${contato.telefone}"></td>
 						<td th:text="${contato.mensagem}"></td>
-						<td><a class="btn" title="Responder"> <i
-								class="bi-envelope"></i>
+						<td>
+						<div class="btn-group">
+						<a class="btn btn-primary" title="Responder"> <i
+								class="bi-envelope-fill"></i>
 						</a> <a th:href="@{/contato/{id}/excluir (id=${contato.id})}"
-							class="btn" title="Excluir"
+							class="btn btn-danger" title="Excluir"
 							onclick="return confirm('Tem certeza que deseja excluir este contato?');">
-								<i class="bi-trash"></i>
-						</a></td>
+								<i class="bi-trash-fill"></i>
+						</a>
+						</div>
+						</td>
 					</tr>
 				</tbody>
 			</table>

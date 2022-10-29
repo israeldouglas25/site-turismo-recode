@@ -24,8 +24,8 @@ import br.com.paixaonordestina.repository.ClienteRepository;
 public class ClienteController {
 
 	/**
-	 * Anotação para a interface de cliente, onde pode ser usados os metodos
-	 * create, read, update e delete.
+	 * Anotação para a interface de cliente, onde pode ser usados os metodos create,
+	 * read, update e delete.
 	 */
 	@Autowired
 	private ClienteRepository clienteRepository;
@@ -40,6 +40,21 @@ public class ClienteController {
 		ModelAndView modelAndView = new ModelAndView("cliente/lista");
 
 		modelAndView.addObject("clientes", clienteRepository.findAll());
+
+		return modelAndView;
+	}
+
+	/**
+	 * Pagina de detalhes do cliente.
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/{id}")
+	public ModelAndView detalhe(@PathVariable Long id) {
+		ModelAndView modelAndView = new ModelAndView("cliente/detalhes");
+
+		modelAndView.addObject("cliente", clienteRepository.getReferenceById(id));
 
 		return modelAndView;
 	}
@@ -72,7 +87,7 @@ public class ClienteController {
 
 		modelAndView.addObject("cliente", clienteRepository.getReferenceById(id));
 		modelAndView.addObject("ufs", UF.values());
-		
+
 		return modelAndView;
 	}
 
@@ -83,7 +98,7 @@ public class ClienteController {
 	 * @return
 	 */
 	@PostMapping("/cadastrar")
-	public String cadastrar(Cliente cliente, RedirectAttributes attributes ) {
+	public String cadastrar(Cliente cliente, RedirectAttributes attributes) {
 
 		clienteRepository.save(cliente);
 		attributes.addFlashAttribute("mensagem", "Cliente salvo com sucesso!");

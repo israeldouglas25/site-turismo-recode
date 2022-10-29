@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:replace="~{layout :: layout (~{::main}, ~{::styles}, _)}">
+<html th:replace="~{layout :: layout (~{::main}, ~{::styles}, ~{::scripts})}">
 
 <th:block th:fragment="styles"></th:block>
 
@@ -203,7 +203,7 @@
 
 							<div class="card-footer">
 								<button type="submit" class="btn botao">SALVAR</button>
-								<a href="/funcionarios" class="btn btn-danger"> VOLTAR </a>
+								<a href="/funcionarios/listar" class="btn btn-danger"> VOLTAR </a>
 							</div>
 						</form>
 					</div>

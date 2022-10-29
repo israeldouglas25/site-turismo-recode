@@ -54,6 +54,21 @@ public class FuncionarioController {
 	}
 
 	/**
+	 * Pagina de detalhe do funcionario.
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/{id}")
+	public ModelAndView detalhe(@PathVariable Long id) {
+		ModelAndView modelAndView = new ModelAndView("funcionario/detalhes");
+
+		modelAndView.addObject("funcionario", funcionarioRepository.getReferenceById(id));
+
+		return modelAndView;
+	}
+
+	/**
 	 * Pagina de cadastro do funcionario com os metodos de cargo e UF (estado).
 	 * 
 	 * @return
@@ -79,7 +94,7 @@ public class FuncionarioController {
 	public String cadastrar(Funcionario funcionario, RedirectAttributes attributes) {
 		String senhaEncriptada = SenhaUtils.encode(funcionario.getSenha());
 		funcionario.setSenha(senhaEncriptada);
-		
+
 		funcionarioRepository.save(funcionario);
 		attributes.addFlashAttribute("mensagem", "Funcionario salvo com sucesso!");
 		return "redirect:/funcionarios/cadastrar";

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:replace="~{layout :: layout (~{::main}, ~{::styles}, _)}">
+<html th:replace="~{layout :: layout (~{::main}, ~{::styles}, ~{::scripts})}">
 <th:block th:fragment="styles"></th:block>
 
 <head>
@@ -46,14 +46,22 @@
 							th:text="${funcionario.dataDemissao == null ? '-' : #temporals.format(funcionario.dataDemissao)}">
 						</td>
 						<td th:text="${funcionario.cargo.nome}"></td>
-						<td><a
-							th:href="@{/funcionarios/{id}/editar (id=${funcionario.id})}"
-							class="btn" title="Editar"> <i class="bi-pencil"></i>
-						</a> <a th:href="@{/funcionarios/{id}/excluir (id=${funcionario.id})}"
-							class="btn" title="Excluir"
-							onclick="return confirm('Tem certeza que deseja excluir');">
-								<i class="bi-trash"></i>
-						</a></td>
+						<td>
+							<div class="btn-group">
+								<a type="button" class="btn botao" title="Destalhes"
+									th:href="@{/funcionarios/{id} (id=${funcionario.id})}"> <i
+									class="bi-eye-fill"></i>
+								</a> <a
+									th:href="@{/funcionarios/{id}/editar (id=${funcionario.id})}"
+									class="btn btn-warning" title="Editar"> <i class="bi-pencil-fill"></i>
+								</a> <a
+									th:href="@{/funcionarios/{id}/excluir (id=${funcionario.id})}"
+									class="btn btn-danger" title="Excluir"
+									onclick="return confirm('Tem certeza que deseja excluir');">
+									<i class="bi-trash-fill"></i>
+								</a>
+							</div>
+						</td>
 					</tr>
 				</tbody>
 			</table>

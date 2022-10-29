@@ -30,13 +30,17 @@
 					<tr th:each="cargo : ${cargos}">
 						<th scope="row" th:text="${cargo.id}"></th>
 						<td th:text="${cargo.nome}"></td>
-						<td><a th:href="@{/cargos/{id}/editar (id=${cargo.id})}"
-							class="btn" title="Editar"> <i class="bi-pencil"></i>
-						</a> <a th:href="@{/cargos/{id}/excluir (id=${cargo.id})}" class="btn"
-							title="Excluir"
-							onclick="return confirm('Tem certeza que deseja excluir este cargo?');">
-								<i class="bi-trash"></i>
-						</a></td>
+						<td>
+							<div class="btn-group">
+								<a th:href="@{/cargos/{id}/editar (id=${cargo.id})}" class="btn btn-warning"
+									title="Editar"> <i class="bi-pencil-fill"></i>
+								</a> <a th:href="@{/cargos/{id}/excluir (id=${cargo.id})}"
+									class="btn btn-danger" title="Excluir"
+									onclick="return confirm('Tem certeza que deseja excluir este cargo?');">
+									<i class="bi-trash-fill"></i>
+								</a>
+							</div>
+						</td>
 					</tr>
 				</tbody>
 			</table>

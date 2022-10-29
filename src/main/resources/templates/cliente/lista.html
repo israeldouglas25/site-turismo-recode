@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html th:replace="~{layout :: layout (~{::main}, ~{::styles}, _)}">
+<html
+	th:replace="~{layout :: layout (~{::main}, ~{::styles}, ~{::scripts})}">
 <th:block th:fragment="styles"></th:block>
 
 <head>
@@ -38,13 +39,21 @@
 						<td th:text="${cliente.telefone}"></td>
 						<td th:text="${cliente.endereco.cidade}"></td>
 						<td th:text="${cliente.endereco.uf}"></td>
-						<td><a th:href="@{/clientes/{id}/editar (id=${cliente.id})}"
-							class="btn" title="Editar"> <i class="bi-pencil"></i>
-						</a> <a th:href="@{/clientes/{id}/excluir (id=${cliente.id})}"
-							class="btn" title="Excluir"
-							onclick="return confirm('Tem certeza que deseja excluir?');">
-								<i class="bi-trash"></i>
-						</a></td>
+						<td>
+							<div class="btn-group">
+								<a type="button" class="btn botao" title="Destalhes"
+									th:href="@{/clientes/{id} (id=${cliente.id})}"> <i
+									class="bi-eye-fill"></i>
+								</a> <a th:href="@{/clientes/{id}/editar (id=${cliente.id})}"
+									class="btn btn-warning" title="Editar"> <i
+									class="bi-pencil-fill"></i>
+								</a> <a th:href="@{/clientes/{id}/excluir (id=${cliente.id})}"
+									class="btn btn-danger" title="Excluir"
+									onclick="return confirm('Tem certeza que deseja excluir?');">
+									<i class="bi-trash-fill"></i>
+								</a>
+							</div>
+						</td>
 					</tr>
 				</tbody>
 			</table>
