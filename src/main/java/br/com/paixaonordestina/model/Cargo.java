@@ -8,6 +8,14 @@ public class Cargo extends Entidade {
 
 	@Column(nullable = false, length = 40, unique = true)
 	private String nome;
+	
+	public Cargo() {
+	}
+
+	public Cargo(String nome) {
+		super();
+		this.nome = nome;
+	}
 
 	public String getNome() {
 		return nome;
