@@ -2,7 +2,7 @@
 
 <h1 align="center"> Front-End do site de turismo do curso RECODE PRO </h1>
 
-[![GitHub issues](https://img.shields.io/static/v1?label=Status&message=Em%Desenvolvimento&color=green)](https://github.com/israeldouglas25/site-turismo-recode/issues)
+[![GitHub issues](https://img.shields.io/static/v1?label=Status&message=Em%20Desenvolvimento&color=green)](https://github.com/israeldouglas25/site-turismo-recode/issues)
 
 Este é um protótipo desenvolvido em HTML, CSS e Bootstrap simulando uma agência de turismo. 
 No desenvolvimento foram criadas as páginas home, destino, promoções e contato.
