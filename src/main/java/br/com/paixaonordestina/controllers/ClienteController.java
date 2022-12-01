@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.com.paixaonordestina.model.Cliente;
 import br.com.paixaonordestina.model.UF;
 import br.com.paixaonordestina.repository.ClienteRepository;
+import br.com.paixaonordestina.utils.SenhaUtils;
 
 /**
  * Controle de clientes.
@@ -38,9 +39,7 @@ public class ClienteController {
 	@RequestMapping("/listar")
 	public ModelAndView listar() {
 		ModelAndView modelAndView = new ModelAndView("cliente/lista");
-
 		modelAndView.addObject("clientes", clienteRepository.findAll());
-
 		return modelAndView;
 	}
 
@@ -53,9 +52,7 @@ public class ClienteController {
 	@GetMapping("/{id}")
 	public ModelAndView detalhe(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("cliente/detalhes");
-
 		modelAndView.addObject("cliente", clienteRepository.getReferenceById(id));
-
 		return modelAndView;
 	}
 
@@ -67,10 +64,8 @@ public class ClienteController {
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrar() {
 		ModelAndView modelAndView = new ModelAndView("cliente/cadastro");
-
 		modelAndView.addObject("cliente", new Cliente());
 		modelAndView.addObject("ufs", UF.values());
-
 		return modelAndView;
 	}
 
@@ -84,10 +79,8 @@ public class ClienteController {
 	@GetMapping("/{id}/editar")
 	public ModelAndView editar(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("cliente/cadastro");
-
 		modelAndView.addObject("cliente", clienteRepository.getReferenceById(id));
 		modelAndView.addObject("ufs", UF.values());
-
 		return modelAndView;
 	}
 
@@ -99,6 +92,8 @@ public class ClienteController {
 	 */
 	@PostMapping("/cadastrar")
 	public String cadastrar(Cliente cliente, RedirectAttributes attributes) {
+		String senhaEncriptada = SenhaUtils.encode(cliente.getSenha());
+		cliente.setSenha(senhaEncriptada);
 
 		clienteRepository.save(cliente);
 		attributes.addFlashAttribute("mensagem", "Cliente salvo com sucesso!");
@@ -118,7 +113,6 @@ public class ClienteController {
 		cliente.setSenha(senhaAtual);
 
 		clienteRepository.save(cliente);
-
 		return "redirect:/clientes/cadastrar";
 	}
 
@@ -131,7 +125,6 @@ public class ClienteController {
 	@GetMapping("/{id}/excluir")
 	public String excluir(@PathVariable Long id) {
 		clienteRepository.deleteById(id);
-
 		return "redirect:/clientes/listar";
 	}
 

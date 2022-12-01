@@ -20,7 +20,7 @@ public class FuncionarioService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Funcionario funcionario = funcionarioRepository.findByEmail(email)
 				.orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
-		
+
 		return new UserDetailsImpl(funcionario);
 	}
 
